@@ -44,7 +44,7 @@ var versions = null,
 	currentVersionIndex = -1;
 
 function processVersions(versionsString) {
-	versions = JSON.parse(JSON.stringify(versionsString));
+	versions = JSON.parse(versionsString);
 	processNextVersion();
 }
 
