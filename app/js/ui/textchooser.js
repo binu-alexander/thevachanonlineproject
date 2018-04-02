@@ -390,16 +390,23 @@ var TextChooser = function() {
 					hasDefaultText = false,
 					langHtml = [];
 
-				// sort the texts by name
-				textsInLang = textsInLang.sort(function (a, b) {
-					if (a.name == b.name) {
-						return 0;
-					} else if (a.name > b.name) {
-						return 1;
-					} else if (a.name < b.name) {
-						return -1;
-					}
-				});
+				// sort the texts by name (it was previous code, below code changed with sort by abbr)
+                /* textsInLang = textsInLang.sort(function (a, b) {
+                    if (a.name == b.name) {
+                        return 0;
+                    } else if (a.name > b.name) {
+                        return 1;
+                    } else if (a.name < b.name) {
+                        return -1;
+                    }
+                }); */
+                
+                // create language dropdown and text sort by abbr
+                textsInLang.sort(function(a, b){
+                    if(a.abbr < b.abbr) return -1;
+                    if(a.abbr > b.abbr) return 1;
+                    return 0;
+                })
 
 				// create HTML for the texts
 				for (var textIndex in textsInLang) {
