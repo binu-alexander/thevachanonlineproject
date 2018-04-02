@@ -60,6 +60,9 @@ sofia.resources['en'] = {
 			"deafbible": {
 				"label": "Deaf Bible"
 			},
+			"newbible": {
+				"label": "Temp Bible"
+			},
 			"videobible": {
 				"label": "Video Bible"
 			},
