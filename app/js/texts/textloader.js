@@ -235,7 +235,6 @@ TextLoader = (function() {
 
 	function processText(text, providerName) {
 		// remove any provider info from the id
-		console.log(text)
 		if (text.id && text.id.split(':').length > 1) {
 			text.id = text.id.split(':')[1];
 		}
