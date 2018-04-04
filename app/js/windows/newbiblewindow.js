@@ -1,29 +1,30 @@
 sofia.config = $.extend(sofia.config, {
 	enableNewBibleWindow: true,
-	NewBibleWindowDefaultBibleFragmentid: 'JN1_1',
-	NewBibleWindowDefaultBibleVersion: 'deaf_ASESLV'
+	NewBibleWindowDefaultBibleFragmentid: 'TT',
+	NewBibleWindowDefaultBibleVersion: 'bengali_ulb'
 });
 
 var NewBibleWindow = function(id, node, init_data) {
 
-	var window =  new TextWindow(id, node, init_data, 'newbible');
+	 var window =  new TextWindow(id, node, init_data, 'newbible');
 
-	node.node.on('click', '.deaf-video-header input', function() {
-		var button = $(this),
-			url = button.attr('data-src'),
-			video = button.closest('.deaf-video').find('video');
+	// node.node.on('click', '.deaf-video-header input', function() {
+	// 	var button = $(this),
+	// 		url = button.attr('data-src'),
+	// 		video = button.closest('.deaf-video').find('video');
 
-		button
-			.addClass('active')
-			.siblings()
-				.removeClass('active');
+	// 	button
+	// 		.addClass('active')
+	// 		.siblings()
+	// 			.removeClass('active');
 
-		console.log(url, video);
+	// 	console.log(url, video);
 
-		video.attr('src', url);
-	});
+	// 	video.attr('src', url);
+	// });
 
-	return window;
+	 return window;
+
 };
 
 sofia.initMethods.push(function() {
@@ -43,3 +44,5 @@ sofia.initMethods.push(function() {
 		});
 	}
 });
+
+
