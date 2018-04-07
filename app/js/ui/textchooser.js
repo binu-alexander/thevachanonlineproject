@@ -84,13 +84,15 @@ var TextChooser = function() {
 
 	filter.on('keyup keypress', filterVersions);
 
-	filter.on('focus', function() {
-		/*
+	filter.on('focus', filterVersions);
+
+	/*filter.on('focus', function() {
+		
 		if (Detection.hasTouch) {
 			filter.blur();
 		}
-		*/
-	});
+		
+	});*/
 
 	function filterVersions(e) {
 
@@ -109,11 +111,20 @@ var TextChooser = function() {
 
 		var text = filter.val().toLowerCase();
 
-
-
 		if (text == '') {
-			renderTexts(list_data);
+			//renderTexts(list_data);
 			//updateRecentlyUsed();
+			var arrayOfTexts = list_data;
+			var html = [];
+
+			for (var i=0, il=arrayOfTexts.length; i<il; i++) {
+				var textInfo = arrayOfTexts[i];
+
+				html.push (
+					createTextRow(textInfo, false, '')
+				);
+			}
+			main.html('<table cellspacing="0">' + html.join('') + '</table>');
 		} else {
 
 			// filter by type
@@ -142,7 +153,6 @@ var TextChooser = function() {
 								textInfo.abbr.toLowerCase().indexOf(text) > -1 ||
 								(textInfo.langNameEnglish && textInfo.langName.toLowerCase().indexOf(text) > -1) ||
 								(textInfo.langNameEnglish && textInfo.langNameEnglish.toLowerCase().indexOf(text) > -1);
-
 
 				if (hasMatch) {
 					html.push (
@@ -390,16 +400,23 @@ var TextChooser = function() {
 					hasDefaultText = false,
 					langHtml = [];
 
-				// sort the texts by name
-				textsInLang = textsInLang.sort(function (a, b) {
-					if (a.name == b.name) {
-						return 0;
-					} else if (a.name > b.name) {
-						return 1;
-					} else if (a.name < b.name) {
-						return -1;
-					}
-				});
+				// sort the texts by name (it was previous code, below code changed with sort by abbr)
+                /* textsInLang = textsInLang.sort(function (a, b) {
+                    if (a.name == b.name) {
+                        return 0;
+                    } else if (a.name > b.name) {
+                        return 1;
+                    } else if (a.name < b.name) {
+                        return -1;
+                    }
+                }); */
+                
+                // create language dropdown and text sort by abbr
+                textsInLang.sort(function(a, b){
+                    if(a.abbr < b.abbr) return -1;
+                    if(a.abbr > b.abbr) return 1;
+                    return 0;
+                })
 
 				// create HTML for the texts
 				for (var textIndex in textsInLang) {
