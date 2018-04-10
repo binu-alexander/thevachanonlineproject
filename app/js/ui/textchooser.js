@@ -114,15 +114,24 @@ var TextChooser = function() {
 		if (text == '') {
 			//renderTexts(list_data);
 			//updateRecentlyUsed();
+
 			var arrayOfTexts = list_data;
 			var html = [];
 
-			for (var i=0, il=arrayOfTexts.length; i<il; i++) {
-				var textInfo = arrayOfTexts[i];
+			//Specific condition for our new window
+			if (text_type == 'newbible') {
+				text_type = 'bible';
+			}
 
-				html.push (
-					createTextRow(textInfo, false, '')
-				);
+			for (var i=0, il=arrayOfTexts.length; i<il; i++) {
+				if (text_type == arrayOfTexts[i].type) {
+					var textInfo = arrayOfTexts[i];
+
+					html.push (
+						createTextRow(textInfo, false, '')
+					);
+				}
+
 			}
 			main.html('<table cellspacing="0">' + html.join('') + '</table>');
 		} else {
