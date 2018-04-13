@@ -117,23 +117,81 @@ var TextChooser = function() {
 
 			var arrayOfTexts = list_data;
 			var html = [];
+			var tempArr = [];
 
 			//Specific condition for our new window
 			if (text_type == 'newbible') {
 				text_type = 'bible';
 			}
 
-			for (var i=0, il=arrayOfTexts.length; i<il; i++) {
-				if (text_type == arrayOfTexts[i].type) {
-					var textInfo = arrayOfTexts[i];
+			if (text_type == 'bible') {
 
-					html.push (
-						createTextRow(textInfo, false, '')
-					);
+				for (var i=0, il=arrayOfTexts.length; i<il; i++) {
+					if (text_type == arrayOfTexts[i].type) {
+						var textInfo = arrayOfTexts[i];
+
+						tempArr.push (
+							arrayOfTexts[i]
+						);
+					}
+
 				}
 
+
+				result = tempArr.reduce(function (r, a) {
+			        r[a.langName] = r[a.langName] || [];
+			        r[a.langName].push(a);
+			        return r;
+			    }, Object.create(null));
+
+
+				//console.log(list_data);
+				for (var key in result) {
+				    var value = result[key];
+
+					html.push(
+						createHeaderRow(
+							'',
+							key,
+							'',
+							'',
+							''
+						)
+					);
+				    for (var i=0, il=value.length; i<il; i++) {
+						if (text_type == value[i].type) {
+							var textInfo = value[i];
+
+							html.push (
+								createTextRow(textInfo, false, '')
+							);
+						}
+
+					}
+
+				}
+			} else {
+
+				for (var i=0, il=arrayOfTexts.length; i<il; i++) {
+					if (text_type == arrayOfTexts[i].type) {
+						var textInfo = arrayOfTexts[i];
+
+						html.push (
+							createTextRow(textInfo, false, '')
+						);
+					}
+
+				}
 			}
+
 			main.html('<table cellspacing="0">' + html.join('') + '</table>');
+			
+			updateSelectedText();
+
+			// do this after the 'selected' so it's not in the recently used
+			updateRecentlyUsed();
+
+
 		} else {
 
 			// filter by type
