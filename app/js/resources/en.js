@@ -84,6 +84,10 @@ sofia.resources['en'] = {
 			"commentary": {
 				"label": "Commentary"
 			},
+			"tnotes":{
+				"label": "tnotes"
+			},
+
 			"map": {
 				"label": "Map",
 				"placeholder": "Search..."
