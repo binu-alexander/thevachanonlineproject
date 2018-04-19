@@ -516,3 +516,26 @@ sofia.initMethods.push(function() {
 		});
 	}
 });
+
+var TnotesWindow = function(id, node, init_data) {
+	return new TextWindow(id, node, init_data, 'tnotes');
+};
+
+sofia.initMethods.push(function() {
+
+	if (typeof sofia.config.newTnotesWindowTextId != 'undefined') {
+
+		sofia.windowTypes.push({
+			className:'TnotesWindow',
+			param: 'tnotes',
+			paramKeys: {
+				'textid': 't',
+				'fragmentid':'v'
+			},
+			init: {
+				'textid':sofia.config.newTnotesWindowTextId,
+				'fragmentid':''
+			}
+		});
+	}
+});

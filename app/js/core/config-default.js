@@ -46,6 +46,8 @@ sofia.config = {
 	// new commentary window
 	newCommentaryWindowTextId: 'comm_eng_tske',
 
+	newTnotesWindowTextId: 'comm_eng_tske_test',
+
 	// language for top
 	pinnedLanguage: 'English',
 
