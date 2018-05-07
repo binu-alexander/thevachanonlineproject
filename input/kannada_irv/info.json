@@ -1,0 +1,11 @@
+{
+	"id": "kannada_irv",
+	"abbr": "Kannada IRV",
+	"name": "Indian Revised Version",
+	"nameEnglish": "",
+	"lang": "kan",
+	"langName": "Indian Language",
+	"langNameEnglish": "Indian Language",
+	"dir": "ltr",
+	"generator": "usfm"
+}
