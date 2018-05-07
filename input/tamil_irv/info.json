@@ -1,0 +1,11 @@
+{
+	"id": "tamil_irv",
+	"abbr": "Tamil IRV",
+	"name": "Indian Revised Version",
+	"nameEnglish": "",
+	"lang": "tam",
+	"langName": "Indian Language",
+	"langNameEnglish": "Indian Language",
+	"dir": "ltr",
+	"generator": "usfm"
+}
