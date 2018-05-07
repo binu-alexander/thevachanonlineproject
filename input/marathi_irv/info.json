@@ -1,0 +1,11 @@
+{
+	"id": "marathi_irv",
+	"abbr": "Marathi IRV",
+	"name": "Indian Revised Version",
+	"nameEnglish": "",
+	"lang": "mar",
+	"langName": "Indian Language",
+	"langNameEnglish": "Indian Language",
+	"dir": "ltr",
+	"generator": "usfm"
+}
