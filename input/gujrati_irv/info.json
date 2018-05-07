@@ -1,0 +1,11 @@
+{
+	"id": "gujarati_irv",
+	"abbr": "Gujarati IRV",
+	"name": "Indian Revised Version",
+	"nameEnglish": "Gujarati",
+	"lang": "guj",
+	"langName": "Indian Language",
+	"langNameEnglish": "Indian Language",
+	"dir": "ltr",
+	"generator": "usfm"
+}
