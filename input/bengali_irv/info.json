@@ -1,0 +1,11 @@
+{
+	"id": "bengali_irv",
+	"abbr": "Bengali IRV",
+	"name": "Indian Revised Version",
+	"nameEnglish": "",
+	"lang": "bangla",
+	"langName": "Indian Language",
+	"langNameEnglish": "Indian Language",
+	"dir": "ltr",
+	"generator": "usfm"
+}
