@@ -1,0 +1,11 @@
+{
+	"id": "urdu_irv",
+	"abbr": "Urdu IRV",
+	"name": "Indian Revised Version",
+	"nameEnglish": "",
+	"lang": "urd",
+	"langName": "Indian Language",
+	"langNameEnglish": "Indian Language",
+	"dir": "ltr",
+	"generator": "usfm"
+}
