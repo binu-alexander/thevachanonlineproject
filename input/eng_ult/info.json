@@ -1,0 +1,11 @@
+{
+	"id": "english_ult",
+	"abbr": "ULT",
+	"name": "Unlocked Literal Text",
+	"nameEnglish": "English",
+	"lang": "eng",
+	"langName": "English",
+	"langNameEnglish": "English",
+	"dir": "ltr",
+	"generator": "usfm"
+}
