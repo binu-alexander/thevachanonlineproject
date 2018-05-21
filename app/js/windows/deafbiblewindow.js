@@ -1,5 +1,5 @@
 sofia.config = $.extend(sofia.config, {
-	enableDeafBibleWindow: true,
+	enableDeafBibleWindow: false,
 	deafBibleWindowDefaultBibleFragmentid: 'JN1_1',
 	deafBibleWindowDefaultBibleVersion: 'deaf_ASESLV'
 });
@@ -26,20 +26,20 @@ var DeafBibleWindow = function(id, node, init_data) {
 	return window;
 };
 
-sofia.initMethods.push(function() {
+// sofia.initMethods.push(function() {
 
-	if (sofia.config.enableDeafBibleWindow)	{
-		sofia.windowTypes.push({
-			className:'DeafBibleWindow',
-			param: 'deafbible',
-			paramKeys: {
-				'textid': 't',
-				'fragmentid':'v'
-			},
-			init: {
-				'textid': sofia.config.deafBibleWindowDefaultBibleVersion,
-				'fragmentid': sofia.config.deafBibleWindowDefaultBibleFragmentid
-			}
-		});
-	}
-});
+// 	if (sofia.config.enableDeafBibleWindow)	{
+// 		sofia.windowTypes.push({
+// 			className:'DeafBibleWindow',
+// 			param: 'deafbible',
+// 			paramKeys: {
+// 				'textid': 't',
+// 				'fragmentid':'v'
+// 			},
+// 			init: {
+// 				'textid': sofia.config.deafBibleWindowDefaultBibleVersion,
+// 				'fragmentid': sofia.config.deafBibleWindowDefaultBibleFragmentid
+// 			}
+// 		});
+// 	}
+// });

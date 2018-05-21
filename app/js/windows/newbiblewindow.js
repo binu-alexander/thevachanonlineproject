@@ -27,22 +27,22 @@ var NewBibleWindow = function(id, node, init_data) {
 
 };
 
-sofia.initMethods.push(function() {
+// sofia.initMethods.push(function() {
 
-	if (sofia.config.enableNewBibleWindow)	{
-		sofia.windowTypes.push({
-			className:'NewBibleWindow',
-			param: 'newbible',
-			paramKeys: {
-				'textid': 't',
-				'fragmentid':'v'
-			},
-			init: {
-				'textid': sofia.config.NewBibleWindowDefaultBibleVersion,
-				'fragmentid': sofia.config.NewBibleWindowDefaultBibleFragmentid
-			}
-		});
-	}
-});
+// 	if (sofia.config.enableNewBibleWindow)	{
+// 		sofia.windowTypes.push({
+// 			className:'NewBibleWindow',
+// 			param: 'newbible',
+// 			paramKeys: {
+// 				'textid': 't',
+// 				'fragmentid':'v'
+// 			},
+// 			init: {
+// 				'textid': sofia.config.NewBibleWindowDefaultBibleVersion,
+// 				'fragmentid': sofia.config.NewBibleWindowDefaultBibleFragmentid
+// 			}
+// 		});
+// 	}
+// });
 
 

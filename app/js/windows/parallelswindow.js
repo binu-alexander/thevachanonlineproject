@@ -629,18 +629,18 @@ var ParallelsWindow = function(id, parent, init_data) {
 };
 
 
-sofia.initMethods.push(function() {
+// sofia.initMethods.push(function() {
 
-	sofia.windowTypes.push( {
-		className:'ParallelsWindow',
-		param: 'parallel',
-		paramKeys: {
-			'textid': 't',
-			'parallelid': 'p'
-		},
-		init: {
-			'textid': sofia.config.newBibleWindowVersion
-		}
-	});
+// 	sofia.windowTypes.push( {
+// 		className:'ParallelsWindow',
+// 		param: 'parallel',
+// 		paramKeys: {
+// 			'textid': 't',
+// 			'parallelid': 'p'
+// 		},
+// 		init: {
+// 			'textid': sofia.config.newBibleWindowVersion
+// 		}
+// 	});
 
-});
+// });

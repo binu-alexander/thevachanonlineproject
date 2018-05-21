@@ -308,18 +308,18 @@ var TextComparisonWindow = function(id, parent, init_data) {
 	return ext;
 };
 
-sofia.initMethods.push(function() {
+// sofia.initMethods.push(function() {
 
-	sofia.windowTypes.push( {
-		className:'TextComparisonWindow',
-		param: 'comparison',
-		paramKeys: {
-			'textids': 't',
-			'fragmentid': 'f'
-		},
-		init: {
-			textids: 'WEB, ASV',
-			fragmentid: 'John 1:1-8'
-		}
-	});
-});
+// 	sofia.windowTypes.push( {
+// 		className:'TextComparisonWindow',
+// 		param: 'comparison',
+// 		paramKeys: {
+// 			'textids': 't',
+// 			'fragmentid': 'f'
+// 		},
+// 		init: {
+// 			textids: 'WEB, ASV',
+// 			fragmentid: 'John 1:1-8'
+// 		}
+// 	});
+// });
