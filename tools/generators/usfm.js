@@ -156,8 +156,14 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 					var formatted = usfmParser.formatText(usfm.text, noteNumber, chapterVerse);
 					notes += formatted.notes;
 
+					if (usfm.number != '') {
+						currentChapterHtml += '<div class="' + usfm.key + '">' + usfm.number + " " + usfm.text + '</div>' + breakChar;
+					}
+					else {
+						currentChapterHtml += '<div class="' + usfm.key + '">' + usfm.text + '</div>' + breakChar;
 
-					currentChapterHtml += '<div class="' + usfm.key + '">' + formatted.text + '</div>' + breakChar;
+					}
+
 
 
 
@@ -394,13 +400,23 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 					break;
 				case 'toc1':
 					if (usfm.text.trim() != '') {
-						bookName = usfm.text.trim();
+						if (usfm.number != '') {
+							bookName = usfm.number + " " + usfm.text.trim();
+						}
+						else {
+							bookName = usfm.text.trim();
+						}
 					}
 					break;
 				case 'toc2':
 					// use this shorter one for the listing
 					if (usfm.text.trim() != '') {
-						bookName = usfm.text.trim();
+						if (usfm.number != '') {
+							bookName = usfm.number + " " + usfm.text.trim();
+						}
+						else {
+							bookName = usfm.text.trim();
+						}
 					}
 					break;
 				case 'toc3':
