@@ -217,20 +217,5 @@
 			window.location.reload();
 		});
 
-		$(document).on("click", ".v-num", function(){
-			var json_obj;
-			$.getJSON("./content/results.json", function (data) {
-	    		json_obj = data;
-	    		//alert(JSON.stringify(json_obj));
-	    		//alert(json_obj.results.books.book[1]["-title"]);
-				var popup = open("", "Popup", "width=300,height=200", "top=100", "left=200");
-				var aOk = popup.document.createElement("a");
-				aOk.innerHTML = json_obj.results.books.book[1]["-title"];
-
-				//popup.document.body.appendChild(txtOk);
-				popup.document.body.appendChild(aOk);
-			});
-		});
-
-	</script>
+</script>
 </html>
