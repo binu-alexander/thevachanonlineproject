@@ -82,14 +82,14 @@ sofia.resources['en'] = {
 				"audio":"Audio available"
 			},
 			"commentary": {
-				"label": "Commentary"
+				"label": "Study Help"
 			},
 			"tnotes":{
 				"label": "tnotes"
 			},
 
 			"map": {
-				"label": "Map",
+				"label": "Google Map",
 				"placeholder": "Search..."
 			},
 			"search": {
@@ -107,7 +107,7 @@ sofia.resources['en'] = {
 				"hideall": "Hide All"
 			},
 			"media": {
-				"label": "Media"
+				"label": "Images"
 			},
 			"notes": {
 				"label": "Notes"
