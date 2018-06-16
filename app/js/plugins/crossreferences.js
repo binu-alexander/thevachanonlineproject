@@ -64,49 +64,66 @@ var CrossReferencePopupPlugin = function(app) {
 
 
 	sofia.globals.handleBibleRefMouseover = function(e, textid) {
-		var link = $(this),
+	
+		if ($(this).attr('data-id') == 'bibleJsn') {
+			var json_obj;
+			$.getJSON("./results.json", function (data) {
+	    		json_obj = data;
+	    		//console.log(JSON.stringify(json_obj));
+	    		//alert(json_obj.results.books.book[1]["-title"]);
+	    		referencePopup.body.html( json_obj.results.books.book[1]["-title"] );
+				
+				
+			});
+				referencePopup.show();
+				referencePopup.position($(this));
+		} else {
+
+			var link = $(this),
 			fragmentid = getFragmentidFromNode(link);
 
-		if (fragmentid != null) {
+			if (fragmentid != null) {
 
-			var sectionid = fragmentid.split('_')[0];
+				var sectionid = fragmentid.split('_')[0];
 
-			if (typeof textid == 'undefined') {
+				if (typeof textid == 'undefined') {
 
-				if (link.closest('.section').hasClass('commentary')) {
+					if (link.closest('.section').hasClass('commentary')) {
 
-					textid = $('.BibleWindow:first .section:first').attr('data-textid');
+						textid = $('.BibleWindow:first .section:first').attr('data-textid');
 
-				} else {
-					textid = link.closest('.section').attr('data-textid');
+					} else {
+						textid = link.closest('.section').attr('data-textid');
+					}
 				}
-			}
 
 
-			console.log('hover', textid, sectionid, fragmentid);
+				console.log('hover', textid, sectionid, fragmentid);
 
-			TextLoader.getText(textid, function(textInfo) {
+				TextLoader.getText(textid, function(textInfo) {
 
-				TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+					TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
 
-					var verse = contentNode.find('.' + fragmentid),
-						html = '';
+						var verse = contentNode.find('.' + fragmentid),
+							html = '';
 
-					verse.find('.note').remove();
+						verse.find('.note').remove();
 
-					verse.each(function() {
-						html += $(this).html();
+						verse.each(function() {
+							html += $(this).html();
+						});
+
+
+						referencePopup.body.html( html );
+						referencePopup.show();
+						referencePopup.position(link);
+
 					});
-
-
-					referencePopup.body.html( html );
-					referencePopup.show();
-					referencePopup.position(link);
-
 				});
-			});
 
+			}	
 		}
+
 	}
 
 	sofia.globals.handleBibleRefMouseout = function(e) {
