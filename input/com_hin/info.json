@@ -1,0 +1,12 @@
+{"langName": "Hindi",
+ "name": "Treasury of Scripture Knowledge",
+ "nameEnglish": "",
+ "abbr": "TSKe",
+ "id": "comm_hin_tske",
+ "lang": "hin",
+ "langNameEnglish": "Hindi",
+ "generator": "tske",
+ "filename": "tske.txt",
+ "type":"commentary",
+ "stylesheet":"style.css",
+ "dir": "ltr"}
