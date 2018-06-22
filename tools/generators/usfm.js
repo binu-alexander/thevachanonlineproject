@@ -23,7 +23,7 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 			chapterData: [],
 			indexData: {},
 			indexLemmaData: {},
-			aboutHtml: fs.existsSync(aboutPath) ? fs.readFileSync(path.join(inputPath, 'about.html'), 'utf8') : ''
+			aboutHtml: fs.existsSync(aboutPath) ? fs.readFileSync(path.join(inputBasePath, 'about.html'), 'utf8') : ''
 		}
 
 	skipAheadKeys = ['', 'add', 'add*', 'wj', 'wj*', 'x', 'x*', 'f', 'f*', 'qs', 'ft', 'bk', 'fqa'];
