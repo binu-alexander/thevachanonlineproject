@@ -64,14 +64,13 @@ var CrossReferencePopupPlugin = function(app) {
 
 
 	sofia.globals.handleBibleRefMouseover = function(e, textid) {
-	
-		if ($(this).attr('data-id') == 'bibleJsn') {
-			var json_obj;
+		if ($(this).attr('data-id').indexOf("bibleJsn") > 0) {
+			var dataIdVal = $(this).attr('data-id').split('_');
+
 			$.getJSON("./results.json", function (data) {
 	    		json_obj = data;
-	    		//console.log(JSON.stringify(json_obj));
-	    		//alert(json_obj.results.books.book[1]["-title"]);
-	    		referencePopup.body.html( json_obj.results.books.book[1]["-title"] );
+	    		//console.log(JSON.stringify(json_obj[dataIdVal[0]][0][dataIdVal[1]][dataIdVal[2]]));
+	    		referencePopup.body.html( json_obj[dataIdVal[0]][0][dataIdVal[1]][dataIdVal[2]]);
 				
 				
 			});
