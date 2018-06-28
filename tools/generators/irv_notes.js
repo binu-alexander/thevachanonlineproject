@@ -147,7 +147,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 			chapterCode =dbsBookCode+chapterNumber;
 
-		text = text.replace('<b>Footnotes</b><br>', '<div class="is">Footnotes</div>'); // <div class="p">');
+		// Commented for remove heading as below for IRV Hindi Notes
+		// text = text.replace('<b>Overview</b><br>', '<div class="is">Overview</div>'); // <div class="p">');
+		text = text.replace('<b>Footnotes</b><br>', '<div class="is"></div>'); // <div class="p">');
 
 
 		text = text.replace(/<u>([^<]+)<\/u>,/gi,function(m, a) {
@@ -184,7 +186,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 	startProgress(endVerseIndex-startVerseIndex, 'Lines');
 
 
-	//console.time('processTextFile');
+	// console.time('processTextFile');
 	// READ TEXT
 	for (var i=startVerseIndex, il=endVerseIndex; i<il; i++) {
 		var line = lines[i].trim();
@@ -343,14 +345,15 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 		}
 
-		currentChapter['html'] +=
+			// Here I (udkumar@hotmail.com) have removed Verse vise content for cross reference for IRV Hindi Notes
+			/*currentChapter['html'] +=
 				//bibleFormatter.openVerse(verseCode, verseNumber) +
-				'<span class="comm-v-num">Verse ' + verseNumber + '</span>' +
+			'<span class="comm-v-num">Verse ' + verseNumber + '</span>' +
 				//'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
 						text +
 					'</span>' + breakChar;
-				//'</div>' + breakChar;
+				//'</div>' + breakChar; */
 
 		if (createIndex) {
 			verseIndexer.indexVerse(dbsVerseCode, text, data.indexData, info.lang);
