@@ -43,7 +43,7 @@ sofia.config = {
 	newBibleWindowVersion: 'hindi_irv',
 
 	// new bible verse
-	newWindowFragmentid: 'TT1_1',
+	newWindowFragmentid: 'MT1_1',
 
 	// new commentary window
 	newCommentaryWindowTextId: 'comm_eng_tske',
