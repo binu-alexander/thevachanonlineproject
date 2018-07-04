@@ -165,7 +165,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			r = new bibleReference(textRef);
 
 			if (typeof r.toSection != 'undefined') {
-				s =  '<span class="bibleref" data-id="' + r.toSection() + '">' + r.chapterAndVerse() + '</span>';
+				s =  '<br>1<span class="bibleref" data-id="' + r.toSection() + '">' + r.chapterAndVerse() + '</span>';
 			} else {
 				console.log('err', a);
 			}
@@ -286,6 +286,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		// add text to chapter.json
 		dbsBookCode = bookInfo['dbsCode'];
 		bookName = bibleData.getBookName(dbsBookCode, info['lang'])
+		
 		if (bookName == null) {
 			bookName = bookInfo['name'].split('/')[0];
 		}
@@ -328,7 +329,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
-					currentChapter['html'] += '<div class="ip">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
+					currentChapter['html'] += '<div class="ip v' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
 				}
 			}
 
@@ -346,14 +347,14 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		}
 
 			// Here I (udkumar@hotmail.com) have removed Verse vise content for cross reference for IRV Hindi Notes
-			/*currentChapter['html'] +=
-				//bibleFormatter.openVerse(verseCode, verseNumber) +
-			'<span class="comm-v-num">Verse ' + verseNumber + '</span>' +
-				//'<div class="p">' + breakChar +
+			currentChapter['html'] +=
+			//  bibleFormatter.openVerse(verseCode, verseNumber) + 
+			// 	'<span class="comm-v-num">Verse ' + verseNumber + '</span>' + 
+			// 	'<span class="comm-v-num" style="visibility: hidden;"></span>' +
+			//	'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
-						text +
-					'</span>' + breakChar;
-				//'</div>' + breakChar; */
+					'</span>';
+			//	'</div>' + breakChar; 
 
 		if (createIndex) {
 			verseIndexer.indexVerse(dbsVerseCode, text, data.indexData, info.lang);
