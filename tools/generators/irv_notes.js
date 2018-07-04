@@ -165,7 +165,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			r = new bibleReference(textRef);
 
 			if (typeof r.toSection != 'undefined') {
-				s =  '<br>1<span class="bibleref" data-id="' + r.toSection() + '">' + r.chapterAndVerse() + '</span>';
+				s =  '<br><span class="bibleref" data-id="' + r.toSection() + '">' + r.chapterAndVerse() + '</span>';
 			} else {
 				console.log('err', a);
 			}
