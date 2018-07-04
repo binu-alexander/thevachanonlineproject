@@ -110,10 +110,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		foundFirstVerse = false,
 
 		startBookIndex = 0,
-		endBookIndex = 35,
+		endBookIndex = 66,
 
-		startChapterIndex = 35,
-		endChapterIndex = 1207,
+		startChapterIndex = 67,
+		endChapterIndex = 1254,
 
 		startVerseIndex = 1207,
 		endVerseIndex = lines.length,
@@ -348,13 +348,13 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 			// Here I (udkumar@hotmail.com) have removed Verse vise content for cross reference for IRV Hindi Notes
 			currentChapter['html'] +=
-			//  bibleFormatter.openVerse(verseCode, verseNumber) + 
-			// 	'<span class="comm-v-num">Verse ' + verseNumber + '</span>' + 
-			// 	'<span class="comm-v-num" style="visibility: hidden;"></span>' +
-			//	'<div class="p">' + breakChar +
+			//bibleFormatter.openVerse(verseCode, verseNumber) + 
+			// '<span class="comm-v-num">Verse ' + verseNumber + '</span>' + 
+			// '<span class="comm-v-num" style="visibility: hidden;"></span>' +
+				//'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
 					'</span>';
-			//	'</div>' + breakChar; 
+				//'</div>' + breakChar; 
 
 		if (createIndex) {
 			verseIndexer.indexVerse(dbsVerseCode, text, data.indexData, info.lang);
