@@ -5,8 +5,8 @@
 #add-CommentaryWindow, .CommentaryWindow-tab {
 	background-image: url(../../css/images/commentary.svg);
 }
-#add-TnotesWindow, .TnotesWindow-tab {
-	background-image: url(../../css/images/note.svg);
+#add-MoreWindow, .MoreWindow-tab {
+	background-image: url(../../css/images/more-new.svg);
 }
 
 /*
