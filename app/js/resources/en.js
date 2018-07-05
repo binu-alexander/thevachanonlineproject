@@ -7,7 +7,8 @@ sofia.resources['en'] = {
 				"addwindow": "Add Window",
 				"settings": "Settings",
 				"feedback": "Feedback",
-				"options": "Options"
+				"options": "Options",
+				"more": "More"
 			},
 			"feedback": {
 				"name": "Name",
@@ -84,8 +85,8 @@ sofia.resources['en'] = {
 			"commentary": {
 				"label": "Study Help"
 			},
-			"tnotes":{
-				"label": "tnotes"
+			"more":{
+				"label": "More"
 			},
 
 			"map": {
