@@ -216,24 +216,45 @@
 
 </body>
 <script type="text/javascript">
+		aboutWindow = new MovableWindow(800, 450, "More Links");
+		body = $(document.body);
+		win = $(window);
+		var winWidth = win.width(),
+		winHeight = win.height();
 		$(document).on("click", "#app-logo", function(){
+			aboutWindow.hide();
 			window.location.reload();
 		});
 
 		$(document).on("click", "#add-MoreWindow", function(){
-			aboutWindow = new MovableWindow(800, 500, "More Links");
+
 			aboutWindow.body.html('<iframe style="border: 0;" src="more.html"></iframe>');
 			aboutWindow.body.css({padding: 2});
-
+			
 			var iframe = aboutWindow.body.find('iframe');
 
 			iframe.css({
 				width: aboutWindow.body.width(),
 				height: aboutWindow.body.height() - 5
 			});
-
 			aboutWindow.show();
+			modalOverlay = $('<div class="modal-overlay"></div>')
+							.appendTo( body );
+
+			modalOverlay
+				.width( winWidth )
+				.height( winHeight )
+				.show();
+
+		});
+		aboutWindow.closeButton.on('click', function() {
+			modalOverlay.hide();
 		});
 
+		$(document).on("click", ".modal-overlay", function(){
+			modalOverlay.hide();
+			aboutWindow.hide();
+
+		})
 </script>
 </html>
