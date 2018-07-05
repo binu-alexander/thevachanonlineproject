@@ -110,8 +110,7 @@
 	<script src="js/plugins/mediaplugin.js"></script>
 
 	<!-- windows -->
-	<script src="js/windows/textwindow.js"></script>
-	<link rel="stylesheet" href="js/windows/textwindow.css" />
+	
 	<script src="js/windows/mediawindow.js"></script>
 	<link rel="stylesheet" href="js/windows/mediawindow.css" />
 	<script src="js/windows/audiowindow.js"></script>
@@ -128,6 +127,8 @@
 	<script src="js/windows/scroller.js"></script>
 	<script src="js/windows/scrolleraudio.js"></script>
 	<link rel="stylesheet" href="js/windows/scrolleraudio.css" />
+	<script src="js/windows/textwindow.js"></script>
+	<link rel="stylesheet" href="js/windows/textwindow.css" />
 
 	<script src="js/windows/textcomparisonwindow.js"></script>
 	<link rel="stylesheet" href="js/windows/textcomparisonwindow.css" />
@@ -200,6 +201,11 @@
 		cursor: pointer;
 	}
 	</style>
+	<script>
+			$("#add-TnotesWindow").click(function(){
+				console.log("check")
+			})
+	</script>
 
 </head>
 <body>
@@ -218,6 +224,21 @@
 <script type="text/javascript">
 		$(document).on("click", "#app-logo", function(){
 			window.location.reload();
+		});
+
+		$(document).on("click", "#add-MoreWindow", function(){
+			aboutWindow = new MovableWindow(800, 550, i18n.t('menu.labels.more'));
+			aboutWindow.body.html('<iframe style="border: 0;" src="more.html"></iframe>');
+			aboutWindow.body.css({padding: 2});
+
+			var iframe = aboutWindow.body.find('iframe');
+
+			iframe.css({
+				width: aboutWindow.body.width(),
+				height: aboutWindow.body.height() - 5
+			});
+
+			aboutWindow.show();
 		});
 
 </script>
