@@ -200,7 +200,7 @@ var TextNavigator = function() {
 			}
 
 			if (bible.OT_BOOKS.indexOf(divisionid) > -1 && !hasPrintedOt) {
-				let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.ot);
+				// let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.ot);
 				//old -code
 				html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
 				//modified code for header change while selectring language
@@ -208,7 +208,7 @@ var TextNavigator = function() {
 				hasPrintedOt = true;
 			}
 			if (bible.NT_BOOKS.indexOf(divisionid) > -1 && !hasPrintedNt) {
-				let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.nt);
+				// let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.nt);
 				html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.nt') + '</div>');
 				//modified code for header change while selectring language
 				// html.push('<div class="text-navigator-division-header">' + header + '</div>');
