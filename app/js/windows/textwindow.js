@@ -265,8 +265,8 @@ var TextWindow = function(id, parent, init_data, text_type) {
 		// TEMP
 		navui.html('Reference').val('Reference');
 		textlistui.html('Version');
-
-		console.log('textsindow init', init_data, isInitialized, text_type);
+		console.log(init_data.textid)
+		// console.log('textsindow init', init_data, isInitialized, text_type);
 
 		if (init_data == null) {
 			return;
@@ -517,25 +517,25 @@ sofia.initMethods.push(function() {
 	}
 });
 
-// var TnotesWindow = function(id, node, init_data) {
-// 	// return new TextWindow(id, node, init_data, 'tnotes');
-// };
+var MoreWindow = function(id, node, init_data) {
+	// return new TextWindow(id, node, init_data, 'tnotes');
+};
 
-// sofia.initMethods.push(function() {
+sofia.initMethods.push(function() {
 
-// 	if (typeof sofia.config.newTnotesWindowTextId != 'undefined') {
+	if (typeof sofia.config.newTnotesWindowTextId != 'undefined') {
 
-// 		sofia.windowTypes.push({
-// 			className:'TnotesWindow',
-// 			param: 'tnotes',
-// 			paramKeys: {
-// 				'textid': 't',
-// 				'fragmentid':'v'
-// 			},
-// 			init: {
-// 				'textid':sofia.config.newTnotesWindowTextId,
-// 				'fragmentid':''
-// 			}
-// 		});
-// 	}
-// });
+		sofia.windowTypes.push({
+			className:'MoreWindow',
+			param: 'more',
+			paramKeys: {
+				'textid': 't',
+				'fragmentid':'v'
+			},
+			init: {
+				'textid':sofia.config.newTnotesWindowTextId,
+				'fragmentid':''
+			}
+		});
+	}
+});
