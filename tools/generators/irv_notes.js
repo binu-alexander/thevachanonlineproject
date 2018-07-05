@@ -149,7 +149,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 		// Commented for remove heading as below for IRV Hindi Notes
 		// text = text.replace('<b>Overview</b><br>', '<div class="is">Overview</div>'); // <div class="p">');
-		text = text.replace('<b>Footnotes</b><br>', '<div class="is"></div>'); // <div class="p">');
+		text = text.replace('<b>footnotes</b><br>', '<div class="is"></div>'); // <div class="p">');
 
 
 		text = text.replace(/<u>([^<]+)<\/u>,/gi,function(m, a) {
@@ -326,16 +326,16 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 			if (chapterNumber == '1') {
-				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
+				currentChapter['html'] += '<div class="mt v ' + dbsVerseCode + '">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
-					currentChapter['html'] += '<div class="ip v' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
+					currentChapter['html'] += '<div class="ip" data-id="' + dbsVerseCode + '">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
 				}
 			}
 
 
 
-			currentChapter['html'] += '<div class="mt2">' + bookName + ' <b>' + chapterNumber + '</b></div>' + breakChar;
+			currentChapter['html'] += '<div class="mt2">' + bookName + ' — <b>' + chapterNumber + '</b></div>' + breakChar;
 
 			var ccode = dbsBookCode + chapterNumber;
 
