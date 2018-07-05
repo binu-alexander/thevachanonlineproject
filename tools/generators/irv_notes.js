@@ -326,10 +326,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 			if (chapterNumber == '1') {
-				currentChapter['html'] += '<div class="mt v ' + dbsVerseCode + '">' + bookName + '</div>' + breakChar;
+				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
-					currentChapter['html'] += '<div class="ip" data-id="' + dbsVerseCode + '">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
+					currentChapter['html'] += '<div class="ip v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
 				}
 			}
 
