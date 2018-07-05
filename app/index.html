@@ -227,7 +227,7 @@
 		});
 
 		$(document).on("click", "#add-MoreWindow", function(){
-			aboutWindow = new MovableWindow(800, 550, i18n.t('menu.labels.more'));
+			aboutWindow = new MovableWindow(800, 500, "More Links");
 			aboutWindow.body.html('<iframe style="border: 0;" src="more.html"></iframe>');
 			aboutWindow.body.css({padding: 2});
 
