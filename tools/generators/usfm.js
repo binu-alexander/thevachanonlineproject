@@ -530,6 +530,7 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 	info.divisionNames = bookNames;
 	info.divisionAbbreviations = bookAbbreviations;
 	info.sections = chapterList;
+	info.exts = "mp3";
 
 
 	console.log('unparsed', unparsedUsfmFlags);
