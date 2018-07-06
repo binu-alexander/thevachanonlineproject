@@ -59,8 +59,8 @@ sofia.resources['hi'] = {
 			"bible": {
 				"label": "बाइबल",
 				"filter": "तक...",
-				"ot": "ओल्ड टेस्टामेंट",
-				"nt": "न्यू टेस्टामेंट",
+				"ot": "पुराना नियम ",
+				"nt": "नया नियम",
 				"dc": "Deuterocanonical Books",
 				"more": "अधिक",
 				"less": "कम",
