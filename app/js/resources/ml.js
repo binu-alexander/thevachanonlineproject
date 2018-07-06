@@ -70,7 +70,7 @@ sofia.resources['ml'] = {
 				"label": "Bible",
 				"recentlyused": "Recently Used",
 				"filter": "Filter...",
-				"ot": "പഴയ നിയമം.",
+				"ot": "പഴയ നിയമം",
 				"nt": "പുതിയ നിയമം",
 				"dc": "Deuterocanonical Books",
 				"more": "More",
