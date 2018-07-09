@@ -720,15 +720,15 @@ var exclusions = {
 	]
 };
 
-sofia.initMethods.push(function() {
+// sofia.initMethods.push(function() {
 
 
-	sofia.windowTypes.push( {
-				className:'StatisticsWindow',
-				param: 'stats',
-				paramKeys: {},
-				init: {
-				}
-	});
+// 	sofia.windowTypes.push( {
+// 				className:'StatisticsWindow',
+// 				param: 'stats',
+// 				paramKeys: {},
+// 				init: {
+// 				}
+// 	});
 
-});
+// });

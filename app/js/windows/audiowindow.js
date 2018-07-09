@@ -1,7 +1,7 @@
 sofia.config = $.extend(sofia.config, {
 	enableAudioWindow: true,
-	audioWindowDefaultBibleFragmentid: 'TT1_1',
-	audioWindowDefaultBibleVersion: 'hindi_ulb'
+	audioWindowDefaultBibleFragmentid: 'MT1_1',
+	audioWindowDefaultBibleVersion: 'hindi_irv'
 });
 
 

@@ -184,7 +184,6 @@ var TextNavigator = function() {
 
 
 		for (var i=0, il= textInfo.divisions.length ; i<il; i++) {
-
 			var divisionid = textInfo.divisions[i],
 				divisionName = (textInfo.divisionNames) ?
 									textInfo.divisionNames[i] : null,
@@ -199,13 +198,20 @@ var TextNavigator = function() {
 			if (typeof book == 'undefined') {
 				continue;
 			}
-
+			
 			if (bible.OT_BOOKS.indexOf(divisionid) > -1 && !hasPrintedOt) {
-				html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
+				let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.ot);
+				//old -code
+				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
+				//modified code for header change while selectring language
+				html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedOt = true;
 			}
 			if (bible.NT_BOOKS.indexOf(divisionid) > -1 && !hasPrintedNt) {
-				html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.nt') + '</div>');
+				let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.nt);
+				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.nt') + '</div>');
+				// modified code for header change while selectring language
+				html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedNt = true;
 			}
 			/*

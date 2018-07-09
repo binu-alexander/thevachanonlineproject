@@ -3,8 +3,10 @@
  "abbr": "WLC",
  "id": "heb_wlc",
  "lang": "heb",
+ "langName":"Hebrew",
  "langNameEnglish": "Hebrew",
  "name": "Westminster Leningrad Codex",
  "generator": "morphhb",
  "filename": "",
- "dir": "rtl"}
+ "dir": "rtl",
+ "lang_2_code": "he"}

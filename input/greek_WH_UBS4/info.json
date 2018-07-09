@@ -3,8 +3,10 @@
  "abbr": "GWH",
  "id": "grc_wh",
  "lang": "grc",
+ "langName":"Greek",
  "langNameEnglish": "Greek",
  "name": "Wescott & Hort",
  "generator": "unbound",
  "filename": "greek_WH_UBS4_utf8_mapped_to_NRSVA.txt",
- "dir": "ltr"}
+ "dir": "ltr",
+ "lang_2_code": "el"}

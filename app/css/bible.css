@@ -322,6 +322,9 @@ div.is1 {
 }
 
 .commentary {
-	line-height: 1.5;
-	font-size: .9em;
+	line-height: 1.8;
+	font-size: 18px;
+}
+.comm_hin_irv .ip {
+    line-height: 1.8 !important;
 }
