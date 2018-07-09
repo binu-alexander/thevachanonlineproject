@@ -149,8 +149,19 @@ var bibleFormatter = {
 
 
 	openVerse: function(dbsVerseCode, verseNumber) {
-		return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' bibleref" data-id="bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
-				'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">';
+		if(dbsVerseCode){
+			let bcvJson = dbsVerseCode;
+			let bookCode = bcvJson.toString().substring(0,2);
+			let chapVer = bcvJson.toString().substring(2, bcvJson.length);
+			let feederText = bookCode + '_' + chapVer;
+
+			return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' bibleref" data-id="'+feederText+'_bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
+					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">';	
+		}else{
+			return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' bibleref" data-id="_bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
+				'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">';	
+		}
+		
 	},
 
 	closeVerse: function() {
