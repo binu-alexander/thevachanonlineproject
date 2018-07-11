@@ -66,7 +66,7 @@ var CrossReferencePopupPlugin = function(app) {
 	sofia.globals.handleBibleRefMouseover = function(e, textid) {
 		if ($(this).attr('data-id').indexOf("bibleJsn") > 0) {
 			var dataIdVal = $(this).attr('data-id').split('_');
-			let languageCode = $(this).parent().attr('data-lang3');
+			let languageCode = $(this).parent().parent().attr('data-lang3');
 			var popupData = [];
 			var fileName;
 			// if (languageCode != 'undefined'){
