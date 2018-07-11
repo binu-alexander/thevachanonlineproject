@@ -78,7 +78,6 @@ var CrossReferencePopupPlugin = function(app) {
 				if (langCode == languageCode){
 					$.getJSON("./copy_right_bibles/"+fileName[i]+".json", function (data) {
 						json_obj = data;
-						console.log(json_obj);
 			    		if (json_obj[languageCode]){
 				    		var bibleVersion = Object.keys(json_obj[languageCode][0])[0];
 								Object.entries(json_obj[languageCode][0]).forEach(([key, val]) => {
@@ -91,7 +90,6 @@ var CrossReferencePopupPlugin = function(app) {
 				    		referencePopup.body.html(popupData);
 				    	}
 					});
-					console.log(popupData);
 				}
 			};
 			// }
