@@ -1,0 +1,13 @@
+{"langName": "Hindi",
+ "name": "Hindi IRV Notes",
+ "nameEnglish": "",
+ "abbr": "HIN-IRV (n",
+ "id": "comm_hin_irv",
+ "lang": "hin",
+ "langNameEnglish": "Hindi",
+ "generator": "irv_notes",
+ "filename": "irvhin.txt",
+ "type":"commentary",
+ "stylesheet":"style.css",
+ "dir": "ltr",
+ "lang_2_code": "hi"}

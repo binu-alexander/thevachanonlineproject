@@ -167,7 +167,7 @@ div.c + div.q {
 }
 
 .v-1 {
-	display: none;
+	display: inline;
 }
 
 /* Psalms */
@@ -322,6 +322,9 @@ div.is1 {
 }
 
 .commentary {
-	line-height: 1.5;
-	font-size: .9em;
+	line-height: 1.8;
+	font-size: 18px;
+}
+.comm_hin_irv .ip {
+    line-height: 1.8 !important;
 }

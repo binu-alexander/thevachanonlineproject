@@ -7,7 +7,8 @@ sofia.resources['en'] = {
 				"addwindow": "Add Window",
 				"settings": "Settings",
 				"feedback": "Feedback",
-				"options": "Options"
+				"options": "Options",
+				"more": "More"
 			},
 			"feedback": {
 				"name": "Name",
@@ -82,14 +83,14 @@ sofia.resources['en'] = {
 				"audio":"Audio available"
 			},
 			"commentary": {
-				"label": "Commentary"
+				"label": "Study Help"
 			},
-			"tnotes":{
-				"label": "tnotes"
+			"more":{
+				"label": "More"
 			},
 
 			"map": {
-				"label": "Map",
+				"label": "Google Map",
 				"placeholder": "Search..."
 			},
 			"search": {
@@ -107,7 +108,7 @@ sofia.resources['en'] = {
 				"hideall": "Hide All"
 			},
 			"media": {
-				"label": "Media"
+				"label": "Images"
 			},
 			"notes": {
 				"label": "Notes"
