@@ -155,10 +155,13 @@ var bibleFormatter = {
 			let chapVer = bcvJson.toString().substring(2, bcvJson.length);
 			let feederText = bookCode + '_' + chapVer;
 
-			return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' bibleref" data-id="'+feederText+'_bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
+			// it is for popup data-id
+			//'+feederText+'_bibleJsn"
+
+			return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' " data-id="bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">';	
 		}else{
-			return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' bibleref" data-id="_bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
+			return 	(typeof verseNumber != 'undefined' && verseNumber != null ? '<span class="v-num v-' + verseNumber + ' " data-id="bibleJsn">' + verseNumber + '&nbsp;</span>' : '') +
 				'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">';	
 		}
 		
