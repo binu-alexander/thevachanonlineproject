@@ -64,84 +64,90 @@ var CrossReferencePopupPlugin = function(app) {
 
 
 	sofia.globals.handleBibleRefMouseover = function(e, textid) {
-		if ($(this).attr('data-id').indexOf("bibleJsn") > 0) {
-			var dataIdVal = $(this).attr('data-id').split('_');
-			let languageCode = $(this).parent().parent().attr('data-lang3');
-			var popupData = [];
-			var fileName;
-			// if (languageCode != 'undefined'){
-			fileName = ["guj_bible_wbtc","hin_bible_bsi","hin_bible_wbtc","kan_bible_bsi","kan_bible_wbtc","mal_bible_bsi","mal_bible_wbtc","mar_bible_wbtc","pan_bible_wbtc","tam_bible_bsi","tam_bible_wbtc","tel_bible_bsi","tel_bible_wbtc"];
-			for (var i=0; i < fileName.length; i++) {
-				// console.log(fileName[i]);
-				var langCode = fileName[i].split('_')[0];
-				console.log(languageCode);
-				if (langCode == languageCode){
-					$.getJSON("./copy_right_bibles/"+fileName[i]+".json", function (data) {
-						json_obj = data;
-			    		if (json_obj[languageCode]){
-				    		var bibleVersion = Object.keys(json_obj[languageCode][0])[0];
-								Object.entries(json_obj[languageCode][0]).forEach(([key, val]) => {
-							    var copyRightYear = Object.values(val[0][Object.keys(val[0])[0]][0])[0];
-							    var bibleVersion = key;
-							    var versePing = val[0][dataIdVal[0]][0][dataIdVal[1]][0][dataIdVal[2]];
-							    var popupContent = '<b>v'+dataIdVal[2]+'</b> ' + '<span style="color:blue;">'+versePing + '</span> <span style="font-size:10px;">' + bibleVersion.toUpperCase() + ' ©' + copyRightYear + '</span><br>'
-							    popupData.push(popupContent);
-							});
-				    		referencePopup.body.html(popupData);
-				    	}
-					});
-				}
-			};
-			// }
-		
-			referencePopup.show();
-			referencePopup.position($(this));
-		} else {
 
-			var link = $(this),
-			fragmentid = getFragmentidFromNode(link);
+		// if ($(this).attr('data-id').indexOf("bibleJsn") > 0) {
+		// 	referencePopup.body.html('');
+		// 	var dataIdVal = $(this).attr('data-id').split('_');
+		// 	let languageCode = $(this).parent().parent().attr('data-lang3');
+		// 	var popupData = [];
+		// 	var fileName;
+		// 	fileName = ["guj_bible_wbtc","hin_bible_bsi","hin_bible_wbtc","kan_bible_bsi","kan_bible_wbtc","mal_bible_bsi","mar_bible_wbtc","pan_bible_wbtc","tam_bible_bsi","tam_bible_wbtc","tel_bible_bsi","tel_bible_wbtc","test"];
+		// 	var popupHide = 0;
+		// 	for (var i=0; i < fileName.length; i++) {
+		// 		var langCode = fileName[i].split('_')[0];
+		// 		if (langCode == languageCode){
+					
+		// 			$.getJSON("./copy_right_bibles/"+fileName[i]+".json", function (data) {
+		// 				json_obj = data;
+		// 	    		if (json_obj[languageCode]){
+		// 		    		var bibleVersion = Object.keys(json_obj[languageCode][0])[0];
+		// 						Object.entries(json_obj[languageCode][0]).forEach(([key, val]) => {
+		// 					    var copyRightYear = Object.values(val[0][Object.keys(val[0])[0]][0])[0];
+		// 					    var bibleVersion = key;
+		// 					    var versePing = "";
+		// 					    if (val[0][dataIdVal[0]]){
+		// 					    	versePing = val[0][dataIdVal[0]][0][dataIdVal[1]][0][dataIdVal[2]];
+		// 					    }else{
+		// 					    	popupHide += 1;
+		// 					    }
+		// 					    var popupContent = '<b>v'+dataIdVal[2]+'</b> ' + '<span style="color:#3232ff;">'+versePing + '</span> <span style="font-size:10px;">' + bibleVersion.toUpperCase() + ' ©' + copyRightYear + '</span><br>'
+		// 					    popupData.push(popupContent);
+		// 					});
+		// 		    		referencePopup.body.html(popupData);
+		// 		    	}
+		// 			}).fail(function(e, g) { console.log(g); });
+		// 		}
+		// 	};
+		// 	// }
+		// 	if (popupHide == 0){
+		// 		referencePopup.show();
+		// 		referencePopup.position($(this));
+		// 	 }
+		// } else {
 
-			if (fragmentid != null) {
+		// 	var link = $(this),
+		// 	fragmentid = getFragmentidFromNode(link);
 
-				var sectionid = fragmentid.split('_')[0];
+		// 	if (fragmentid != null) {
 
-				if (typeof textid == 'undefined') {
+		// 		var sectionid = fragmentid.split('_')[0];
 
-					if (link.closest('.section').hasClass('commentary')) {
+		// 		if (typeof textid == 'undefined') {
 
-						textid = $('.BibleWindow:first .section:first').attr('data-textid');
+		// 			if (link.closest('.section').hasClass('commentary')) {
 
-					} else {
-						textid = link.closest('.section').attr('data-textid');
-					}
-				}
+		// 				textid = $('.BibleWindow:first .section:first').attr('data-textid');
 
-
-				console.log('hover', textid, sectionid, fragmentid);
-
-				TextLoader.getText(textid, function(textInfo) {
-
-					TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
-
-						var verse = contentNode.find('.' + fragmentid),
-							html = '';
-
-						verse.find('.note').remove();
-
-						verse.each(function() {
-							html += $(this).html();
-						});
+		// 			} else {
+		// 				textid = link.closest('.section').attr('data-textid');
+		// 			}
+		// 		}
 
 
-						referencePopup.body.html( html );
-						referencePopup.show();
-						referencePopup.position(link);
+		// 		console.log('hover', textid, sectionid, fragmentid);
 
-					});
-				});
+		// 		TextLoader.getText(textid, function(textInfo) {
 
-			}	
-		}
+		// 			TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+
+		// 				var verse = contentNode.find('.' + fragmentid),
+		// 					html = '';
+
+		// 				verse.find('.note').remove();
+
+		// 				verse.each(function() {
+		// 					html += $(this).html();
+		// 				});
+
+
+		// 				referencePopup.body.html( html );
+		// 				referencePopup.show();
+		// 				referencePopup.position(link);
+
+		// 			});
+		// 		});
+		// 	}	
+		// }
 
 	}
 
