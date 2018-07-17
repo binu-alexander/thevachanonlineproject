@@ -39,7 +39,7 @@ var CrossReferencePopupPlugin = function(app) {
 		var currentLocationData = PlaceKeeper.getFirstLocation();
 
 		// store the current one
-		TextNavigation.locationChange(currentLocationData.fragmentid);
+		// TextNavigation.locationChange(currentLocationData.fragmentid);
 
 
 		if (newfragmentid != null && newfragmentid != '') {
@@ -125,6 +125,9 @@ var CrossReferencePopupPlugin = function(app) {
 
 
 				console.log('hover', textid, sectionid, fragmentid);
+				var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
+				var versionCode = textid.split("_")[1];
+				var bibleVersion = versionName +"-"+ versionCode;
 
 				TextLoader.getText(textid, function(textInfo) {
 
@@ -134,11 +137,11 @@ var CrossReferencePopupPlugin = function(app) {
 							html = '';
 
 						verse.find('.note').remove();
-
+						
 						verse.each(function() {
-							html += $(this).html();
+							html += "<span style='color:#3232ff;'>" + $(this).html() + "</span>";
 						});
-
+						html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
 
 						referencePopup.body.html( html );
 						referencePopup.show();
