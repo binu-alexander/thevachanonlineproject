@@ -139,6 +139,7 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 				case 'd':
 				case 'sp':
 				case 'sr':
+				case 's':
 				case 's1':
 				case 's2':
 				case 'r':
