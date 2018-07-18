@@ -1,10 +1,10 @@
 {
   "name": "VachanOnline",
-  "version": "v0.1 beta",
+  "version": "0.0.1",
   "description": "VachanOnline is the premier Bible study website in Indian languages.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/binu-alexander/thevachanonlineproject"
+    "url": "https://github.com/binu-alexander/thevachanonlineproject.git"
   },
   "author": "Bridge Connectivity Solutions",
   "Source": "John Dyer",
