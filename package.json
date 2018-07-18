@@ -1,18 +1,19 @@
 {
-  "name": "BrowserBible",
-  "version": "3.6.5",
-  "description": "Bible software that runs in the browser.",
+  "name": "VachanOnline",
+  "version": "v0.1 beta",
+  "description": "VachanOnline is the premier Bible study website in Indian languages.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalbiblesociety/browserbible-3"
+    "url": "https://github.com/binu-alexander/thevachanonlineproject"
   },
-  "author": "John Dyer",
+  "author": "Bridge Connectivity Solutions",
+  "Source": "John Dyer",
   "license": "MIT",
   "scripts": {
     "build:texts": "node tools/generate.js -i",
     "build:index": "node tools/create_texts_index.js",
     "build:deafbibles": "node tools/generatedeafbibles.js",
-    "build:content": "npm run build:texts && npm run build:deafbibles && npm run build:index",
+    "build:content": "npm run build:texts && npm run build:index",
     "build": "node tools/builder.js"
   },
   "dependencies": {
