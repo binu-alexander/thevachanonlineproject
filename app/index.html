@@ -251,6 +251,7 @@
 		win = $(window);
 		var winWidth = win.width(),
 		winHeight = win.height();
+		localStorage.removeItem("20140307app-windows");
 		$(document).on("click", "#app-logo", function(){
 			aboutWindow.hide();
 			localStorage.removeItem("20140307app-windows");
