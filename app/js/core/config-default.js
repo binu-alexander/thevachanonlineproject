@@ -75,7 +75,7 @@ sofia.config = {
 	// jesus film media
 	jfmKey: '',
 	
-	gaKey: "AIzaSyC0lIQhJ7qTVyTN2cHohQ6YSBPmOJCphj0"
+	gaKey: ""
 };
 
 sofia.customConfigs = {
