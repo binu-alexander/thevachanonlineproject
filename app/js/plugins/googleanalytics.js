@@ -1,6 +1,6 @@
 sofia.config = $.extend(sofia.config, {
 	// Google Analytics key
-	gaKey: '',
+	gaKey: 'AIzaSyC0lIQhJ7qTVyTN2cHohQ6YSBPmOJCphj0',
 
 	// Google URL
 	gaUrl: ''
