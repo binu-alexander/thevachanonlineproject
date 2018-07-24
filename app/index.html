@@ -253,6 +253,7 @@
 		winHeight = win.height();
 		$(document).on("click", "#app-logo", function(){
 			aboutWindow.hide();
+			localStorage.removeItem("20140307app-windows");
 			window.location.reload();
 		});
 
