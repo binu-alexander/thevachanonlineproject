@@ -370,7 +370,7 @@ bible.Reference = function () {
 			if (typeof bookNames != 'undefined') {
 				bookName = bookNames[0];
 			} else {
-				bookName = bible.BOOK_DATA[this.bookid].names['eng'][0]
+				bookName = bible.BOOK_DATA[this.bookid].names['hin'][0]
 			}
 
 			return bookName + ' ' + this.chapterAndVerse();
