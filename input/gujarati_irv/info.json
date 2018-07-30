@@ -1,12 +1,12 @@
 {
-	"id": "gujarati_irv",
-	"abbr": "Gujarati IRV",
+	"id": "hindi_irv",
+	"abbr": "Hindi IRV",
 	"name": "Indian Revised Version",
-	"nameEnglish": "Gujarati",
-	"lang": "guj",
+	"nameEnglish": "",
+	"lang": "hin",
 	"langName": "Indian Languages",
 	"langNameEnglish": "Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
-	"lang_2_code": "gu"
+	"lang_2_code": "hi"
 }
