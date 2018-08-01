@@ -135,9 +135,8 @@ var bibleFormatter = {
 					' data-id="' + chapterData.id + '"' +
 					' data-nextid="' + chapterData.nextid + '"' +
 					' data-previd="' + chapterData.previd + '"' +
-					'><br>' + breakChar;
+					'>' + breakChar;
 
-		// console.log(chapterHtml);
 		return chapterHtml;
 	},
 
