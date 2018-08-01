@@ -135,14 +135,14 @@ var bibleFormatter = {
 					' data-id="' + chapterData.id + '"' +
 					' data-nextid="' + chapterData.nextid + '"' +
 					' data-previd="' + chapterData.previd + '"' +
-					'>' + breakChar;
+					'><br>' + breakChar;
 
-
+		// console.log(chapterHtml);
 		return chapterHtml;
 	},
 
 	closeChapter: function() {
-		var closeChapter = breakChar + '</div>';
+		var closeChapter = breakChar + '</div><br>';
 
 		return closeChapter;
 	},
