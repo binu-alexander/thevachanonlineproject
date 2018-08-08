@@ -127,26 +127,24 @@ var MediaWindow = function(id, parent, data) {
 
 			// add media
 			if (typeof mediaForVerse != 'undefined') {
-
 				for (var j=0, jl = mediaForVerse.length; j<jl; j++) {
 					var mediaInfo = mediaForVerse[j],
 						baseUrl = sofia.config.baseContentUrl + 'content/' + 'media/' + mediaLibrary.folder + '/',
 						fullUrl = baseUrl + mediaInfo.filename + '.' + mediaInfo.exts[0],
 						thumbUrl = baseUrl + mediaInfo.filename + '-thumb.jpg';
-
-					html += '<a href="' + fullUrl + '" class="mediatype-' + mediaLibrary.type + '" target="_blank" ' + (mediaInfo.name ? 'title="' + mediaInfo.name + '"' : '') + ' data-filename="' + mediaInfo.filename + '">' +
+					// When video will be available then after just remove the condition
+					if (mediaLibrary.type != "jfm"){
+						html += '<a href="' + fullUrl + '" class="mediatype-' + mediaLibrary.type + '" target="_blank" ' + (mediaInfo.name ? 'title="' + mediaInfo.name + '"' : '') + ' data-filename="' + mediaInfo.filename + '">' +
 								'<img src="' + thumbUrl + '" />' +
 								//((mediaLibrary.type != 'image') ? '<span>' + mediaInfo.name + '</span>'  : '') +
 								((mediaLibrary.type != 'image') ? '<b><i></i></b>'  : '') +
 								'<span>' + reference.toString() + '</span>' +
 							'</a>';
+					}
 				}
-
 			}
 		}
-
 		return html;
-
 	}
 
 	function startResize() {
