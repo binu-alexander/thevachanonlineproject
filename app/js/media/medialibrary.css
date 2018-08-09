@@ -109,6 +109,7 @@
 /* Video */
 .video-icon {
 	background-image: url(../../css/images/video.svg);
+	display: none;
 }
 
 .image-library-thumbs li span.media-video-play {
