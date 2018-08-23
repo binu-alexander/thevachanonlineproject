@@ -1,0 +1,17 @@
+{
+"id":"ENGWEBP",
+"type":"bible",
+"name":"World English Bible",
+"nameEnglish":"World English Bible",
+"hasLemma":false,
+"redistributable":true,
+"abbr":"WEBP",
+"dir":"ltr",
+"lang":"eng",
+"country":"United States",
+"countries":["GB","AE","AG","AI","AS","AU","AW","BB","BH","BL","BM","BN","BQ","BS","BT","BW","BZ","CA","CK","CM","CW","DM","DO","ER","ET","FJ","FM","GD","GH","GI","GM","GU","GY","HK","HN","IE","IL","IM","IN","IO","JM","KE","KH","KI","KN","KY","LB","LC","LK","LR","LS","MF","MG","MH","MP","MS","MT","MU","MV","MW","MY","NA","NF","NG","NR","NU","NZ","OM","PG","PH","PK","PM","PN","PR","PW","RW","SB","SC","SD","SG","SL","SO","SS","SX","SZ","TC","TK","TO","TT","TV","TZ","UG","US","VC","VG","VI","VU","WS","ZA","ZM","ZW"],
+"allcountries":["GB","AE","AG","AI","AS","AU","AW","BB","BH","BL","BM","BN","BQ","BS","BT","BW","BZ","CA","CK","CM","CW","DM","DO","ER","ET","FJ","FM","GD","GH","GI","GM","GU","GY","HK","HN","IE","IL","IM","IN","IO","JM","KE","KH","KI","KN","KY","LB","LC","LK","LR","LS","MF","MG","MH","MP","MS","MT","MU","MV","MW","MY","NA","NF","NG","NR","NU","NZ","OM","PG","PH","PK","PM","PN","PR","PW","RW","SB","SC","SD","SG","SL","SO","SS","SX","SZ","TC","TK","TO","TT","TV","TZ","UG","US","VC","VG","VI","VU","WS","ZA","ZM","ZW"],
+"langNameEnglish":"English",
+"langName":"English",
+"fontClass":"latin"
+}
