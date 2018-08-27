@@ -113,9 +113,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		endBookIndex = 66,
 
 		startChapterIndex = 67,
-		endChapterIndex = 1254,
+		endChapterIndex = 1251,
 
-		startVerseIndex = 1207,
+		startVerseIndex = 1251,
 		endVerseIndex = lines.length,
 		//endVerseIndex = startVerseIndex + 50,
 
@@ -333,10 +333,15 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 				}
 			}
 
+			for (var x in bookMap) {
+				textRef = bookMap[x];
+			}
 
+			r = new bibleReference(textRef);
+			// console.log(bookMap);
 
 			currentChapter['html'] += '<div class="mt2">' + bookName + ' — <b>' + chapterNumber + '</b></div>' + breakChar;
-
+ 
 			var ccode = dbsBookCode + chapterNumber;
 
 			if (typeof chapterIntros[ccode] != 'undefined') {
