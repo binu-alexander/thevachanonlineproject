@@ -1,0 +1,13 @@
+{"langName": "English",
+ "name": "Summarized Bible",
+ "nameEnglish": "",
+ "abbr": "SB",
+ "id": "summarized_eng_bib",
+ "lang": "eng",
+ "langNameEnglish": "English",
+ "generator": "irv_summary",
+ "filename": "irvhin.txt",
+ "type":"commentary",
+ "stylesheet":"style.css",
+ "dir": "ltr",
+ "lang_2_code": "en"}
