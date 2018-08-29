@@ -2,7 +2,7 @@
  "name": "Summarized Bible",
  "nameEnglish": "",
  "abbr": "SB",
- "id": "summarized_eng_bib",
+ "id": "comm_summarized_bib_eng",
  "lang": "eng",
  "langNameEnglish": "English",
  "generator": "irv_summary",
