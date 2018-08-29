@@ -9,4 +9,5 @@
  "filename": "tske.txt",
  "type":"commentary",
  "stylesheet":"style.css",
- "dir": "ltr"}
+ "dir": "ltr",
+ "lang_2_code": "en"}
