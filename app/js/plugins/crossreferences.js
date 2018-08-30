@@ -116,7 +116,11 @@ var CrossReferencePopupPlugin = function(app) {
 
 					if (link.closest('.section').hasClass('commentary')) {
 
-						textid = $('.BibleWindow:first .section:first').attr('data-textid');
+						// textid = $('.BibleWindow:first .section:first').attr('data-textid');
+						
+						// Above code I (udkumar@hotmail.com) commented because default 
+						// windows setting changed and on hover from hindi notes we ned irv in reference
+						textid = $('.BibleWindow:eq(1) .section').attr('data-textid');
 
 					} else {
 						textid = link.closest('.section').attr('data-textid');
@@ -125,7 +129,11 @@ var CrossReferencePopupPlugin = function(app) {
 
 
 				console.log('hover', textid, sectionid, fragmentid);
-				var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
+				// var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
+
+				// Above code I (udkumar@hotmail.com) commented because default 
+				// windows setting changed and on hover from hindi notes we ned irv in reference
+				var versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
 				var versionCode = textid.split("_")[1];
 				var bibleVersion = versionName +"-"+ versionCode;
 
