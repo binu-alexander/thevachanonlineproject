@@ -113,9 +113,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		endBookIndex = 66,
 
 		startChapterIndex = 67,
-		endChapterIndex = 1251,
+		endChapterIndex = 1256,
 
-		startVerseIndex = 1251,
+		startVerseIndex = 1256,
 		endVerseIndex = lines.length,
 		//endVerseIndex = startVerseIndex + 50,
 
