@@ -306,8 +306,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		if (validChapters.indexOf(dbsChapterCode) == -1) {
 			validChapters.push(dbsChapterCode)
 		}
-
-		if (verseNumber == '1') {
+		// if (verseNumber == 1) this was changed because the contents were missings.
+        // We had the content but still it was missing due to the above condition.
+        // Code modified by VIPIN PAUL, Co-ordinator - Pr. Anil.
+        if (verseNumber != null) {
 			// close final paragraph of last chapter
 			//if (currentChapter != null) {
 			//	currentChapter["html"] += "</div>" + breakChar;
