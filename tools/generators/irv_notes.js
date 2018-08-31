@@ -362,7 +362,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 		currentChapter['html'] +=
 				// bibleFormatter.openVerse(verseCode, verseNumber) +
-				'<span class="comm-v-num"><span style="font-size:20px;color:#22b8eb;">पद </span>' + verseNumber + '</span>' +
+				'<span class="comm-v-num" style="color:#22b8eb;"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
 				//'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
 						text +
