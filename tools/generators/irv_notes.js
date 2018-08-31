@@ -112,10 +112,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		startBookIndex = 0,
 		endBookIndex = 66,
 
-		startChapterIndex = 67,
-		endChapterIndex = 1256,
+		startChapterIndex = 66,
+		endChapterIndex = 1238,
 
-		startVerseIndex = 1256,
+		startVerseIndex = 1238,
 		endVerseIndex = lines.length,
 		//endVerseIndex = startVerseIndex + 50,
 
@@ -147,9 +147,8 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 			chapterCode =dbsBookCode+chapterNumber;
 
-		// Commented for remove heading as below for IRV Hindi Notes
-		// text = text.replace('<b>Overview</b><br>', '<div class="is">Overview</div>'); // <div class="p">');
-		text = text.replace('<b>footnotes</b><br>', '<div class="is"></div>'); // <div class="p">');
+		// console.log(chapterCode)
+		text = text.replace('<b>Overview</b><br>', '<div class="is">Overview</div>'); // <div class="p">');
 
 
 		text = text.replace(/<u>([^<]+)<\/u>,/gi,function(m, a) {
@@ -165,7 +164,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			r = new bibleReference(textRef);
 
 			if (typeof r.toSection != 'undefined') {
-				s =  '<br><span class="bibleref" data-id="' + r.toSection() + '">' + r.chapterAndVerse() + '</span>';
+				s =  '<span class="bibleref" data-id="' + r.toSection() + '">' + r.chapterAndVerse() + '</span>';
 			} else {
 				console.log('err', a);
 			}
@@ -175,7 +174,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			return s;
 		});
 
-		//text += '</div>';
+		// text += '</div>';
 
 		chapterIntros[chapterCode] = text;
 	}
@@ -186,8 +185,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 	startProgress(endVerseIndex-startVerseIndex, 'Lines');
 
 
-	// console.time('processTextFile');
+	//console.time('processTextFile');
 	// READ TEXT
+	var prev_chapterNumber = ""
+
 	for (var i=startVerseIndex, il=endVerseIndex; i<il; i++) {
 		var line = lines[i].trim();
 
@@ -228,7 +229,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		*/
 
 		if (verseNumber == '' || chapterNumber == '') {
-			//console.log("missing: " , verseBookCode, verseNumber, chapterNumber);
+			// console.log("missing: " , verseBookCode, verseNumber, chapterNumber);
 			continue;
 		}
 
@@ -236,21 +237,21 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 		// between words
-		text = text.replace(/<br><br><b>/gi, 	'<b>');
+		// text = text.replace(/<br><br><b>/gi, 	'<b>');
 
 
-		// between headings and a list of verses
-		text = text.replace(/<\/b><br>/gi, 		'</b>');
-		// between verses
-		text = text.replace(/<\/u><br><u>/gi, 	'</u>; <u>');
+		// // between headings and a list of verses
+		// text = text.replace(/<\/b><br>/gi, 		'</b>');
+		// // between verses
+		// text = text.replace(/<\/u><br><u>/gi, 	'</u>; <u>');
 
 
-		// between reciprocal
-		text = text.replace(/<br><u>/gi, 		'; <u>');
+		// // between reciprocal
+		// text = text.replace(/<br><u>/gi, 		'; <u>');
 
-		// headings
-		text = text.replace(/<b>/gi, 			'<span class="note-word">');
-		text = text.replace(/:<\/b>/gi, 		'</span>');
+		// // headings
+		// text = text.replace(/<b>/gi, 			'<span class="note-word">');
+		// text = text.replace(/:<\/b>/gi, 		'</span>');
 
 		// references
 
@@ -286,7 +287,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		// add text to chapter.json
 		dbsBookCode = bookInfo['dbsCode'];
 		bookName = bibleData.getBookName(dbsBookCode, info['lang'])
-		
+
 		if (bookName == null) {
 			bookName = bookInfo['name'].split('/')[0];
 		}
@@ -306,14 +307,19 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		if (validChapters.indexOf(dbsChapterCode) == -1) {
 			validChapters.push(dbsChapterCode)
 		}
-		// if (verseNumber == 1) this was changed because the contents were missings.
-        // We had the content but still it was missing due to the above condition.
-        // Code modified by VIPIN PAUL, Co-ordinator - Pr. Anil.
-        if (verseNumber != null) {
+
+		if (prev_chapterNumber != chapterNumber){
+			verseNumber1 = "1"
+
+		}
+		prev_chapterNumber = chapterNumber
+
+		if (verseNumber1 == "1") {
+			verseNumber1 = "2"
 			// close final paragraph of last chapter
-			//if (currentChapter != null) {
-			//	currentChapter["html"] += "</div>" + breakChar;
-			//}
+			// if (currentChapter != null) {
+			// 	currentChapter["html"] += "</div>" + breakChar;
+			// }
 
 			// start new chapter
 			currentChapter = {
@@ -327,41 +333,41 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			data.chapterData.push(currentChapter);
 
 
-			if (chapterNumber == '1') {
+			if (chapterNumber == '1' ) {
 				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
-					currentChapter['html'] += '<div class="ip v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
-				}
+					currentChapter['html'] += '<div class="ip">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
+				}else{
+	                currentChapter['html'] += "<p align='center'> <br>टिप्पणी उपलब्ध नहीं है। </p>" + breakChar;
+	            }
+
+
 			}
 
-			for (var x in bookMap) {
-				textRef = bookMap[x];
-			}
 
-			r = new bibleReference(textRef);
-			// console.log(bookMap);
 
-			currentChapter['html'] += '<div class="mt2">' + bookName + ' — <b>' + chapterNumber + '</b></div>' + breakChar;
- 
+			currentChapter['html'] += '<div class="mt2">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
+
 			var ccode = dbsBookCode + chapterNumber;
 
 			if (typeof chapterIntros[ccode] != 'undefined') {
-				//currentChapter['html'] += '<div class="p">' + chapterIntros[ccode] + '</div>' + breakChar;
+				// currentChapter['html'] += '<div class="p">' + chapterIntros[ccode] + '</div>' + breakChar;
 				currentChapter['html'] += chapterIntros[ccode]  + breakChar;
-			}
+			} else{
+                currentChapter['html'] += "<p align='center'> <br>टिप्पणी उपलब्ध नहीं है। </p>" + breakChar;
+            }
 
 		}
 
-			// Here I (udkumar@hotmail.com) have removed Verse vise content for cross reference for IRV Hindi Notes
-			currentChapter['html'] +=
-			//bibleFormatter.openVerse(verseCode, verseNumber) + 
-			// '<span class="comm-v-num">Verse ' + verseNumber + '</span>' + 
-			// '<span class="comm-v-num" style="visibility: hidden;"></span>' +
+		currentChapter['html'] +=
+				// bibleFormatter.openVerse(verseCode, verseNumber) +
+				'<span class="comm-v-num"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
 				//'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
-					'</span>';
-				//'</div>' + breakChar; 
+						text +
+					'</span>' + breakChar;
+				//'</div>' + breakChar;
 
 		if (createIndex) {
 			verseIndexer.indexVerse(dbsVerseCode, text, data.indexData, info.lang);
@@ -375,9 +381,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		// do prev/next
 		var thisChapter = data.chapterData[i];
 
+
 		thisChapter.previd = (i > 0) ? data.chapterData[i-1]['id'] : null;
 		thisChapter.nextid = (i < il-1) ? data.chapterData[i+1]['id'] : null;
-
 
 		thisChapter.html =
 			//'<!-- start -->\n' +
@@ -385,7 +391,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			//'\n<!-- end -->\n' +
 			thisChapter.html +
 			bibleFormatter.closeChapter();
+			thisChapter = ""
 	}
+
+
 
 	// CREATE INFO
 	delete info.filename;
