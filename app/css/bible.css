@@ -281,7 +281,7 @@ div.is1 {
 	display: block;
 	text-align: center;
 	font-size: 2em;
-	margin-top: 3em;
+	margin-top: 0;
 	margin-bottom: 1em;
 	line-height: 1.2;
 }
@@ -291,7 +291,7 @@ div.is1 {
 	display: block;
 	text-align: center;
 	font-size: 1.4em;
-	margin-top: 3em;
+	margin-top: 0;
 	line-height: 1.2;
 }
 
