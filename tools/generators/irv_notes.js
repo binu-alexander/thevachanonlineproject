@@ -113,9 +113,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		endBookIndex = 66,
 
 		startChapterIndex = 66,
-		endChapterIndex = 1238,
+		endChapterIndex = 1244,
 
-		startVerseIndex = 1238,
+		startVerseIndex = 1244,
 		endVerseIndex = lines.length,
 		//endVerseIndex = startVerseIndex + 50,
 
@@ -147,7 +147,6 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 			chapterCode =dbsBookCode+chapterNumber;
 
-		// console.log(chapterCode)
 		text = text.replace('<b>Overview</b><br>', '<div class="is">Overview</div>'); // <div class="p">');
 
 
@@ -309,19 +308,6 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		}
 
 		if (prev_chapterNumber != chapterNumber){
-			verseNumber1 = "1"
-
-		}
-		prev_chapterNumber = chapterNumber
-
-		if (verseNumber1 == "1") {
-			verseNumber1 = "2"
-			// close final paragraph of last chapter
-			// if (currentChapter != null) {
-			// 	currentChapter["html"] += "</div>" + breakChar;
-			// }
-
-			// start new chapter
 			currentChapter = {
 				id: dbsChapterCode,
 				nextid: null,
@@ -338,29 +324,28 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
 					currentChapter['html'] += '<div class="ip">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
-				}else{
-	                currentChapter['html'] += "<p align='center'> <br>टिप्पणी उपलब्ध नहीं है। </p>" + breakChar;
-	            }
-
-
+				}
 			}
+
 
 
 
 			currentChapter['html'] += '<div class="mt2">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
 
 			var ccode = dbsBookCode + chapterNumber;
-
 			if (typeof chapterIntros[ccode] != 'undefined') {
-				// currentChapter['html'] += '<div class="p">' + chapterIntros[ccode] + '</div>' + breakChar;
 				currentChapter['html'] += chapterIntros[ccode]  + breakChar;
 			} else{
                 currentChapter['html'] += "<p align='center'> <br>टिप्पणी उपलब्ध नहीं है। </p>" + breakChar;
             }
 
 		}
+		prev_chapterNumber = chapterNumber
 
-		currentChapter['html'] +=
+
+		if (verseNumber != '0'){
+			
+			currentChapter['html'] +=
 				// bibleFormatter.openVerse(verseCode, verseNumber) +
 				'<span class="comm-v-num" style="color:#22b8eb;"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
 				//'<div class="p">' + breakChar +
@@ -368,6 +353,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 						text +
 					'</span>' + breakChar;
 				//'</div>' + breakChar;
+		}
 
 		if (createIndex) {
 			verseIndexer.indexVerse(dbsVerseCode, text, data.indexData, info.lang);
