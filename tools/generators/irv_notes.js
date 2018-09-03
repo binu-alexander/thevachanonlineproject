@@ -113,9 +113,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		endBookIndex = 66,
 
 		startChapterIndex = 66,
-		endChapterIndex = 1244,
+		endChapterIndex = 1245,
 
-		startVerseIndex = 1244,
+		startVerseIndex = 1245,
 		endVerseIndex = lines.length,
 		//endVerseIndex = startVerseIndex + 50,
 
@@ -195,8 +195,8 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 		var
-			firstBracket = line.indexOf('<'),
-			verseReference = line.substr(0, firstBracket-1).trim(),
+			firstBracket = line.indexOf('\t'),
+			verseReference = line.substr(0, firstBracket).trim(),
 			text = line.substr(firstBracket),
 
 			verseMainParts = verseReference.split(' ')
@@ -320,7 +320,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 			if (chapterNumber == '1' ) {
-				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
+				currentChapter['html'] += '<div class="mt" style="margin-top:50px;margin-bottom:20px">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
 					currentChapter['html'] += '<div class="ip">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
@@ -330,7 +330,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 
-			currentChapter['html'] += '<div class="mt2">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
+			currentChapter['html'] += '<div class="mt2" style="margin-top:40px">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
 
 			var ccode = dbsBookCode + chapterNumber;
 			if (typeof chapterIntros[ccode] != 'undefined') {
@@ -347,11 +347,11 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			
 			currentChapter['html'] +=
 				// bibleFormatter.openVerse(verseCode, verseNumber) +
-				'<span class="comm-v-num" style="color:#22b8eb;"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
+				'<span class="comm-v-num" style="margin-top:15px;font-size:17.5px;"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
 				//'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
-						text +
-					'</span>' + breakChar;
+						'<span style="font-size:15.2px;">' + text + '</span>' +
+					'</span>';
 				//'</div>' + breakChar;
 		}
 
