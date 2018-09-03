@@ -1,9 +1,9 @@
 {
-	"id": "hindi_irv",
-	"abbr": "Hindi IRV",
+	"id": "gujarati_irv",
+	"abbr": "Gujarati IRV",
 	"name": "Indian Revised Version",
-	"nameEnglish": "",
-	"lang": "hin",
+	"nameEnglish": "Gujarati",
+	"lang": "guj",
 	"langName": "Indian Languages",
 	"langNameEnglish": "Indian Languages",
 	"dir": "ltr",
