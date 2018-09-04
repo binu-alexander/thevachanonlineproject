@@ -350,7 +350,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 				'<span class="comm-v-num" style="margin-top:15px;font-size:17.5px;"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
 				//'<div class="p">' + breakChar +
 					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
-						'<span style="font-size:15.2px;">' + text + '</span>' +
+						'<span style="font-size:16px;">' + text + '</span>' +
 					'</span>';
 				//'</div>' + breakChar;
 		}
