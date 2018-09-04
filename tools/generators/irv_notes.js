@@ -130,9 +130,11 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 	// PROCESS BOOKS
 	for (var i=startBookIndex, il=endBookIndex; i<il; i++) {
 		var line = lines[i].trim(),
-			verseBookCode = line.substr(0,3),
+			firstBracketbook = line.indexOf('\t'),
+			verseBookCode = line.substr(0, firstBracketbook).trim(),
 			dbsBookCode = bookMap[verseBookCode],
-			text = line.substr(4);
+			text = line.substr(firstBracketbook);
+			
 
 		bookIntros[dbsBookCode] = text;
 	}
@@ -320,10 +322,10 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 			if (chapterNumber == '1' ) {
-				currentChapter['html'] += '<div class="mt" style="margin-top:50px;margin-bottom:20px">' + bookName + '</div>' + breakChar;
+				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
-					currentChapter['html'] += '<div class="ip">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
+					currentChapter['html'] += '<div class="ip" style="line-height:32.4px;font-size:16px;text-indent:0px">' + bookIntros[dbsBookCode] + '</div>' + breakChar;
 				}
 			}
 
