@@ -106,16 +106,16 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		currentChapter = null,
 		chaperIndex = 0,
 		rawText = fs.readFileSync( sourceFilePath , 'utf8'),
-		lines = rawText.split('\r'),
+		lines = rawText.split('\n'),
 		foundFirstVerse = false,
 
 		startBookIndex = 0,
 		endBookIndex = 66,
 
 		startChapterIndex = 66,
-		endChapterIndex = 1245,
+		endChapterIndex = 1255,
 
-		startVerseIndex = 1245,
+		startVerseIndex = 1255,
 		endVerseIndex = lines.length,
 		//endVerseIndex = startVerseIndex + 50,
 
