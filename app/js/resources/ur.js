@@ -56,7 +56,7 @@ sofia.resources['ur'] = {
 				"label": "بائبل",
 				"filter": "فلٹر ...",
 				"ot": "پرانا عہد نامہ",
-				"nt": "نئے عہد نامہ",
+				"nt": "नया अहद-नाम",
 				"dc": "Deuterocanonical کتب",
 				"more": "مزید",
 				"less": "کم",
