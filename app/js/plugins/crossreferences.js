@@ -149,7 +149,8 @@ var CrossReferencePopupPlugin = function(app) {
 						verse.each(function() {
 							html += "<span style='color:#3232ff;'>" + $(this).html() + "</span>";
 						});
-						html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
+						html += "<span style='font-size:10px;'></span>"
+						// html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
 
 						referencePopup.body.html( html );
 						referencePopup.show();
