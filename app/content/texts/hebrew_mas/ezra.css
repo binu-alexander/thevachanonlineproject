@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'EzraSILRegular';
+    src: url('fonts/ezra_sil.eot');
+    src: url('fonts/ezra_sil.eot?#iefix') format('eot'),
+         url('fonts/ezra_sil.woff') format('woff'),
+         url('fonts/ezra_sil.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+div.ezra,body.ezra,.ezra	{font-family: 'EzraSILRegular','Ezra SIL','Tahoma','Arial Unicode MS','sans-serif' !important;}

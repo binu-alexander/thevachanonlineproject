@@ -1,0 +1,17 @@
+{
+"id":"HBOMAS",
+"type":"bible",
+"name":"כתבי הקודש",
+"nameEnglish":"Hebrew Masoretic OT",
+"hasLemma":false,
+"redistributable":true,
+"abbr":"Masoretic",
+"dir":"rtl",
+"lang":"hbo",
+"country":"Israel",
+"countries":["IL"],
+"allcountries":["IL"],
+"langNameEnglish":"Hebrew",
+"langName":"עברית",
+"fontClass":"ezra_sil"
+}
