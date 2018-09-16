@@ -88,7 +88,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 			// chapter number
 			if (chapterNumber == 1) {
-				html += '<div class="mt">' + bookName + '</div>' + bibleFormatter.breakChar;
+				html += '<br><div class="mt">' + bookName + '</div>' + bibleFormatter.breakChar;
 			}
 			html += '<div class="c">' + (dbsBookCode == 'PS' && info.lang == 'eng' ? 'Psalm ' : '') + chapterNumber + '</div>' + breakChar;
 
