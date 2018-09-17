@@ -203,7 +203,8 @@ div.c + div.q .v-1 {
 .windows-container [lang=he],
 .windows-container .section[lang=heb],
 .windows-container [lang=heb] {
-	font-family: 'SBL Hebrew', EzraSIL;
+	/*font-family: 'SBL Hebrew', EzraSIL;*/
+	font-family: Cambria, Georgia, serif;
 }
 
 
