@@ -1,4 +1,5 @@
 var fs = require('fs'),
+	
 	path = require('path'),
 	bibleData = require('../data/bible_data.js'),
 	bibleFormatter = require('../bible_formatter.js'),
@@ -12,13 +13,14 @@ var fs = require('fs'),
 function generate(inputBasePath, info, createIndex, startProgress, updateProgress) {
 	var breakChar = '\n';
 
-	var
+	var 
 		unparsedUsfmFlags = [],
 		bookCodes = [],
 		bookNames = [],
 		bookAbbreviations = [],
 		chapterList = [],
 		aboutPath = path.join(inputBasePath, 'about.html'),
+		noteNumber = 1
 		data = {
 			chapterData: [],
 			indexData: {},
@@ -32,6 +34,7 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 
 
 	startProgress(usfmFiles.length, 'Books');
+
 
 
 	usfmFiles.forEach(function(filename) {
@@ -62,12 +65,17 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 			currentHeader = '',
 			currentVerseText = '',
 			notes = '',
-			noteNumber = 1,
+			// noteNumber = 1,
 			chapterVerse = '';
+
 
 		for (var i = 0, il = lines.length; i < il; i++) {
 			var line = lines[i],
 				usfm = usfmParser.parseLine(line);
+
+			if (usfm.key == 'f'){
+				noteNumber = noteNumber + 1
+			}
 
 			if (usfm == null) {
 				return;
@@ -249,7 +257,6 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 							quoteIsOpen = false;
 						}
 
-
 						/*
 						// pull out notes
 						var notesHtml = '',
@@ -293,6 +300,7 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 						quoteIsOpen = false;
 						verseIsOpen = false;
 						chapterList.push(currentChapterCode);
+						notes = '';
 					}
 
 					//console.log('c', usfm.text);
@@ -438,6 +446,7 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 
 			}
 			*/
+
 		}
 
 		// last index
@@ -470,35 +479,34 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 
 
 		// pull out notes
-		var notesHtml = '',
-			chapterNode = $(currentChapterHtml),
-			notes = chapterNode.find('.note');
+		var notesHtml = notes,
+			chapterNode = $(currentChapterHtml);
+		// 	notes = chapterNode.find('.note');
 
-		//console.log(notes.length);
+		
+		// notes.each(function(i, n) {
+		// 	var note = $(this),
+		// 		key = note.find('.key').html(),
+		// 		noteText = note.find('.text');
+		// 		noteNumber = noteNumber + 1;
 
-		notes.each(function(i, n) {
-			var note = $(this),
-				key = note.find('.key').html(),
-				noteNumber = i + 1,
-				noteText = note.find('.text');
+		// 	note.attr('id', 'note-' + noteNumber);
+		// 	note.find('.key').attr('href', '#footnote-' + noteNumber);
 
-			note.attr('id', 'note-' + noteNumber);
-			note.find('.key').attr('href', '#footnote-' + noteNumber);
+		// 	notesHtml += '<span class="footnote" id="footnote-' + noteNumber + '">' +
+		// 		'<a class="key" href="#note-' + noteNumber + '">' + key + '</a>' +
+		// 		'<span class="text">' + noteText.html() + '</span>' +
+		// 		'</span>' + bibleFormatter.breakChar;
 
-			notesHtml += '<span class="footnote" id="footnote-' + noteNumber + '">' +
-				'<a class="key" href="#note-' + noteNumber + '">' + key + '</a>' +
-				'<span class="text">' + noteText.html() + '</span>' +
-				'</span>' + bibleFormatter.breakChar;
-
-			noteText.remove();
-		});
+		// 	noteText.remove();
+		// });
 
 
 
 		// add final html
 		data.chapterData.push({
 			id: currentChapterCode,
-			//html: chapterNode[0].outerHTML,
+			// html: chapterNode[0].outerHTML,
 			html: chapterNode.wrapAll('<div></div>').parent().html(),
 			notes: notesHtml
 		});
