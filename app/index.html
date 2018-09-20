@@ -298,5 +298,11 @@
 			aboutWindow.hide();
 
 		})
+		$(document).on("click", ".dict-span", function(){
+			console.log($(this).text())
+			$(".text-nav").last().val($(this).text())
+		});
+
+		
 </script>
 </html>

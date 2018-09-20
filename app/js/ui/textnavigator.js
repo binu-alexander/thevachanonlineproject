@@ -119,6 +119,7 @@ var TextNavigator = function() {
 					biblereference = new bible.Reference(textInputValue),
 					fragmentid = (biblereference) ? biblereference.toSection() : null;
 
+
 				renderDivisions();
 				changer.find('.text-navigator-divisions').show().attr('dir', textInfo.dir).attr('lang', textInfo.lang);
 				//changer.find('.text-navigator-sections').hide();
@@ -147,6 +148,46 @@ var TextNavigator = function() {
 				}
 
 				break;
+
+			case 'dictionary':
+
+				console.log(target)
+				var textInputValue = "यूहन्ना 3:16",
+					biblereference = new bible.Reference(textInputValue),
+					fragmentid = (biblereference) ? biblereference.toSection() : null;
+					console.log("** 121 **   "+ textInputValue);
+					console.log("** 122 **   "+ biblereference);
+					console.log("** 123 **   "+ fragmentid);
+
+
+				renderDivisions();
+				changer.find('.text-navigator-divisions').show().attr('dir', textInfo.dir).attr('lang', textInfo.lang);
+				//changer.find('.text-navigator-sections').hide();
+
+				if (fragmentid) {
+					var parts = fragmentid.split('_'),
+						sectionid = parts[0],
+						divisionid = sectionid.substring(0,2),
+						chapter = sectionid.substring(2);
+
+					var divisionNode = changer.find('.divisionid-' + divisionid).addClass('selected');
+					// scroll to it
+
+					if (divisionNode.length > 0) {
+						var offset = divisionNode.position();
+
+						changer.find('.text-navigator-divisions').scrollTop(offset.top-40);
+
+						renderSections(false);
+
+						divisionNode.find('.section-' + sectionid).addClass('selected');
+					}
+
+
+
+				}
+
+
 			case 'book':
 				renderSections();
 				changer.find('.text-navigator-divisions').hide();
@@ -162,7 +203,7 @@ var TextNavigator = function() {
 
 	// divisions = Bible books
 	function renderDivisions() {
-		//console.log('renderDivisions', textInfo);
+		console.log('renderDivisions', textInfo);
 
 		// render books
 		var html = [];
@@ -204,14 +245,16 @@ var TextNavigator = function() {
 				//old -code
 				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
 				//modified code for header change while selectring language
-				html.push('<div class="text-navigator-division-header">' + header + '</div>');
+				if(textInfo.id != "hindi_dict")
+					html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedOt = true;
 			}
 			if (bible.NT_BOOKS.indexOf(divisionid) > -1 && !hasPrintedNt) {
 				let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.nt);
 				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.nt') + '</div>');
 				// modified code for header change while selectring language
-				html.push('<div class="text-navigator-division-header">' + header + '</div>');
+				if(textInfo.id != "hindi_dict")
+					html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedNt = true;
 			}
 			/*
@@ -335,13 +378,62 @@ var TextNavigator = function() {
 				}
 
 				break;
-			case 'book':
+			case 'dictionary':
+				// print out chapters
+				console.log(changer.find('.text-navigator-division.selected'))
+				var selected_division = changer.find('.text-navigator-division.selected'),
+					isLast = selected_division.next().length == 0,
+					divisionid = selected_division.attr('data-id'),
+					divisionname = selected_division.attr('data-name'),
+					//num_of_chapters = parseInt(selected_division.attr('data-chapters'), 10),
+					chapters = selected_division.attr('data-chapters').split(','),
+					//numbers = typeof textInfo.numbers != 'undefined' ? textInfo.numbers : bible.numbers.default;
+					numbers = textInfo.numbers;
+					console.log(divisionname)
+
+					console.log("=========================", numbers)
+
+				title.html( divisionname );
+
+				console.log('chapters', chapters);
+
+				// for (var chapter=0; chapter<textInfo.sections.length; chapter++) {
+				for (var chapter=0; chapter<chapters.length; chapter++) {
+					// console.log(textInfo.sections[chapter]);
+					// var dbsChapterCode = textInfo.sections[chapter];
+					var dbsChapterCode = chapters[chapter];
+						vipin = dbsChapterCode.split('-');
+						console.log("VIPIN ******  ", vipin);
+						// chapterNumber = parseInt(dbsChapterCode.substring(2));
+
+					html.push('<span style="width:90px;" class="text-navigator-section dict-span section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + vipin[1] + '</span>');
+				}
+
+				var sectionNodes = $('<div class="text-navigator-sections" style="display:none;">' + html.join('') + '</div>');
+
+				selected_division.find('span').after( sectionNodes );
+
+
+				if (animated === true && !isLast) {
+					sectionNodes.slideDown();
+				} else {
+					sectionNodes.show();
+
+					if (isLast) {
+						var divisions = changer.find('.text-navigator-divisions');
+						divisions.scrollTop( divisions.scrollTop() + 500 );
+					}
+				}
+
+				break;
+			case 'books':
 
 				//console.log('text', textInfo.sections);
 
 				// flat list of sections (i.e. pages)
 				for (var i=0, il= textInfo.sections.length ; i<il; i++) {
 					var sectionid = textInfo.sections[i];
+					console.log("vipin"+sectionid);
 					html.push('<span class="text-navigator-section" data-id="' + sectionid + '">' + sectionid.replace('P','') + '</span>');
 				}
 
