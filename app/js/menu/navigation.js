@@ -13,10 +13,12 @@ var NavigationButtons = function(node) {
 	$('html').addClass('supports-fullscreen');
 
 	var
-		forwardButton = $('<div id="main-forward-button" class="inactive"></div>')
+		// forwardButton = $('<div id="main-forward-button" class="inactive"></div>')
+		forwardButton = $('<div id="main-forward-button" class="inactive" style="display:none;"></div>')
 			.appendTo( $('.windows-header') )
 			.on('click', forward),
-		backButton = $('<div id="main-back-button" class="inactive"></div>')
+		// backButton = $('<div id="main-back-button" class="inactive"></div>')
+		backButton = $('<div id="main-back-button" class="inactive" style="display:none;"></div>')
 			.appendTo( $('.windows-header') )
 			.on('click', back),
 
