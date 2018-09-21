@@ -7,9 +7,9 @@ var MainSearchBox = function(node) {
 							//'<input type="search" placeholder="Search" id="main-search-input" />' +
 
 							//'<input type="search" placeholder="' + i18n.t('menu.search.placeholder') + '" id="main-search-input" />' +
-							'<input type="search" class="i18n" data-i18n="[placeholder]menu.search.placeholder" id="main-search-input" />' +
+							// '<input type="search" class="i18n" data-i18n="[placeholder]menu.search.placeholder" id="main-search-input" />' +
 
-							'<input type="button" id="main-search-button" value="" />' +
+							// '<input type="button" id="main-search-button" value="" />' +
 					'</div>')
 						.appendTo(node),
 
