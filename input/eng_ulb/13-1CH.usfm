@@ -1,7 +1,7 @@
-\id 1CH unfoldingWord Literal Text
+\id 1CH Unlocked Literal Bible
 \ide UTF-8
 \h 1 Chronicles
-\toc1 The First Book of the Chronicles
+\toc1 1 Chronicles
 \toc2 1 Chronicles
 \toc3 1Ch
 \mt 1 Chronicles 
@@ -12,10 +12,12 @@
 \v 2 Kenan, Mahalalel, Jared,
 \v 3 Enoch, Methuselah, Lamech.
 \v 4 The sons of Noah were Shem, Ham, and Japheth.
+\f † Some versions do not have the expression The sons of , but others include this expression. \f*
 \s5
 \p
 \v 5 The sons of Japheth were Gomer, Magog, Madai, Javan, Tubal, Meshek, and Tiras.
 \v 6 The sons of Gomer were Ashkenaz, Riphath, and Togarmah.
+\f † Some versions have Diphath instead of Riphath . However, Diphath was probably a misspelling. Many ancient copies correct it to Riphath in order to make it agree with the same name in Gen. 10:2. \f*
 \v 7 The sons of Javan were Elishah, Tarshish, the Kittites, and the Rodanites.
 \s5
 \p
@@ -103,6 +105,7 @@
 \v 5 Perez's sons were Hezron and Hamul.
 \v 6 Zerah's sons were Zimri, Ethan, Heman, Kalkol, and Darda, five in all.
 \v 7 Karmi's son was Achar, who brought trouble on Israel when he stole what was reserved for God. 
+\f † Some versions have Achan instead of Achar . \f*
 \v 8 Ethan's son was Azariah.
  
 \s5
@@ -130,6 +133,7 @@
 \s5
 \v 23 Geshur and Aram took Havvoth Jair and Kenath, as well as sixty surrounding towns. All these inhabitants were descendants of Makir, the father of Gilead.
 \v 24 After the death of Hezron, Caleb went in to Ephrathah, the wife of his father Hezron. She bore him Ashhur, the father of Tekoa.
+\f † Some versions read, After Hezron's death in Caleb Ephrathah, his wife Abijah bore him a son, Ashhur the father of Tekoa . \f*
 \s5
 \p
 \v 25 The sons of Jerahmeel, the firstborn of Hezron, were Ram the firstborn, Bunah, Oren, Ozem, and Ahijah.
@@ -173,8 +177,8 @@
 \v 52 Shobal the father of Kiriath Jearim had descendants: Haroeh, half of the Manahathites,
 \v 53 and the clans of Kiriath Jearim: the Ithrites, Puthites, Shumathites, and Mishraites. The Zorathites and Eshtaolites descended from these.
 \s5
-\v 54 The descendants of Salma were Bethlehem, the Netophathites, Atroth Beth Joab, and half of the Manahathites—the Zorites,
-\v 55 and the clans of the scribes who lived at Jabez: the Tirathites, Shimeathites, and Sucathites. These were the Kenites who came from Hammath, father of the house of Rekab.
+\v 54 The clans of Salma were the following: Bethlehem, the Netophathites, Atroth Beth Joab, and half of the Manahathites—the Zorites, 
+\v 55 the clans of the scribes who lived at Jabez: the Tirathites, Shimeathites, and Sucathites. These were the Kenites who descended from Hammath, the ancestor of the Rekabites.
 \s5
 \c 3
 \p
@@ -185,6 +189,7 @@
 \s5
 \v 4 These six were born to David in Hebron, where he reigned seven years and six months. He then ruled thirty-three years in Jerusalem.
 \v 5 These four sons, by Bathsheba daughter of Ammiel, were born to him in Jerusalem: Shammua, Shobab, Nathan, and Solomon. 
+\f † Some versions have Bathseba or Bathshua instead of Bathsheba . \f*
 \s5
 \v 6 David's other nine sons were: Ibhar, Elishua, Eliphelet,
 \v 7 Nogah, Nepheg, Japhia,
@@ -230,9 +235,11 @@
 \v 10 Jabez called out to the God of Israel and said, "If only you would truly bless me, expand my territory, and your hand will be with me. When you do this you will keep me from harm, so that I may be free from pain!" So God granted him his prayer.
 \s5
 \v 11 Kelub brother of Shuhah became the father of Mehir, who was the father of Eshton.
-\v 12 Eshton became the father of Beth Rapha, Paseah, and Tehinnah, the father of Ir Nahash.  These were men who lived in Rekah.
+\v 12 Eshton became the father of Beth Rapha, Paseah, and Tehinnah, the father of Ir Nahash. 
+\f † Some translations read: who settled in the town of Nahash . \f* These were men who lived in Rekah.
 \s5
 \v 13 Kenaz's sons were Othniel and Seraiah. Othniel's sons were Hathath and Meonothai.
+\f † Most versions insert Meonothai into this verse, believing that it dropped out by a copyist's mistake. \f*
 \v 14 Meonothai became the father of Ophrah, and Seraiah became the father of Joab, the originator of Ge-Harashim, whose people were craftsmen.
 \v 15 The sons of Caleb son of Jephunneh were Iru, Elah and Naam. Elah's son was Kenaz.
 \v 16 Jehallelel's sons were Ziph, Ziphah, Tiria, and Asarel.
@@ -357,6 +364,7 @@
 \v 25 The sons of Elkanah were Amasai, Ahimoth,
 \v 26 And a son named Elkanah; Zophai his son, Nahath his son, 
 \v 27 Eliab his son, Jeroham his son, and Elkanah his son. 
+\f † The LXX adds to the list Samuel his son . \f*
 \s5
 \v 28 The sons of Samuel were the firstborn, Joel, and Abijah, the second-born.
 \v 29 The son of Merari was Mahli. His son was Libni. His son was Shimei. His son was Uzzah.
@@ -406,9 +414,10 @@
 \v 57 To the descendants of Aaron they gave: Hebron (a city of refuge), and Libnah with its pasturelands, Jattir, Eshtemoa with its pasturelands,
 \v 58 Hilen with its pasturelands, and Debir with its pasturelands.
 \s5
-\v 59 They also gave to the descendants of Aaron: Ashan with its pasturelands, Juttah,  and Beth Shemesh with its pasturelands;
-\v 60 and from the tribe of Benjamin, Geba with its pasturelands, Alemeth with its pasturelands, and Anathoth with its pasturelands. 
-\q All their cities throughout their clans were thirteen cities.
+\v 59 They also gave to the descendants of Aaron: Ashan with its pasturelands, Juttah, 
+\f † The place name Juttah is not in the MT but is found in the Syriac version; also see JOS 21:16. \f* and Beth Shemesh with its pasturelands;
+\v 60 and from the tribe of Benjamin they were given Geba with its pasturelands, Alemeth with its pasturelands, and Anathoth with its pasturelands. All their cities numbered thirteen.
+\q These towns were distributed among the clans of the Kohathite, thirteen in all.
 \s5
 \p
 \v 61 To the rest of clans of the Kohathites were allotted ten cities from the half tribe of Manasseh.
@@ -436,7 +445,8 @@
 \v 76 They received from the tribe of Naphtali: Kedesh in Galilee with its pasturelands, Hammon with its pasturelands, and Kiriathaim with its pasturelands.
 \s5
 \p
-\v 77 The rest of Merari's descendants received from the tribe of Zebulun: Jokneam, Kartah,  and Rimmono with its pasturelands and Tabor with its pasturelands; 
+\v 77 The rest of Merari's descendants received from the tribe of Zebulun: Jokneam, Kartah, 
+\f † The names Jokneam and Kartah are not found in the MT but are in the LXX. Compare the list in Josh. 21:34. \f* and Rimmono with its pasturelands and Tabor with its pasturelands; 
 \v 78 and from the tribe of Reuben, across the Jordan on the east side of Jericho, they received Bezer in the desert, Jahzah, 
 \v 79 Kedemoth and its pasturelands, and Mephaath and its pasturelands.
 \s5
@@ -591,10 +601,11 @@
 \p
 \v 17 The doorkeepers were Shallum, Akkub, Talmon, Ahiman, and their descendants. Shallum was their leader.
 \v 18 Previously they stood guard at the king's gate on the east side for the camp of Levi's descendants.
-\v 19 Shallum son of Kore son of Ebiasaph,  son of Korah, and his relatives from the house of his father, the Korahites, were in charge of the work of the guard service. They guarded the door to the tent, as their ancestors had guarded the camp of Yahweh, and they also had guarded the entrance.
+\v 19 Shallum son of Kore son of Ebiasaph, 
+\f † Ebiasaph is the same person referred to as Asaph in 1 Chron. 26:1. \f* son of Korah, and his relatives from the house of his father, the Korahites, were in charge of the work of the guard service. They guarded the door to the tent, as their ancestors had guarded the camp of Yahweh, and they also had guarded the entrance.
 \s5
 \v 20 Phinehas son of Eleazar had been in charge of them in the past, and Yahweh had been with him.
-\v 21 Zechariah son of Meshelemiah was guard of the entrance to the tent of meeting.
+\v 21 Zechariah son of Meshelemiah was guard of the entrance to the temple, the "tent of meeting."
 \s5
 \v 22 All those who were chosen as gatekeepers at the entrances numbered 212. Their names were recorded in the people's records in their villages. David and Samuel the seer had placed them into their positions of trust.
 \v 23 So they and their children guarded the gates of the house of Yahweh, the tabernacle.
@@ -672,7 +683,8 @@
 \s5
 \p
 \v 10 These were the leaders David had, who showed themselves strong with him in his kingdom, together with all Israel, to make him king, obeying the word of Yahweh concerning Israel.
-\v 11 This is a list of David's mighty men: Jashobeam, the son of a Hachmonite, was commander of the officers . He killed three hundred men with his spear on one occasion.
+\v 11 This is a list of David's mighty men: Jashobeam, the son of a Hachmonite, was commander of the officers 
+\f † The Hebrew could also read of the thirty or of the three . \f*. He killed three hundred men with his spear on one occasion.
 \s5
 \v 12 After him was Eleazar son of Dodo, the Ahohite, who was one of the three mighty men.
 \v 13 He was with David at Pas Dammim, and there the Philistines assembled together for battle, where there was a barley field and the army fled from the Philistines.
@@ -865,7 +877,8 @@
 \p
 \v 16 David spoke to the leaders of the Levites to assign their brothers to be musicians with musical instruments, stringed instruments, harps and cymbals, playing loudly and joyfully lifting up their voices.
 \v 17 So the Levites appointed Heman son of Joel and one of his brothers, Asaph son of Berechiah. They also appointed kinsmen from Merari's descendants and Ethan son of Kushaiah.
-\v 18 With them were their kinsmen of second rank: Zechariah,  Jaaziel, Shemiramoth, Jehiel, Unni, Eliab, Benaiah, Maaseiah, Mattithiah, Eliphelehu, Mikneiah, Obed Edom, and Jeiel, the gatekeepers.
+\v 18 With them were their kinsmen of second rank: Zechariah, 
+\f † Some ancient copies add the name or prefix, "ben," assuming perhaps the name of Zechariah's father was left out. \f* Jaaziel, Shemiramoth, Jehiel, Unni, Eliab, Benaiah, Maaseiah, Mattithiah, Eliphelehu, Mikneiah, Obed Edom, and Jeiel, the gatekeepers.
 \s5
 \v 19 The musicians Heman, Asaph, and Ethan were appointed to play loud bronze cymbals.
 \v 20 Zechariah, Aziel, Shemiramoth, Jehiel, Unni, Eliab, Maaseiah, and Benaiah played the stringed instruments, set to Alamoth.
@@ -1273,7 +1286,7 @@
 \p
 \v 7 The first lot went to Jehoiarib, the second to Jedaiah,
 \v 8 the third to Harim, the fourth to Seorim,
-\v 9 the fifth to Malkijah, the sixth to Mijamin,
+\v 9 the fifth to Malchijah, the sixth to Mijamin,
 \v 10 the seventh to Hakkoz, the eighth to Abijah,
 \s5
 \v 11 the ninth to Jeshua, the tenth to Shecaniah,
@@ -1308,10 +1321,13 @@
 \c 25
 \p
 \v 1 David and the leaders of the army selected some of the sons of Asaph, Heman, and Jeduthun to prophesy with harps, with stringed instruments, and with cymbals. Here is the list of the men who performed this service:
-\v 2 From the sons of Asaph: Zaccur, Joseph, Nethaniah, and Asharelah,  the sons of Asaph, under the direction of Asaph, who prophesied under the king's supervision.
-\v 3 From the sons of Jeduthun: Gedaliah, Zeri,  Jeshaiah, Shimei, Hashabiah, and Mattithiah, six in all, under the direction of their father Jeduthun, who played the harp for giving thanks and praising Yahweh.
+\v 2 From the sons of Asaph: Zaccur, Joseph, Nethaniah, and Asharelah, 
+\f † This is the same person referred to in 1 Chron. 25:14 as Jesarelah \f* the sons of Asaph, under the direction of Asaph, who prophesied under the king's supervision.
+\v 3 From the sons of Jeduthun: Gedaliah, Zeri, 
+\f † this is a variant of the name Izri, which is found in 1 Chron. 25:11, and refers to the same person \f* Jeshaiah, Shimei, Hashabiah, and Mattithiah, six in all, under the direction of their father Jeduthun, who played the harp for giving thanks and praising Yahweh.
 \s5
-\v 4 From the sons of Heman: Bukkiah, Mattaniah, Uzziel,  Shubael, and Jerimoth, Hananiah, Hanani, Eliathah, Giddalti, Romamti-Ezer, Joshbekashah, Mallothi, Hothir, and Mahazioth.
+\v 4 From the sons of Heman: Bukkiah, Mattaniah, Uzziel, 
+\f † Uzziel is the same person referred to in 1 Chron. 25:18 as Azarel. \f* Shubael, and Jerimoth, Hananiah, Hanani, Eliathah, Giddalti, Romamti-Ezer, Joshbekashah, Mallothi, Hothir, and Mahazioth.
 \v 5 All these were the sons of Heman the king's prophet. God gave Heman fourteen sons and three daughters to lift up his horn.
 \s5
 \v 6 All these were under the direction of their fathers. They were musicians in Yahweh's house, with cymbals and stringed instruments as they served in God's house. Asaph, Jeduthun, and Heman were under the king's supervision.
@@ -1321,16 +1337,19 @@
 \p
 \v 9 Now regarding Asaph's sons: The first lot fell to Joseph's family; the second fell to Gedaliah's family, twelve persons in number;
 \v 10 the third fell to Zaccur, his sons and his relatives, twelve persons in number;
-\v 11 the fourth fell to Izri,  his sons and his relatives, twelve persons in number;
+\v 11 the fourth fell to Izri, 
+\f † this is a variant of Zeri, found in 1 Chron. 25:3, and refers to the same person \f* his sons and his relatives, twelve persons in number;
 \v 12 the fifth fell to Nethaniah, his sons and his relatives, twelve persons in number;
 \s5
 \v 13 the sixth fell to Bukkiah, his sons and his relatives, twelve persons in number;
-\v 14 the seventh fell to Jesarelah,  his sons and his relatives, twelve persons in number;
+\v 14 the seventh fell to Jesarelah, 
+\f † This is the same person referred to in 1 Chron. 25:2 as Asharelah \f* his sons and his relatives, twelve persons in number;
 \v 15 the eighth fell to Jeshaiah, his sons and his relatives, twelve persons in number;
 \v 16 the ninth fell to Mattaniah, his sons and his relatives, twelve persons in number;
 \s5
 \v 17 the tenth fell to Shimei, his sons and his relatives, twelve persons in number;
-\v 18 the eleventh fell to Azarel,  his sons and his relatives, twelve persons in number;
+\v 18 the eleventh fell to Azarel, 
+\f † This is the same person referred to in 1 Chron. 25:4 as Uzziel \f* his sons and his relatives, twelve persons in number;
 \v 19 the twelfth fell to Hashabiah, his sons and his relatives, twelve persons in number;
 \v 20 the thirteenth fell to Shubael, his sons and his relatives, twelve persons in number;
 \s5
@@ -1350,8 +1369,10 @@
 \s5
 \c 26
 \p
-\v 1 Here were the divisions of the gatekeepers: From the Korahites, Meshelemiah son of Kore, a descendant of Asaph .
-\v 2 Meshelemiah  had sons: Zechariah the firstborn, Jediael the second, Zebadiah the third, Jathniel the fourth,
+\v 1 Here were the divisions of the gatekeepers: From the Korahites, Meshelemiah son of Kore, a descendant of Asaph 
+\f † Asaph is the same person referred to as Ebiasaph in 1 Chron. 9:19. \f*.
+\v 2 Meshelemiah 
+\f † Meshelemiah is the same person referred to as Shelemiah in 1 Chron. 26:14. \f* had sons: Zechariah the firstborn, Jediael the second, Zebadiah the third, Jathniel the fourth,
 \v 3 Elam the fifth, Jehohanan the sixth, Eliehoenai the seventh.
 \s5
 \v 4 Obed Edom had sons: Shemaiah the firstborn, Jehozabad the second, Joah the third, and Sakar the fourth, and Nethanel the fifth,
@@ -1368,19 +1389,21 @@
 \p
 \v 12 These divisions of the gatekeepers, corresponding to their leaders, had responsibilities, like their relatives, to serve in Yahweh's house.
 \v 13 They threw lots, both young and old, corresponding to their families, for every gate.
-\v 14 When the lot was cast for the east gate, it fell to Shelemiah  . They then cast lots for Zechariah his son, a prudent advisor, and his lot came out for the north gate.
+\v 14 When the lot was cast for the east gate, it fell to Shelemiah 
+\f † Shelemiah is the same person referred to as Meshelemiah in 1CH 26:2. \f* . They then cast lots for Zechariah his son, a prudent advisor, and his lot came out for the north gate.
 \s5
 \v 15 To Obed Edom was assigned the south gate, and his sons were assigned the storehouses.
 \v 16 Shuppim and Hosah were assigned the west gate along with the gate of Shalleketh, on the upper road. Watches were established for each family.
 \s5
 \v 17 On the east were six Levites, on the north four a day, on the south four a day, and at the storehouses two pairs.
 \v 18 At the pillar to the west there were four stationed at the road and two at the pillar 
+\f † The word translated "pillar" is translated in some versions as "parbar." This word appears only here and in 2 Kings 23:11 in the Old Testament. The meaning of this word is not clear. \f*
 \v 19 These were the gatekeepers' divisions. They were filled with descendants of Korah and Merari.
 \s5
 \p
 \v 20 Among the Levites, Ahijah was in charge of the treasures of God's house, and of the treasures of the things that belong to Yahweh.
-\v 21 The descendants of Ladan, descended from Gershon through him and who were leaders of the families of Ladan the Gershonite, were Jehieli
-\v 22 and the sons of Jehieli: Zetham and Joel his brother. They were in charge of the storehouses of the house of Yahweh.
+\v 21 The descendants of Ladan, descended from Gershon through him and who were leaders of the families of Ladan the Gershonite, were Jehieli,
+\v 22 the sons of Jehieli, Zetham, and Joel his brother. They were in charge of the storehouses of the house of Yahweh.
 \s5
 \v 23 From the clans of Amram, the clans of Izhar, the clans of Hebron, and the clans of Uzziel:
 \v 24 Shubael son of Gershom son of Moses, was supervisor over the storehouses.

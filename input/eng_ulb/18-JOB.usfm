@@ -1,7 +1,7 @@
-\id JOB unfoldingWord Literal Text
+\id JOB Unlocked Literal Bible
 \ide UTF-8
 \h Job
-\toc1 The Book of Job
+\toc1 Job
 \toc2 Job
 \toc3 Job
 \mt Job
@@ -400,11 +400,11 @@
 \v 21 For now you friends are nothing to me;
 \q you see my dreadful situation and are afraid.
 \q
-\v 22 Did I say to you, 'Give something to me'
-\q or, 'Offer me a gift from your wealth'
+\v 22 Did I say to you, 'Give something to me?'
+\q Or, 'Offer me a gift from your wealth?'
 \q
-\v 23 or, 'Save me from my adversary's hand'
-\q or, 'Ransom me from the hand of my oppressors'?
+\v 23 Or, 'Save me from my adversary's hand?'
+\q Or, 'Ransom me from the hand of my oppressors?'
 \s5
 \q
 \v 24 Teach me, and I will hold my peace;
@@ -540,7 +540,7 @@
 \q and give your attention to what our ancestors learned.
 \q
 \v 9 (We were only born yesterday and know nothing
-\q because our days on earth are a shadow.)
+\q because our days on earth are a shadow).
 \q
 \v 10 Will they not teach you and tell you?
 \q Will they not speak words from their hearts?
@@ -903,7 +903,7 @@
 \q just as the palate tastes its food?
 \q
 \v 12 With aged men is wisdom;
-\q in length of days is understanding. 
+\q in length of days is understanding.
 \s5
 \q
 \v 13 With God are wisdom and might;
@@ -1232,8 +1232,10 @@
 \q and his possessions will not spread over the land.
 \q
 \v 30 He will not depart out of darkness;
+\f † Several modern versions leave out He will not depart out of darkness , because they believe that this expression was mistakenly copied from 15:22. \f*
 \q a flame will dry up his stalks;
 \q at the breath of God's mouth he will go away.
+\f † The Hebrew text has He will go away by the breath of his mouth , which some modern versions, including the ULB and UDB, interpret as meaning the breath of God's mouth. However, other modern versions follow an ancient Greek reading, his flower will fall with the wind . \f*
 \s5
 \q
 \v 31 Let him not trust in useless things, deceiving himself;
@@ -1375,6 +1377,7 @@
 \q
 \v 11 My days are past; my plans are shattered,
 \q and so are the desires of my heart. 
+\f † Some modern versions have My days are past, as are my plans. The wishes of my heart are finished or ... the strings of my heart have been broken . Others have My days are past; my plans are over, as are the wishes of my heart \f*
 \q
 \v 12 These people, these mockers, change the night into day;
 \q light is near to darkness.
@@ -1891,7 +1894,8 @@
 \v 1 Then Job answered and said,
 \q
 \v 2 "Even today my complaint is bitter;
-\q my hand  is heavy because of my groaning.
+\q my hand 
+\f † Some copies have: his hand \f* is heavy because of my groaning.
 \s5
 \q
 \v 3 Oh, that I knew where I might find him!
@@ -2465,6 +2469,7 @@
 \q
 \v 22 You lift me up to the wind and cause it to drive me along;
 \q you throw me back and forth in a storm.
+\f † Some modern versions have you dissolve me in a storm . \f*
 \q
 \v 23 For I know that you will bring me to death,
 \q to the house appointed for all the living.
@@ -3126,6 +3131,7 @@
 \q
 \v 27 For he draws up the drops of water
 \q that he distills as rain from his vapor,
+\f † Some modern versions have that distill as rain from his vapor . \f*
 \q
 \v 28 which the clouds pour down
 \q and drop in abundance on mankind.

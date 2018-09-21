@@ -237,6 +237,10 @@ function parseLine(line) {
 		usfmData = null;
 
 	if (parts != null) {
+		if (parts[2] == 'v' && typeof(parts[4]) == 'undefined') {
+            parts[4] = parts[6].split("\\f †")
+            parts[6] = ''
+        }
 		usfmData = {
 			key: parts[2] || '',
 			number: parts[4] || '',

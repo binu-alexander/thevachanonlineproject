@@ -1,7 +1,7 @@
-\id NUM unfoldingWord Literal Text
+\id NUM Unlocked Literal Bible
 \ide UTF-8
 \h Numbers
-\toc1 The Book of Numbers
+\toc1 Numbers
 \toc2 Numbers
 \toc3 Num
 \mt Numbers
@@ -163,8 +163,8 @@
 \v 27 The people of the tribe of Asher camp next to Dan. The leader of Asher is Pagiel son of Okran.
 \v 28 The number in his division is 41,500.
 \s5
-\v 29 The tribe of Naphtali is next. The leader of Naphtali is Ahira son of Enan.
-\v 30 The number in his division is 53,400.
+\v 29 The tribe of Naphtali is next. The leader of Naphthali is Ahira son of Enan.
+\v 30 The mnumber in his division is 53,400.
 \s5
 \v 31 All those numbered in the camp with Dan is 157,600. They will go out from the camp last, under their banner."
 \s5
@@ -264,18 +264,18 @@
 \v 4 The descendants of Kohath must take care of the most holy things reserved for me in the tent of meeting.
 \s5
 \v 5 When the camp prepares to move forward, Aaron and his sons must go into the tent, take down the curtain that separates the most holy place from the holy place and cover the ark of the testimony with it.
-\v 6 They must cover the ark with a piece of fine leather. They must spread a blue cloth over it. They must insert the poles to carry it.
+\v 6 They must cover the ark with sea cow skins. They must spread a blue cloth over it. They must insert the poles to carry it.
 \s5
 \v 7 They are to spread a blue cloth on the table of the bread of the presence. On it they must put the dishes, spoons, bowls, and jars for pouring. Bread must always continue to be on the table.
-\v 8 They are to spread over them a scarlet cloth and cover the same with hides of fine leather. They must insert poles to carry the table.
+\v 8 They must cover them with a scarlet cloth and again with sea cow skins. They must insert poles to carry the table.
 \s5
 \v 9 They must take a blue cloth and cover the lampstand, along with its lamps, tongs, trays, and all the jars of oil for the lamps.
-\v 10 They must put the lampstand and all its accessories into a covering of fine leather, and they must put it on a carrying frame.
-\v 11 They must spread a cloth of blue on the gold altar. They must cover it with a covering of fine leather, and then insert the carrying poles.
+\v 10 They must put the lampstand and all its accessories into a covering of sea cow skins, and they must put it on a carrying frame.
+\v 11 They must spread a cloth of blue on the gold altar. They must cover it with a covering of sea cow skins, and then insert the carrying poles.
 \s5
-\v 12 They must take all the equipment for the work in the holy place and wrap it in a blue cloth. They must cover that with the hides of fine leather and put the equipment on the carrying frame.
+\v 12 They must take all the equipment for the work in the holy place and wrap it in a blue cloth. They must cover it with sea cow skins and put the equipment on the carrying frame.
 \v 13 They must remove the ashes from the altar and spread a purple cloth on the altar.
-\v 14 They must put on the carrying frame all the equipment that they use in the work of the altar. These objects are the firepans, forks, shovels, bowls, and all the other equipment for the altar. They must cover the altar with fine leather hides and then insert the carrying poles.
+\v 14 They must put on the carrying frame all the equipment that they use in the work of the altar. These objects are the firepans, forks, shovels, bowls, and all the other equipment for the altar. They must cover the altar with sea cow skins and then insert the carrying poles.
 \s5
 \v 15 When Aaron and his sons have completely covered the holy place and all its equipment, and when the camp moves forward, then the descendants of Kohath must come to carry the holy place. If they touch the holy instruments, they must die. This is the work of the descendants of Kohath, to carry the furnishings in the tent of meeting.
 \v 16 Eleazar son of Aaron the priest oversees the care of the oil for the light, the sweet incense, the regular grain offering, and the anointing oil. He oversees the care of the entire tabernacle and all that is in it, the holy place and its equipment."
@@ -292,7 +292,7 @@
 \v 23 Count those who are thirty years old to fifty years old. Count all of them who will join the company to serve in the tent of meeting.
 \s5
 \v 24 This is the work of the clans of the Gershonites, when they serve and what they carry.
-\v 25 They must carry the curtains of the tabernacle, the tent of meeting, its covering, the covering of fine leather hides that is on it, and the curtains for the entrance to the tent of meeting.
+\v 25 They must carry the curtains of the tabernacle, the tent of meeting, its covering, the covering of sea cow skin that is on it, and the curtains for the entrance to the tent of meeting.
 \v 26 They must carry the curtains of the court, the curtain for the doorway of the court's gate, which is near the tabernacle and near the altar, their ropes, and all the instruments for their service. Whatever should be done with these things, they must do it.
 \s5
 \v 27 Aaron and his sons must direct all the service of the descendants of the Gershonites, in everything that they transport, and in all their service. You must assign them to all their responsibilities.
@@ -744,7 +744,7 @@
 \v 16 Yahweh said to Moses, "Bring to me seventy of Israel's elders. Be sure that they are elders and officers of the people. Bring them to the tent of meeting to stand there with you.
 \v 17 I will come down and talk with you there. I will take some of the Spirit that is on you and put it on them. They will bear the burden of the people with you. You will not have to bear it alone.
 \s5
-\v 18 Say to the people, 'Consecrate yourselves, for tomorrow you will indeed eat meat, for you have wept and Yahweh has heard. You said, "Who will give us meat to eat? It was good for us in Egypt." Therefore Yahweh will give you meat, and you will eat it.
+\v 18 Say to the people, 'Consecrate yourselves, for tomorrow and you will indeed eat meat, for you have wept and Yahweh has heard. You said, "Who will give us meat to eat? It was good for us in Egypt." Therefore Yahweh will give you meat, and you will eat it.
 \v 19 You will not eat meat for only one day, two days, five days, ten days, or twenty days,
 \v 20 but you will eat meat for a whole month until it comes out of your nostrils. It will disgust you because you have rejected Yahweh, who is among you. You have wept before him. You said, "Why did we leave Egypt?"'"
 \s5
@@ -1928,28 +1928,31 @@
 \c 30
 \p
 \v 1 Moses spoke to the leaders of the tribes of the people of Israel. He said, "This is what Yahweh has commanded.
-\v 2 When a man makes a vow to Yahweh, or swears an oath to bind himself with a binding promise, he must not break his word. He must keep his promise to do everything that comes out of his mouth.
+\v 2 When anyone makes a vow to Yahweh, or swears an oath to bind himself with a promise, he must not break his word. He must keep his promise to do everything that comes out of his mouth.
 \s5
-\v 3 When a young woman living in her father's house makes a vow to Yahweh and binds herself with a promise, while within the house of her father,
-\v 4 if her father hears the vow and the promise by which she has bound herself, and if he says nothing to reverse her, then all her vows will remain in force, and every pledge by which she has bound herself will stand.  
+\v 3 When a young woman living in her father's house makes a vow to Yahweh and binds herself with a promise,
+\v 4 if her father hears the vow and the promise by which she has bound herself, and if he says nothing to reverse her, then all her vows will remain in force. 
 \s5
-\v 5 But if her father overrules her when he hears about it, none of her vows or the pledges by which she obligated herself will stand; Yahweh will release her because her father has forbidden her.
+\v 5 But if her father overrules her when he hears about it, none of her vows or the pledges by which she obligated herself will remain in force; Yahweh will release her because her father has forbidden her. 
 \s5
-\v 6 If she marries a husband after she makes a vow or her lips uttered a rash promise by which she has bound herself,
-\v 7 and her husband hears about it but says nothing to her, then her vows will stand, and the pledges by which she bound herself will stand.
+\p
+\v 6 If she marries a husband after she makes a vow or her lips uttered a rash promise by which she has bound herself, 
+\v 7 and her husband hears about it but says nothing to her, then her vows by which she bound herself will remain in force.
 \s5
-\v 8 But if her husband stops her on the day that he hears about it, then he cancels the vow that she has made, the rash talk of her lips with which she has bound herself, and Yahweh will release her.
+\v 8 But if her husband stops her on the day that he hears about it, then he cancels the vow that she has made, the rash talk of her lips with which she has bound herself. Yahweh will release her.
 \s5
-\v 9 But any vow of a widow or a divorced woman will stand against her.
-\v 10 If a woman made a vow in her husband's house or bound herself by a pledge with an oath,
-\v 11 and her husband hears of it but he says nothing to her and he does oppose her, then all her vows will stand, and every pledge by which she bound herself will stand.
+\p
+\v 9 But as for a widow or a divorced woman, everything by which she has bound herself will remain in force against her.
+\v 10 If a woman made a vow in her husband's house or obligates herself by taking an oath,
+\v 11 and her husband hears of it, but he says nothing to her and he does oppose her, then all her vows must stand and the obligations she made must remain in force.
 \s5
-\v 12 But if her husband cancels them on the day that he heard about them, then whatever came out of her lips about her vows or promises will not stand. Her husband has canceled them, and Yahweh will release her.
+\v 12 But if her husband cancels them on the day that he heard about them, then whatever came out of her lips about her vows or promises will not remain in force. Her husband has canceled them. Yahweh will release her.
 \s5
-\v 13 Any vow and any binding oath to afflict her, her husband may make it stand or her husband may cancel it.
-\v 14 But if her husband says nothing to her from day to day, then he confirms all her vows and binding promises that she has made, and they will stand, because he has said nothing to her on the day that he heard of them.
+\p
+\v 13 Every vow or oath a woman takes that binds her to deny herself something may be confirmed or canceled by her husband.
+\v 14 But if he says nothing at all to her day after day, then he confirms all her vows and binding promises that she has made. He has confirmed them because he has said nothing to her at the time that he heard about them.
 \s5
-\v 15 If her husband cancels his wife's vow after he has heard about them, then he will be responsible for her guilt."
+\v 15 If her husband tries to cancel his wife's vow a long time after he has heard about it, then he will be responsible for her sin."
 \v 16 These are the statutes that Yahweh commanded Moses to announce—statutes for what is between a man and his wife and between a father and his daughter when she is in her youth in her father's family.
 \s5
 \c 31
@@ -2006,12 +2009,12 @@
 \v 34 sixty-one thousand donkeys,
 \v 35 and thirty-two thousand women who had not known a man by lying with him. 
 \s5
-\v 36 The half that was kept for the soldiers numbered 337,000 sheep,
-\v 37 from which Yahweh's part of the sheep was 675.
-\v 38 The oxen were thirty-six thousand from which Yahweh's part was seventy-two.
+\v 36 The half that was kept for the soldiers numbered 337,000 sheep.
+\v 37 Yahweh's part of the sheep was 675.
+\v 38 The oxen were thirty-six thousand which Yahweh's tax was seventy-two.
 \s5
 \v 39 The donkeys were 30,500 from which Yahweh's part was sixty-one.
-\v 40 The persons were sixteen thousand women from which Yahweh's part was thirty-two.
+\v 40 The persons were sixteen thousand women of whom Yahweh's tax was thirty-two.
 \v 41 Moses took the tax that was to be an offering presented to Yahweh. He gave it to Eleazar the priest, as Yahweh commanded Moses.
 \s5
 \p
@@ -2271,7 +2274,7 @@
 \v 17 If an accused man has struck his victim with a stone in his hand that might kill the victim, and if his victim dies, then the accused is indeed a murderer. He must certainly be put to death.
 \v 18 If an accused man has struck his victim with a wooden weapon that might kill the victim, and if the victim dies, then the accused is indeed a murderer. He must certainly be put to death.
 \s5
-\v 19 The avenger of blood must put the murderer to death. When he meets him, the avenger of blood must put him to death. 
+\v 19 The avenger of blood may put the murderer to death. When he meets him, the avenger of blood must put him to death.
 \v 20 If he strikes another in hatred or throws something at him, while hiding to ambush him, so that the victim dies,
 \v 21 or if he strikes him down in hatred with his hand so that the victim dies, then the accused who struck him must surely be put to death. He is a murderer. The avenger of blood may put the murderer to death when he meets him.
 \s5
