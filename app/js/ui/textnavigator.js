@@ -245,7 +245,7 @@ var TextNavigator = function() {
 				//old -code
 				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
 				//modified code for header change while selectring language
-				if(textInfo.id != "hindi_dict")
+				if(textInfo.id != "comm_hin_dict")
 					html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedOt = true;
 			}
@@ -253,7 +253,7 @@ var TextNavigator = function() {
 				let header = (sofia.resources[textInfo.lang_2_code].translation.windows.bible.nt);
 				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.nt') + '</div>');
 				// modified code for header change while selectring language
-				if(textInfo.id != "hindi_dict")
+				if(textInfo.id != "comm_hin_dict")
 					html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedNt = true;
 			}
