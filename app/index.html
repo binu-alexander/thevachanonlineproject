@@ -300,9 +300,14 @@
 
 		})
 		$(document).on("click", ".dict-span", function(){
-			console.log($(this).text())
-			$(".text-nav").last().val($(this).text())
+			$(".text-nav").last().val($(this).text());
 		});
+
+		$(document).on("click", 'tr[data-id="comm_hin_dict"]', function(){
+			$(".text-nav").last().val("अकाल");
+			console.log("test")
+		});
+
 
 		
 </script>
