@@ -329,3 +329,10 @@ div.is1 {
 .comm_hin_irv .ip {
     line-height: 1.8 !important;
 }
+
+#main-feeback-button {
+	margin: -37px 52px;
+    color: #fff;
+    width: 76px;
+    float: right;
+ }
