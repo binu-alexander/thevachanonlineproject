@@ -13,7 +13,7 @@ var NavigationButtons = function(node) {
 	$('html').addClass('supports-fullscreen');
 
 	var
-		feedBackForm = $('<div id="main-feeback-button" class="inactive" style="">Feedback</div>')
+		feedBackForm = $('<div id="main-feeback-button" class="inactive" style="">Got a comment or suggestion?</div>')
 			.appendTo( $('.windows-header') ),
 			// .on('click',feedBackPopup),
 		// forwardButton = $('<div id="main-forward-button" class="inactive"></div>')
@@ -41,7 +41,7 @@ var NavigationButtons = function(node) {
 		//window.history.go(1);
 	}
 
-	var feedbackWindow = new MovableWindow(800, 450, "Feedback form");
+	var feedbackWindow = new MovableWindow(800, 450, "Got a comment or suggestion?");
 	$(document).on("click", "#main-feeback-button", function(){
 		
 		var body = $(document.body),
