@@ -327,6 +327,8 @@ var AudioController = function(id, container, toggleButton, scroller) {
 						// give feedback
 						//title.html( new bible.Reference(sectionid).toString() + (audioInfo.title ? ' [' + audioInfo.title + ']' : ''));
 						title.html( new bible.Reference(sectionid).toString() );
+						// give book chapter feedback to the audio window container as well
+						$(".audio-window-container").find(".text-nav").val(new bible.Reference(sectionid).toString())
 						subtitle.html( audioInfo.title );
 
 					}
