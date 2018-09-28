@@ -256,6 +256,7 @@
 
 </body>
 <script type="text/javascript">
+		var temp = $(this).text()
 		aboutWindow = new MovableWindow(800, 450, "More Links");
 		body = $(document.body);
 		win = $(window);
@@ -301,14 +302,12 @@
 		})
 		$(document).on("click", ".dict-span", function(){
 			$(".text-nav").last().val($(this).text());
+
 		});
-
-		$(document).on("click", 'tr[data-id="comm_hin_dict"]', function(){
-			$(".text-nav").last().val("अकाल");
-			console.log("test")
-		});
+		$(document).on("click", ".app-list", function(){
+			$(".text-chooser-filter-text").focus();
+		})
 
 
-		
 </script>
 </html>
