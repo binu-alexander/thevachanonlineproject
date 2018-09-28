@@ -256,6 +256,7 @@
 
 </body>
 <script type="text/javascript">
+		var temp = $(this).text()
 		aboutWindow = new MovableWindow(800, 450, "More Links");
 		body = $(document.body);
 		win = $(window);
@@ -300,10 +301,13 @@
 
 		})
 		$(document).on("click", ".dict-span", function(){
-			console.log($(this).text())
-			$(".text-nav").last().val($(this).text())
-		});
+			$(".text-nav").last().val($(this).text());
 
-		
+		});
+		$(document).on("click", ".app-list", function(){
+			$(".text-chooser-filter-text").focus();
+		})
+
+
 </script>
 </html>
