@@ -111,15 +111,12 @@ var TextChooser = function() {
 			}
 		}
 
-		console.log(filter.val())
-
 		// var text = filter.val().toLowerCase();
-
 
 		var text = '' // Added this line to load the new book order in drop down menu by default
 
 		if (text == '') {
-			renderTexts(list_data);
+			// renderTexts(list_data);
 			//updateRecentlyUsed();
 
 			var arrayOfTexts = list_data;
@@ -888,13 +885,10 @@ var TextChooser = function() {
 	function show() {
 		//$('.nav-drop-list').hide();
 
-		// console.log('textchooser.show');
-
 		size();
 		textChooser.show();
 		ext.onshow();
 
-		list_data = null
 		if (!list_data) {
 			main.addClass('loading-indicator');//.html('Loading');
 
@@ -909,7 +903,6 @@ var TextChooser = function() {
 					}
 				}
 
-				//console.log('TextChoose.show(), load render');
 				main.removeClass('loading-indicator');
 				renderTexts(list_data);
 
