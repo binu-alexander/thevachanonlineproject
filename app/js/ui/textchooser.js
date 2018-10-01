@@ -247,11 +247,6 @@ var TextChooser = function() {
 		if(textid=="comm_hin_dict"){
 			$(".text-nav").last().val("अ");
 		}
-		else{
-			console.log($(".text-nav").first());
-			console.log($(".text-nav").first().textContent);
-			$(".text-nav").last().val($(".text-nav").first().text());
-		}
 
 
 		row.addClass('selected')
