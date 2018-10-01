@@ -26,12 +26,12 @@ var TextChooser = function() {
 							'<span class="up-arrow-border"></span>' +
 							'<div class="text-chooser-header">' +
 								'<div class="text-chooser-selector">' +
-									'<span class="text-chooser-default selected i18n" data-mode="default" data-i18n="[html]windows.bible.default"></span>' +
-									'<span class="text-chooser-languages i18n" data-mode="languages" data-i18n="[html]windows.bible.languages"></span>' +
-									'<span class="text-chooser-countries i18n" data-mode="countries" data-i18n="[html]windows.bible.countries"></span>' +
+								// 	'<span class="text-chooser-default selected i18n" data-mode="default" data-i18n="[html]windows.bible.default"></span>' +
+								// 	'<span class="text-chooser-languages i18n" data-mode="languages" data-i18n="[html]windows.bible.languages"></span>' +
+								// 	'<span class="text-chooser-countries i18n" data-mode="countries" data-i18n="[html]windows.bible.countries"></span>' +
 								'</div>' +
-								'<input type="text" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
-								'<span class="close-button">Close</span>' +
+								// '<input type="text" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
+								// '<span class="close-button">Close</span>' +
 							'</div>' +
 							'<div class="text-chooser-main"></div>' +
 						'</div>')
@@ -109,7 +109,10 @@ var TextChooser = function() {
 			}
 		}
 
-		var text = filter.val().toLowerCase();
+		// var text = filter.val().toLowerCase();
+
+
+		var text = '' // Added this line to load the new book order in the drop down menu by default
 
 		if (text == '') {
 			//renderTexts(list_data);
@@ -237,8 +240,19 @@ var TextChooser = function() {
 
 	// handle when user clicks on a text
 	textChooser.on('click', '.text-chooser-row', function() {
+
 		var row = $(this),
 			textid = row.attr('data-id');
+
+		if(textid=="comm_hin_dict"){
+			$(".text-nav").last().val("अ");
+		}
+		else{
+			console.log($(".text-nav").first());
+			console.log($(".text-nav").first().textContent);
+			$(".text-nav").last().val($(".text-nav").first().text());
+		}
+
 
 		row.addClass('selected')
 			.siblings()
@@ -254,7 +268,6 @@ var TextChooser = function() {
 
 			selectedTextInfo = data;
 
-			//console.log('chooser:change:click', selectedTextInfo);
 			ext.trigger('change', {type:'change', target: this, data: {textInfo: selectedTextInfo, target: target} });
 
 		});
@@ -431,7 +444,7 @@ var TextChooser = function() {
 			// PINNED
 			var pinnedLanguages = [];
 			if (sofia.config.pinnedLanguages && sofia.config.pinnedLanguages.length && sofia.config.pinnedLanguages.length > 0) {
-				console.log('finding pins');
+				// console.log('finding pins');
 
 				for (var i=0, il  = sofia.config.pinnedLanguages.length; i<il; i++) {
 					var pinnedLanguage = sofia.config.pinnedLanguages[i];
@@ -837,6 +850,7 @@ var TextChooser = function() {
 
 	function setTarget(_container, _target, _text_type) {
 
+
 		var needsToRerender = _text_type != text_type;;
 
 		container = _container;
@@ -875,7 +889,7 @@ var TextChooser = function() {
 	function show() {
 		//$('.nav-drop-list').hide();
 
-		//console.log('textchooser.show');
+		// console.log('textchooser.show');
 
 		size();
 		textChooser.show();
