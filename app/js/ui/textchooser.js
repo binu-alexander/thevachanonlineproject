@@ -30,8 +30,8 @@ var TextChooser = function() {
 								// 	'<span class="text-chooser-languages i18n" data-mode="languages" data-i18n="[html]windows.bible.languages"></span>' +
 								// 	'<span class="text-chooser-countries i18n" data-mode="countries" data-i18n="[html]windows.bible.countries"></span>' +
 								'</div>' +
-								// '<input type="text" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
-								// '<span class="close-button">Close</span>' +
+								'<input type="text" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
+								'<span class="close-button">Close</span>' +
 							'</div>' +
 							'<div class="text-chooser-main"></div>' +
 						'</div>')
@@ -69,9 +69,9 @@ var TextChooser = function() {
 			filter
 				.val('');
 
-			if (!Detection.hasTouch) {
-				filter.focus();
-			}
+			// if (!Detection.hasTouch) {
+			// 	filter.focus();
+			// }
 
 			renderTexts(list_data);
 		});
@@ -81,10 +81,12 @@ var TextChooser = function() {
 		listselector.hide();
 	}
 
+	$(document).on("click", ".app-list", function(){
+			filterVersions();
+		})
+	// filter.on('keyup keypress', filterVersions);
 
-	filter.on('keyup keypress', filterVersions);
-
-	filter.on('focus', filterVersions);
+	// filter.on('focus', filterVersions);
 
 	/*filter.on('focus', function() {
 		
@@ -109,13 +111,15 @@ var TextChooser = function() {
 			}
 		}
 
+		console.log(filter.val())
+
 		// var text = filter.val().toLowerCase();
 
 
-		var text = '' // Added this line to load the new book order in the drop down menu by default
+		var text = '' // Added this line to load the new book order in drop down menu by default
 
 		if (text == '') {
-			//renderTexts(list_data);
+			renderTexts(list_data);
 			//updateRecentlyUsed();
 
 			var arrayOfTexts = list_data;
@@ -890,7 +894,7 @@ var TextChooser = function() {
 		textChooser.show();
 		ext.onshow();
 
-
+		list_data = null
 		if (!list_data) {
 			main.addClass('loading-indicator');//.html('Loading');
 
@@ -915,15 +919,14 @@ var TextChooser = function() {
 		}
 
 		size();
-
 		if (filter.val() != '') {
 			filter.val('');
 			filterVersions();
 		}
 
-		if (!Detection.hasTouch) {
-			filter.focus();
-		}
+		// if (!Detection.hasTouch) {
+		// 	filter.focus();
+		// }
 
 	}
 
