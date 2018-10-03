@@ -7,7 +7,7 @@ var CrossReferencePopupPlugin = function(app) {
 	}
 
 	var referencePopup = new InfoWindow('CrossReferencePopup');
-
+	var verserange = []
 	referencePopup.container.css({zIndex: 1000});
 
 	function getFragmentidFromNode(node) {
@@ -19,15 +19,28 @@ var CrossReferencePopupPlugin = function(app) {
 
 			if (typeof text != 'undefined' && text != null) {
 				var bref = new bible.Reference(text.split(';')[0].trim());
-				if (typeof bref.toSection != 'undefined') {
-					fragmentid = bref.toSection();
 
-					break;
+				if (typeof bref.toSection != 'undefined')  {
+
+					if (bref.verse2 == -1) {
+						fragmentid = bref.toSection();
+						verserange = [];
+						break;
+					}
+
+					else{
+						fragmentid = bref.toSection();
+						var m=0
+						for (var i = bref.verse1; i <= bref.verse2; i++) {
+							verserange[m] = i
+							m = m+1
+						}
+						break;
+					}
 				}
 			}
 
 		}
-
 		return fragmentid;
 	}
 
@@ -128,7 +141,7 @@ var CrossReferencePopupPlugin = function(app) {
 				}
 
 
-				console.log('hover', textid, sectionid, fragmentid);
+				// console.log('hover', textid, sectionid, fragmentid);
 				// var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
 
 				// Above code I (udkumar@hotmail.com) commented because default 
@@ -141,20 +154,37 @@ var CrossReferencePopupPlugin = function(app) {
 
 					TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
 
-						var verse = contentNode.find('.' + fragmentid),
-							html = '';
+						var html = '';
+						var verse = '';
 
-						verse.find('.note').remove();
-						
-						verse.each(function() {
+						if (verserange.length > 0) {
+							for (var j = 0; j< verserange.length; j++ ){
+								fragmentid = sectionid + "_" + verserange[j]
+								verse = contentNode.find('.' + fragmentid)
+								verse.find('.note').remove();
+								verse.each(function() {
+								html += "<span style='font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;" + "<span style='color:#3232ff;'>" + $(this).html() + "</span>";
+								});
+								html += "<span style='font-size:10px;'></span><br>"
+							}
+							
+						}
+						else{
+							verse = contentNode.find('.' + fragmentid)
+							verse.find('.note').remove();
+							verse.each(function() {
 							html += "<span style='color:#3232ff;'>" + $(this).html() + "</span>";
-						});
-						html += "<span style='font-size:10px;'></span>"
+							});
+							html += "<span style='font-size:10px;'></span>"
+						}
+						verserange = [];
+						
 						// html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
 
 						referencePopup.body.html( html );
 						referencePopup.show();
 						referencePopup.position(link);
+						html = '';
 
 					});
 				});
