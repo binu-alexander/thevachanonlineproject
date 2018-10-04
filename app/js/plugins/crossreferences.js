@@ -163,9 +163,9 @@ var CrossReferencePopupPlugin = function(app) {
 								verse = contentNode.find('.' + fragmentid)
 								verse.find('.note').remove();
 								verse.each(function() {
-								html += "<span style='font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;" + "<span style='color:#3232ff;'>" + $(this).html() + "</span>";
+								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;" + $(this).html();
 								});
-								html += "<span style='font-size:10px;'></span><br>"
+								html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
 							}
 							
 						}
@@ -173,7 +173,7 @@ var CrossReferencePopupPlugin = function(app) {
 							verse = contentNode.find('.' + fragmentid)
 							verse.find('.note').remove();
 							verse.each(function() {
-							html += "<span style='color:#3232ff;'>" + $(this).html() + "</span>";
+							html += $(this).html();
 							});
 							html += "<span style='font-size:10px;'></span>"
 						}
