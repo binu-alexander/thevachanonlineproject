@@ -41,41 +41,49 @@ var NavigationButtons = function(node) {
 		//window.history.go(1);
 	}
 
-	var feedbackWindow = new MovableWindow(800, 450, "Got a comment or suggestion?");
-	$(document).on("click", "#main-feeback-button", function(){
+	// I [Uday Kumar] commented this code and move to index page
+	// var feedbackWindow = new MovableWindow(800, 450, "Got a comment or suggestion?");
+	// $(document).on("click", "#main-feeback-button", function(){
+	// 	console.log("skjd")
 		
-		var body = $(document.body),
-			win = $(window),
-			winWidth = win.width(),
-			winHeight = win.height();
+	// 	var body = $(document.body),
+	// 		win = $(window),
+	// 		winWidth = win.width(),
+	// 		winHeight = win.height();
 
-		feedbackWindow.body.html('<iframe style="border: 0;" src="feedback.html"></iframe>');
-		feedbackWindow.body.css({padding: 2});
+	// 	feedbackWindow.body.html('<iframe style="border: 0;" src="feedback.html"></iframe>');
+	// 	feedbackWindow.body.css({padding: 2});
 		
-		var iframe = feedbackWindow.body.find('iframe');
+	// 	var iframe = feedbackWindow.body.find('iframe');
 
-		iframe.css({
-			width: feedbackWindow.body.width(),
-			height: feedbackWindow.body.height() - 5
-		});
+	// 	iframe.css({
+	// 		width: feedbackWindow.body.width(),
+	// 		height: feedbackWindow.body.height() - 5
+	// 	});
 
-		feedbackWindow.show();
-		modalOverlay = $('<div class="modal-overlay"></div>')
-						.appendTo( body );
+	// 	feedbackWindow.show();
+	// 	modalOverlay = $('<div class="modal-overlay"></div>')
+	// 					.appendTo( body );
 
-		modalOverlay
-			.width( winWidth )
-			.height( winHeight )
-			.show();
-	});
+	// 	modalOverlay
+	// 		.width( winWidth )
+	// 		.height( winHeight )
+	// 		.show();
+	// });
 
-	feedbackWindow.closeButton.on('click', function() {
-		modalOverlay.hide();
-	});
+	// feedbackWindow.closeButton.on('click', function() {
+	// 	modalOverlay.hide();
+	// });
 
-	$(document).on("click", ".modal-overlay", function(){
-		modalOverlay.hide();
-		feedbackWindow.hide();
+	// $(document).on("click", ".modal-overlay", function(){
+	// 	modalOverlay.hide();
+	// 	feedbackWindow.hide();
+	// })
+
+	
+	$(document).on("click", "#emailFeedbackFormButton", function(){
+		var $form = ""
+		console.log("ok")
 	})
 
 	/*
