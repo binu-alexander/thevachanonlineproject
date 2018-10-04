@@ -156,7 +156,7 @@ var CrossReferencePopupPlugin = function(app) {
 
 						var html = '';
 						var verse = '';
-
+						
 						if (verserange.length > 0) {
 							for (var j = 0; j< verserange.length; j++ ){
 								fragmentid = sectionid + "_" + verserange[j]
