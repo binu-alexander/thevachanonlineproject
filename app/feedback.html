@@ -70,30 +70,75 @@ input[type=submit]:hover {
 </head>
 <body>
 
-<p>We are still in the making and we would love to hear how we can better your VachanOnline experience.</p>
+<p >We are still in the making and we would love to hear how we can better your VachanOnline experience.</p>
+<span id="message" style="display: none;"></span>
 
 <div class="container">
-    <form action="#">
+    <form id="emailFeedbackForm" >
         <div class="row">
           <div class="col-100">
-            <input type="text" id="fname" name="firstname" placeholder="Your Name (required)">
+            <input type="text" id="fname" name="firstname" required="true" placeholder="Your Name (required)">
           </div>
         </div>
         <div class="row">
           <div class="col-100">
-            <input type="text" id="femail" name="lastname" placeholder="Your Email (required)">
+            <input type="text" id="femail" name="lastname" placeholder="Your Email">
           </div>
         </div>
         <div class="row">
           <div class="col-100">
-            <textarea id="fsubject" name="subject" placeholder="Your Message (required)" style="height:200px"></textarea>
+            <textarea id="fsubject" name="subject" required="true" placeholder="Your Message (required)" style="height:200px"></textarea>
           </div>
         </div>
         <div class="row">
-          <input type="submit" value="Submit">
+          <input type="button" value="Submit" id="emailFeedbackFormButton">
         </div>
     </form>
 </div>
 
 </body>
+<script src="js/lib/jquery.min.js" data-build="copy"></script>
+<script type="text/javascript">
+
+    $(document).on("click", "#emailFeedbackFormButton", function(){
+        
+        var fname = $('#emailFeedbackForm').find("#fname").val(),
+            femail = $('#emailFeedbackForm').find("#femail").val(),
+            fmessage = $('#emailFeedbackForm').find("#fsubject").val();
+        if ((fname != "") && (fmessage != "")){
+            var $form = $("#emailFeedbackForm").serialize()
+            $.ajax({
+                url: "http://localhost:3000/vachanfeedback",
+                data: $form,
+                type: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                success: function() { 
+                    $("#message").html("Thanks for your feedback.");
+                    $("#message").css("colo","green");
+                    $("#message").css("text-align","center");
+                    $("#message").show().delay(5000).queue(function(n) {
+                      $(this).hide(); n();
+                    });
+                },
+                error: function(){
+                    $("#message").html("Something Went Wrong.");
+                    $("#message").css("color","red");
+                    $("#message").css("text-align","center");
+                    $("#message").show().delay(5000).queue(function(n) {
+                      $(this).hide(); n();
+                    });
+                }
+            });
+        }else{
+            $("#message").html("Please fill the form properly.");
+            $("#message").css("color","red");
+            $("#message").css("text-align","center");
+            $("#message").show().delay(5000).queue(function(n) {
+              $(this).hide(); n();
+            });
+        }
+    })
+</script>
 </html>
