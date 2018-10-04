@@ -242,7 +242,6 @@
 	    position: relative;
 	}
 	</style>
-
 </head>
 <body>
 
@@ -253,6 +252,7 @@
 
 		<p>Technology Partner: Bridge Connectivity Solutions Pvt. Ltd. Source code forked from Digital Bible Society’s Browser Bible-3(InScript).</p>
 	</div>
+	
 
 </body>
 <script type="text/javascript">
@@ -305,6 +305,54 @@
 
 		});
 
+
+	var feedbackWindow = new MovableWindow(800, 450, "Got a comment or suggestion?");
+	$(document).on("click", "#main-feeback-button", function(){
+		console.log("skjd")
+		
+		var body = $(document.body),
+			win = $(window),
+			winWidth = win.width(),
+			winHeight = win.height();
+
+		feedbackWindow.body.html('<iframe style="border: 0;" id="iframeFeedback" src="feedback.html"></iframe>');
+		feedbackWindow.body.css({padding: 2});
+		
+		var iframe = feedbackWindow.body.find('iframe');
+
+		iframe.css({
+			width: feedbackWindow.body.width(),
+			height: feedbackWindow.body.height() - 5
+		});
+
+		feedbackWindow.show();
+		modalOverlay = $('<div class="modal-overlay"></div>')
+						.appendTo( body );
+
+		modalOverlay
+			.width( winWidth )
+			.height( winHeight )
+			.show();
+	});
+
+	feedbackWindow.closeButton.on('click', function() {
+		modalOverlay.hide();
+	});
+	console.log(feedbackWindow)
+
+	$(document).on("click", ".modal-overlay", function(){
+		modalOverlay.hide();
+		feedbackWindow.hide();
+	})
+
+	// $(document).ready(function(){
+	// 	$(document).on("click", "#emailFeedbackFormButton", function(){
+	// 		Iframe = $('#iframeFeedback');
+	// 		IframeInner = Iframe.contents().find('iframe');
+
+	// 		console.log(Iframe)
+	// 	})
+	// })
 
 </script>
 </html>
