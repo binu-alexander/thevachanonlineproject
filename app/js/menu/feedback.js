@@ -1,8 +1,8 @@
 sofia.config = $.extend(sofia.config, {
 
-	enableFeedback: false,
+	enableFeedback: true,
 
-	feedbackUrl: ''
+	feedbackUrl: location.protocol + '//' + location.host
 
 });
 
