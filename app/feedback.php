@@ -9,7 +9,7 @@ ob_start('mb_output_handler');
 header('Content-type: application/javascript');
 
 
-$from_email = 'johndyer@gmail.com';
+$from_email = 'udayonrails@gmail.com';
 
 //// START UP
 $name = $_POST['name'];
