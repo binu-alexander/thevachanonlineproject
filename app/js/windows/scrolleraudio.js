@@ -302,7 +302,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 							// only when the previous data was null, do we reshow the control bar
 							if (fragmentAudioData == null) {
 								// let's not do it ever
-								//block.show();
+								block.show();
 							}
 
 							fragmentAudioData = newFragmentAudioData;
