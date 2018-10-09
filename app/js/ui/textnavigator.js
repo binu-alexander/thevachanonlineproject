@@ -155,9 +155,9 @@ var TextNavigator = function() {
 				var textInputValue = "यूहन्ना 3:16",
 					biblereference = new bible.Reference(textInputValue),
 					fragmentid = (biblereference) ? biblereference.toSection() : null;
-					console.log("** 121 **   "+ textInputValue);
-					console.log("** 122 **   "+ biblereference);
-					console.log("** 123 **   "+ fragmentid);
+					// console.log("** 121 **   "+ textInputValue);
+					// console.log("** 122 **   "+ biblereference);
+					// console.log("** 123 **   "+ fragmentid);
 
 
 				renderDivisions();
@@ -245,8 +245,12 @@ var TextNavigator = function() {
 				//old -code
 				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
 				//modified code for header change while selectring language
-				if(textInfo.id != "comm_hin_dict")
+				if(textInfo.id != "comm_hin_dict" && textInfo.id != "eng_EBD_dict")
 					html.push('<div class="text-navigator-division-header">' + header + '</div>');
+				// Added this code to avoid the header in EBD
+				console.log("-*******----",textInfo.id);
+				// if(textInfo.id != "eng_EBD_dict")
+					// html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				hasPrintedOt = true;
 			}
 			if (bible.NT_BOOKS.indexOf(divisionid) > -1 && !hasPrintedNt) {
@@ -379,7 +383,7 @@ var TextNavigator = function() {
 
 				break;
 			case 'dictionary':
-				// print out chapters
+				// Adding this case for enabling Dictionary to the VO - by VIPIN
 				console.log(changer.find('.text-navigator-division.selected'))
 				var selected_division = changer.find('.text-navigator-division.selected'),
 					isLast = selected_division.next().length == 0,
@@ -402,11 +406,13 @@ var TextNavigator = function() {
 					// console.log(textInfo.sections[chapter]);
 					// var dbsChapterCode = textInfo.sections[chapter];
 					var dbsChapterCode = chapters[chapter];
-						vipin = dbsChapterCode.split('-');
+						// vipin = dbsChapterCode.split('-');
+						// This line is for getting the words after first '-'
+						vipin = dbsChapterCode.substr(dbsChapterCode.indexOf('-')+1);
 						console.log("VIPIN ******  ", vipin);
 						// chapterNumber = parseInt(dbsChapterCode.substring(2));
 
-					html.push('<span style="width:90px;" class="text-navigator-section dict-span section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + vipin[1] + '</span>');
+					html.push('<span style="width:90px;" class="text-navigator-section dict-span section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + vipin + '</span>');
 				}
 
 				var sectionNodes = $('<div class="text-navigator-sections" style="display:none;">' + html.join('') + '</div>');
@@ -460,6 +466,9 @@ var TextNavigator = function() {
 							.attr('data-id');
 
 		console.log('navigator selected', sectionid);
+		console.log("=======dict===============")
+		console.log(target)
+
 		ext.trigger('change', {type:'change', target: this, data: {sectionid: sectionid, target: target}});
 
 		//navigation_changed_callback(sectionid);
@@ -467,6 +476,21 @@ var TextNavigator = function() {
 		changer.hide();
 	});
 
+	// Added this code for directly jumping from one word to another 
+	// by clicking on the more words in "SEE HERE" section - by VIPIN and SANDEEP
+	$(document).on("click", ".plain-text", function() {
+		var sectionid = $(this)
+							.addClass('selected')
+							.attr('data-id');
+
+		$(".text-nav")[2].click();
+
+		ext.trigger('change', {type:'change', target: this, data: {sectionid: sectionid, target: target}});
+
+		//navigation_changed_callback(sectionid);
+
+		changer.hide();
+	});
 	function size(width,height) {
 
 		if (isFull) {
