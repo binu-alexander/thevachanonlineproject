@@ -35,8 +35,6 @@ var NotesPopupPlugin = function(app) {
 
 		e.preventDefault();
 
-		console.log('notes');
-
 		var key = $(this);
 
 

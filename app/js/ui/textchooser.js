@@ -69,9 +69,9 @@ var TextChooser = function() {
 			filter
 				.val('');
 
-			// if (!Detection.hasTouch) {
-			// 	filter.focus();
-			// }
+			if (!Detection.hasTouch) {
+				filter.focus();
+			}
 
 			renderTexts(list_data);
 		});
@@ -917,9 +917,9 @@ var TextChooser = function() {
 			filterVersions();
 		}
 
-		// if (!Detection.hasTouch) {
-		// 	filter.focus();
-		// }
+		if (!Detection.hasTouch) {
+			filter.focus();
+		}
 
 	}
 
