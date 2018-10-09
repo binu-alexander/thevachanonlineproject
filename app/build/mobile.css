@@ -298,14 +298,13 @@ display: none;
 }
 
 /* book name */
-/*
 .mt {
 display: block;
 text-align: center;
 font-size: 2em;
 margin: 1.2em 0;
 }
-  */
+
 /* main bible verse, text formatting */
 .section,
 .chapter {
@@ -360,14 +359,14 @@ margin: 1.2em 0;
   cursor: pointer;
 }
 
-/*
+
 .chapter h3,
 .chapter .c {
 font-weight: bold;
 line-height: 1.4;
 margin: 1.5em 0 0.5em 0;
 }
-  */
+  
 /* notes and cross references */
 .note,
 .cf {
