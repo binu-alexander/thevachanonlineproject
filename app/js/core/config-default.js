@@ -46,7 +46,7 @@ sofia.config = {
 	newWindowFragmentid: 'MT1_1',
 
 	// new commentary window
-	newCommentaryWindowTextId: 'comm_eng_tske',
+	newCommentaryWindowTextId: 'comm_tske_eng',
 
 	newTnotesWindowTextId: 'comm_eng_tske_test',
 
