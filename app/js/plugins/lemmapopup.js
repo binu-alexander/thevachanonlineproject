@@ -37,7 +37,8 @@ var LemmaPopupPlugin = function(app) {
 		});
 
 
-	$('.windows-main').on('click','.BibleWindow l', function(e) {
+	$('.windows-main').on('click','l', function(e) {
+		// alert("hi")
 
 		var l = $(this);
 
@@ -100,6 +101,8 @@ var LemmaPopupPlugin = function(app) {
 				langCode = 'el';
 				dir = 'ltr';
 				morphType = 'Greek';
+				if (textid == undefined) {
+					textid = 'grc_sblgnt'; }
 
 		} else if (
 			sectionLang == 'he' ||
@@ -109,6 +112,8 @@ var LemmaPopupPlugin = function(app) {
 				langCode = 'he';
 				dir = 'rtl';
 				morphType = 'Hebrew';
+				if (textid == undefined) {
+					textid = 'heb_wlc'; }
 
 		}
 
@@ -155,7 +160,6 @@ var LemmaPopupPlugin = function(app) {
 			for (var i=0, il=strongs.length; i<il; i++) {
 
 				loadStrongsData(textid, strongs[i], i < morphs.length ? morphs[i] : '', morphType, langPrefix, langCode, l);
-
 			}
 		}
 	});
@@ -166,7 +170,6 @@ var LemmaPopupPlugin = function(app) {
 			dataType: 'json',
 			url: 'content/lexicons/strongs/entries/' + langPrefix + strongsNumber + '.json',
 			success: function(data) {
-
 				var html = '<div class="lemma-word">' +
 								'<span lang="' + iso2iana.convert(langCode) + '" dir="' + dir + '">' + data.lemma + '</span>' +
 								' ' +
