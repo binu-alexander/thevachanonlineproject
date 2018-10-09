@@ -191,12 +191,12 @@ div.c + div.q .v-1 {
 }
 
 
-/*.section[lang=he] .p,
+.section[lang=he] .p,
 .chapter[lang=he] .p,
 .section[lang=heb] .p,
 .chapter[lang=heb] .p {
 	font-size: 125%;
-}*/
+}
 
 
 .windows-container .section[lang=he],
@@ -222,7 +222,8 @@ div.c + div.q .v-1 {
 }
 
 
-/* put chapter on other side 
+/* put chapter on other side */
+
 .section[dir=rtl] .c,
 .section[dir=rtl] .c {
 	float: right;
@@ -283,7 +284,7 @@ div.is1 {
 	text-align: center;
 }
 
-/* USFM 
+/* USFM */
 .mt {
 	display: block;
 	text-align: center;
