@@ -81,10 +81,6 @@ var NavigationButtons = function(node) {
 	// })
 
 	
-	$(document).on("click", "#emailFeedbackFormButton", function(){
-		var $form = ""
-		console.log("ok")
-	})
 
 	/*
 	$(window).on('popstate', function(e) {
