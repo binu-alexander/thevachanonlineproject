@@ -191,32 +191,38 @@ div.c + div.q .v-1 {
 }
 
 
-.section[lang=he] .p,
+/*.section[lang=he] .p,
 .chapter[lang=he] .p,
 .section[lang=heb] .p,
 .chapter[lang=heb] .p {
 	font-size: 125%;
-}
+}*/
 
 
 .windows-container .section[lang=he],
 .windows-container [lang=he],
 .windows-container .section[lang=heb],
 .windows-container [lang=heb] {
-	/*font-family: 'SBL Hebrew', EzraSIL;*/
-	font-family: Cambria, Georgia, serif;
+/*	font-family: 'SBL Hebrew', EzraSIL;
+*/	font-family: Cambria, Georgia, serif;
+	cursor: pointer;
 }
 
 
 .windows-container .section[lang=grc],
 .windows-container [lang=grc],
+.windows-container .section[lang=gr],
+.windows-container [lang=gr],
 .windows-container .section[lang=el],
 .windows-container [lang=el] {
-	font-family: GentiumPlus, 'Gentium Plus';
+/*	font-family: GentiumPlus, 'Gentium Plus';	
+*/	font-family: Cambria, Georgia, serif;
+	cursor: pointer;
+	font-size: 89%;
 }
 
 
-/* put chapter on other side */
+/* put chapter on other side 
 .section[dir=rtl] .c,
 .section[dir=rtl] .c {
 	float: right;
@@ -277,7 +283,7 @@ div.is1 {
 	text-align: center;
 }
 
-/* USFM */
+/* USFM 
 .mt {
 	display: block;
 	text-align: center;

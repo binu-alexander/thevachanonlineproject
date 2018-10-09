@@ -351,16 +351,13 @@ margin: 1.2em 0;
 [lang=heb],.section[lang=he] .p,.section[lang=heb] .p,.chapter[lang=he] .p
 .chapter[lang=heb] .p {
   font-family: 'SBL Hebrew', 'Ezra SIL', EzraSILRegular!important;
-  font-size: 125%;
+  cursor: pointer;
 }
 
-[lang=gre],
-[lang=grc],
-.section[lang=grc] .p,
-.section[lang=gre] .p,
-.chapter[lang=grc] .p,
-.chapter[lang=gre] .p {
+[lang=gre], [lang=gr], [lang=grc], .section[lang=grc] .p, .section[lang=gr] .p, .section[lang=gre] .p, .chapter[lang=grc] .p, 
+.chapter[lang=gr] .p, .chapter[lang=gre] .p {
   font-family: Gentium, GentiumPlus!important;
+  cursor: pointer;
 }
 
 /*
