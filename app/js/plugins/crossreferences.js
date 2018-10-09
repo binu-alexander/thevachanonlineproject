@@ -130,12 +130,18 @@ var CrossReferencePopupPlugin = function(app) {
 					if (link.closest('.section').hasClass('commentary')) {
 
 						// textid = $('.BibleWindow:first .section:first').attr('data-textid');
-						
 						// Above code I (udkumar@hotmail.com) commented because default 
 						// windows setting changed and on hover from hindi notes we ned irv in reference
+
 						textid = $('.BibleWindow:eq(1) .section').attr('data-textid');
 
+						// Uncomment the below code if you want the hindi dictionary pop-up to display only hindi irv bible in crossreferences
+						if (link.closest('.section').attr('data-textid') == "comm_hin_dict"){
+							textid = "hindi_irv"
+						}
+
 					} else {
+
 						textid = link.closest('.section').attr('data-textid');
 					}
 				}
@@ -156,14 +162,14 @@ var CrossReferencePopupPlugin = function(app) {
 
 						var html = '';
 						var verse = '';
-						
+
 						if (verserange.length > 0) {
 							for (var j = 0; j< verserange.length; j++ ){
 								fragmentid = sectionid + "_" + verserange[j]
 								verse = contentNode.find('.' + fragmentid)
 								verse.find('.note').remove();
 								verse.each(function() {
-								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;" + $(this).html();
+								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
 								});
 								html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
 							}
@@ -173,7 +179,7 @@ var CrossReferencePopupPlugin = function(app) {
 							verse = contentNode.find('.' + fragmentid)
 							verse.find('.note').remove();
 							verse.each(function() {
-							html += $(this).html();
+							html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
 							});
 							html += "<span style='font-size:10px;'></span>"
 						}
