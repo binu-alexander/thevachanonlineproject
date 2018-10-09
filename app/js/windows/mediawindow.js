@@ -138,7 +138,7 @@ var MediaWindow = function(id, parent, data) {
 								'<img src="' + thumbUrl + '" />' +
 								//((mediaLibrary.type != 'image') ? '<span>' + mediaInfo.name + '</span>'  : '') +
 								((mediaLibrary.type != 'image') ? '<b><i></i></b>'  : '') +
-								'<span>' + reference.toString() + '</span>' +
+								// '<span>' + reference.toString() + '</span>' +
 							'</a>';
 					}
 				}
