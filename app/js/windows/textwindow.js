@@ -265,7 +265,6 @@ var TextWindow = function(id, parent, init_data, text_type) {
 		// TEMP
 		navui.html('Reference').val('Reference');
 		textlistui.html('Version');
-		console.log(init_data.textid)
 		// console.log('textsindow init', init_data, isInitialized, text_type);
 
 		if (init_data == null) {
@@ -495,12 +494,15 @@ sofia.initMethods.push(function() {
 });
 
 var CommentaryWindow = function(id, node, init_data) {
+
 	return new TextWindow(id, node, init_data, 'commentary');
 };
+
 
 sofia.initMethods.push(function() {
 
 	if (typeof sofia.config.newCommentaryWindowTextId != 'undefined') {
+
 
 		sofia.windowTypes.push({
 			className:'CommentaryWindow',
