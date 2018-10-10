@@ -191,12 +191,12 @@ div.c + div.q .v-1 {
 }
 
 
-.section[lang=he] .p,
+/*.section[lang=he] .p,
 .chapter[lang=he] .p,
 .section[lang=heb] .p,
 .chapter[lang=heb] .p {
 	font-size: 125%;
-}
+}*/
 
 
 .windows-container .section[lang=he],
@@ -218,7 +218,6 @@ div.c + div.q .v-1 {
 /*	font-family: GentiumPlus, 'Gentium Plus';	
 */	font-family: Cambria, Georgia, serif;
 	cursor: pointer;
-	font-size: 89%;
 }
 
 
