@@ -82,7 +82,8 @@ sofia.resources['ml'] = {
 				"audio":"Audio available"
 			},
 			"commentary": {
-				"label": "Study Help"
+				"label": "Study Help",
+				"recentlyused": "Recently Used"
 			},
 			"tnotes":{
 				"label": "tnotes"
