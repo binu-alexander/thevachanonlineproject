@@ -46,15 +46,15 @@ sofia.config = {
 	newWindowFragmentid: 'MT1_1',
 
 	// new commentary window
-	newCommentaryWindowTextId: 'comm_tske_eng',
+	newCommentaryWindowTextId: 'comm_hin_irvn_hi',
 
-	newTnotesWindowTextId: 'comm_eng_tske_test',
+	newTnotesWindowTextId: 'comm_hin_irvn_hi',
 
 	// language for top
 	pinnedLanguage: 'English',
 
 	// language(s) for top
-	pinnedLanguages: ['English', 'Spanish'],
+	pinnedLanguages: ['English', 'Hindi'],
 
 	// Override the browser and user's choice for UI language
 	defaultLanguage: '',
