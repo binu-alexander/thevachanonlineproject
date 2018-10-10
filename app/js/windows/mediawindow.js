@@ -35,7 +35,8 @@ var MediaWindow = function(id, parent, data) {
 
 
 		var bibleReference = new bible.Reference(sectionid);
-		bibleReference.language = contentToProcess.attr('lang');
+		// bibleReference.language = contentToProcess.attr('lang');
+		bibleReference.language = "eng"
 
 
 		// remove all previous checks
