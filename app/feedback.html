@@ -77,17 +77,17 @@ input[type=submit]:hover {
     <form id="emailFeedbackForm" >
         <div class="row">
           <div class="col-100">
-            <input type="text" id="fname" name="firstname" required="true" placeholder="Your Name (required)">
+            <input type="text" id="fname" name="name" required="true" placeholder="Your Name (required)">
           </div>
         </div>
         <div class="row">
           <div class="col-100">
-            <input type="text" id="femail" name="lastname" placeholder="Your Email">
+            <input type="text" id="femail" name="email" placeholder="Your Email">
           </div>
         </div>
         <div class="row">
           <div class="col-100">
-            <textarea id="fsubject" name="subject" required="true" placeholder="Your Message (required)" style="height:200px"></textarea>
+            <textarea id="fsubject" name="message" required="true" placeholder="Your Message (required)" style="height:200px"></textarea>
           </div>
         </div>
         <div class="row">
@@ -108,7 +108,7 @@ input[type=submit]:hover {
         if ((fname != "") && (fmessage != "")){
             var $form = $("#emailFeedbackForm").serialize()
             $.ajax({
-                url: "http://localhost:3000/vachanfeedback",
+                url: "https://sheltered-beyond-27977.herokuapp.com/send",
                 data: $form,
                 type: "POST",
                 headers: {
@@ -116,7 +116,7 @@ input[type=submit]:hover {
                 },
                 success: function() { 
                     $("#message").html("Thanks for your feedback.");
-                    $("#message").css("colo","green");
+                    $("#message").css("color","green");
                     $("#message").css("text-align","center");
                     $("#message").show().delay(5000).queue(function(n) {
                       $(this).hide(); n();
