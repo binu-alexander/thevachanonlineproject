@@ -13,6 +13,9 @@ var NavigationButtons = function(node) {
 	$('html').addClass('supports-fullscreen');
 
 	var
+		feedBackForm = $('<div id="main-feeback-button" class="inactive" style="">Got a comment or suggestion?</div>')
+			.appendTo( $('.windows-header') ),
+			// .on('click',feedBackPopup),
 		// forwardButton = $('<div id="main-forward-button" class="inactive"></div>')
 		forwardButton = $('<div id="main-forward-button" class="inactive" style="display:none;"></div>')
 			.appendTo( $('.windows-header') )
@@ -37,6 +40,47 @@ var NavigationButtons = function(node) {
 		TextNavigation.forward();
 		//window.history.go(1);
 	}
+
+	// I [Uday Kumar] commented this code and move to index page
+	// var feedbackWindow = new MovableWindow(800, 450, "Got a comment or suggestion?");
+	// $(document).on("click", "#main-feeback-button", function(){
+	// 	console.log("skjd")
+		
+	// 	var body = $(document.body),
+	// 		win = $(window),
+	// 		winWidth = win.width(),
+	// 		winHeight = win.height();
+
+	// 	feedbackWindow.body.html('<iframe style="border: 0;" src="feedback.html"></iframe>');
+	// 	feedbackWindow.body.css({padding: 2});
+		
+	// 	var iframe = feedbackWindow.body.find('iframe');
+
+	// 	iframe.css({
+	// 		width: feedbackWindow.body.width(),
+	// 		height: feedbackWindow.body.height() - 5
+	// 	});
+
+	// 	feedbackWindow.show();
+	// 	modalOverlay = $('<div class="modal-overlay"></div>')
+	// 					.appendTo( body );
+
+	// 	modalOverlay
+	// 		.width( winWidth )
+	// 		.height( winHeight )
+	// 		.show();
+	// });
+
+	// feedbackWindow.closeButton.on('click', function() {
+	// 	modalOverlay.hide();
+	// });
+
+	// $(document).on("click", ".modal-overlay", function(){
+	// 	modalOverlay.hide();
+	// 	feedbackWindow.hide();
+	// })
+
+	
 
 	/*
 	$(window).on('popstate', function(e) {

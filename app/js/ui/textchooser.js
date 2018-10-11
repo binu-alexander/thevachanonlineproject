@@ -30,7 +30,7 @@ var TextChooser = function() {
 								// 	'<span class="text-chooser-languages i18n" data-mode="languages" data-i18n="[html]windows.bible.languages"></span>' +
 								// 	'<span class="text-chooser-countries i18n" data-mode="countries" data-i18n="[html]windows.bible.countries"></span>' +
 								'</div>' +
-								'<input type="text" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
+								'<input type="text" style="font-size:14px" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
 								'<span class="close-button">Close</span>' +
 							'</div>' +
 							'<div class="text-chooser-main"></div>' +
@@ -69,9 +69,9 @@ var TextChooser = function() {
 			filter
 				.val('');
 
-			if (!Detection.hasTouch) {
-				filter.focus();
-			}
+			// if (!Detection.hasTouch) {
+			// 	filter.focus();
+			// }
 
 			renderTexts(list_data);
 		});
@@ -83,8 +83,15 @@ var TextChooser = function() {
 
 	$(document).on("click", ".app-list", function(){
 			filterVersions();
+			if (text_type == 'bible') filter.val('Bibles');
+			else filter.val('Study Helps')
+
 		})
-	// filter.on('keyup keypress', filterVersions);
+	$(document).on("click", ".text-chooser-filter-text", function(){
+			filter.val('');
+		})
+
+	filter.on('keyup keypress', filterVersions);
 
 	// filter.on('focus', filterVersions);
 
@@ -111,9 +118,7 @@ var TextChooser = function() {
 			}
 		}
 
-		// var text = filter.val().toLowerCase();
-
-		var text = '' // Added this line to load the new book order in drop down menu by default
+		var text = filter.val().toLowerCase();
 
 		if (text == '') {
 			// renderTexts(list_data);
@@ -313,6 +318,7 @@ var TextChooser = function() {
 
 		// Recently Used Commentaries/Dictionaries
 		if (text_type == 'commentary') {
+
 			// main.find('.text-chooser-recently-used').remove();
 			if (recentlyUsed.recent.length > 0) {
 
@@ -353,6 +359,7 @@ var TextChooser = function() {
 
 		// Recently Used Bibles
 		else if (text_type == 'bible') {
+
 			// main.find('.text-chooser-recently-used').remove();
 			if (recentlyUsed.recent.length > 0) {
 
@@ -958,9 +965,9 @@ var TextChooser = function() {
 			filterVersions();
 		}
 
-		if (!Detection.hasTouch) {
-			filter.focus();
-		}
+		// if (!Detection.hasTouch) {
+		// 	filter.focus();
+		// }
 
 	}
 
