@@ -147,6 +147,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 		}
 
 		$(audio).on('loadeddata', playWhenLoaded);
+		// console.log("****storedFragmentid****",storedFragmentid);
 		loadAudio(storedFragmentid);
 	}
 
@@ -166,6 +167,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 		if (audio.src == '' || audio.src == null) {
 
 			if (loadAudioWhenPlayIsPressed) {
+				// console.log("****170***fragmentAudioData.url***",fragmentAudioData.url);
 				audio.src = fragmentAudioData.url;
 				audio.load();
 				$(audio).on('loadeddata', playWhenLoaded);
@@ -184,6 +186,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 	});
 
 	prevButton.on('click', function() {
+		console.log("****I am In previous***");
 
 		audioDataManager.getPrevFragment(textInfo, audioInfo, fragmentid, function(prevFragmentid) {
 
@@ -198,6 +201,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 			}
 
 			if (fragmentAudioData == null || prevFragmentid != fragmentAudioData.fragmentid) {
+				// console.log("****prevFragmentid****",prevFragmentid);
 				loadAudio(prevFragmentid);
 				$(audio).on('loadeddata', playWhenLoaded);
 			}
@@ -205,7 +209,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 
 	});
 	nextButton.on('click', function() {
-
+		// console.log("****I am In Next***");
 		audioDataManager.getNextFragment(textInfo, audioInfo, fragmentid, function(nextFragmentid) {
 
 			if (nextFragmentid == null) {
@@ -219,6 +223,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 			}
 
 			if (fragmentAudioData == null || nextFragmentid != fragmentAudioData.fragmentid) {
+				// console.log("****nextFragmentid****",nextFragmentid);
 				loadAudio(nextFragmentid);
 				$(audio).on('loadeddata', playWhenLoaded);
 			}
@@ -248,6 +253,8 @@ var AudioController = function(id, container, toggleButton, scroller) {
 
 	function loadAudio(newFragmentid) {
 
+		// console.log("****newFragmentid*****",newFragmentid)
+
 		if (!hasAudio) {
 			return;
 		}
@@ -255,10 +262,14 @@ var AudioController = function(id, container, toggleButton, scroller) {
 		if (typeof newFragmentid == 'undefined') {
 			return;
 		}
+		// if (hasAudio){
+		// 	toggleButton.show();
+		// }
+		// console.log('***258******AUDIO loading',newFragmentid, hasAudio);
 
 		if (fragmentid != newFragmentid) {
 
-			//// //console.log('AUDIO loading',newFragmentid,textInfo, hasAudio);
+			// console.log('***AUDIO loading',newFragmentid,textInfo, hasAudio);
 
 			fragmentid = newFragmentid;
 
@@ -269,20 +280,28 @@ var AudioController = function(id, container, toggleButton, scroller) {
 
 			sectionid = newSectionid;
 
+			fragmentid = sectionid + '_1';
+
+			// console.log("***273***sectionid****",sectionid,fragmentid);
+			// console.log("****274****loadNewData",loadNewData);
 
 			// only do checks when we need to!
 			if (loadNewData) {
-
+;
+				// console.log("*****optionsDramaticDrama*****",optionsDramaticDrama);
 				var audioOption = optionsDramaticDrama.is(':checked') ? 'drama' : optionsDramaticAudio.is(':checked') ? 'audio' : '';
-
+				// console.log("******audioOption****",audioOption);
 				audioDataManager.getFragmentAudio(textInfo, audioInfo, fragmentid, audioOption, function(newFragmentAudioData) {
 
 					// only update if this is new data
 					if (fragmentAudioData == null || newFragmentAudioData == null || fragmentAudioData.id != newFragmentAudioData.id) {
-
-
+						// if (newSectionid == 'JN3'){
+						// 	newFragmentAudioData.url = "content/audio/hindi_irv/JN3.mp3";
+						// }
+						// console.log("******null*****295****");
 						// if no data was received, then we need to hide everything
 						if (!newFragmentAudioData || newFragmentAudioData.url == null) {
+							// console.log("******No Audio*****");
 							audio.src = null;
 
 							title.html('[No audio]');
@@ -291,26 +310,31 @@ var AudioController = function(id, container, toggleButton, scroller) {
 								toggleButton.hide();
 								block.hide();
 							}
+							// Added by me
+							// else{
+							// 	toggleButton.show();
+							// }
 
 							fragmentAudioData = newFragmentAudioData;
 							return;
 						} else {
-
+							// console.log("*****else toggleButton****",toggleButton);
 							// if we get a URL, then show the ear icon again
 							if (toggleButton) toggleButton.show();
 
 							// only when the previous data was null, do we reshow the control bar
 							if (fragmentAudioData == null) {
 								// let's not do it ever
-								block.show();
+								// block.show();
 							}
 
 							fragmentAudioData = newFragmentAudioData;
 						}
-
+						// console.log("***block.is(':visible')****",block.is(':visible'));
 						// only load audio if player is visible
 						if (block.is(':visible')) {
 							//audio.currentTime = 0;
+							// console.log("***330***fragmentAudioData.url",fragmentAudioData.url);
 							audio.src = fragmentAudioData.url;
 							audio.load();
 						} else {
@@ -388,7 +412,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 				$(audio).on('loadeddata', playWhenLoaded);
 
 				nextButton.trigger('click');
-				//audio.play();
+				// audio.play();
 			}
 		})
 		.on('timeupdate', function() {
@@ -411,7 +435,8 @@ var AudioController = function(id, container, toggleButton, scroller) {
 			}
 
 			sectionHeight = sectionNode.height();
-
+			// console.log("***sectionNode.offset()***",sectionNode.offset());
+			if (sectionNode.offset()){
 			var
 				// calculate percent to scroll
 				chapter = parseInt(sectionid.substring(2), 10),
@@ -430,7 +455,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 							// - 20
 							- sectionNode.find('.v:first').height()
 							- (sectionNode.find('.v:last').height()*fraction);
-
+			}
 			//// //console.log(fraction, sectionHeight, offset);
 
 			if (offset <= 0) {
@@ -511,21 +536,27 @@ var AudioController = function(id, container, toggleButton, scroller) {
 
 			if (textInfo.type == 'bible') {
 
+				// console.log("****textInfo****",textInfo);
 				audioDataManager.getAudioInfo(textInfo, function(newAudioInfo) {
+					// console.log("***newAudioInfo***",newAudioInfo);
 
 					if (newAudioInfo != null) {
+						// toggleButton.show();
 						audioInfo = newAudioInfo;
 
-						console.log('AUDIO: YES', textInfo.id, textInfo.lang, audioInfo.type);
+						// console.log('AUDIO: YES', textInfo.id, textInfo.lang, audioInfo.type);
 
 						hasAudio = true;
 
 						sectionid = '';
 						fragmentAudioData = null;
+						// console.log('****Audio type****',audioInfo.type);
 
 						if (audioInfo.type == 'local') {
+							// console.log("******527******");
 							optionsDramaticBox.hide();
 						} else if (audioInfo.type == 'fcbh') {
+							// console.log("******530******");
 							optionsDramaticBox.show();
 
 							var hasNonDrama =
@@ -535,7 +566,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 										(typeof audioInfo.fcbh_drama_nt != 'undefined' && audioInfo.fcbh_drama_nt != '') ||
 										(typeof audioInfo.fcbh_drama_ot != 'undefined' && audioInfo.fcbh_drama_ot != '');
 
-							console.log(audioInfo, 'drama', hasDrama, 'audio', hasNonDrama);
+							// console.log(audioInfo, 'drama', hasDrama, 'audio', hasNonDrama);
 
 							// show hide
 							if (hasNonDrama && hasDrama) {
@@ -555,7 +586,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 							}
 						}
 
-
+						// console.log("*****fragmentid****",fragmentid);
 						if (fragmentid != '') {
 							var newFragmentid = fragmentid;
 
@@ -567,7 +598,8 @@ var AudioController = function(id, container, toggleButton, scroller) {
 
 							locationInfo = scroller.getLocationInfo();
 
-							// //console.log('AUDIO, new from new ', locationInfo);
+							// console.log('AUDIO, new from new ', locationInfo);
+							// console.log("*****574****",locationInfo.fragmentid)
 							if (locationInfo != null) {
 								loadAudio(locationInfo.fragmentid);
 							}
@@ -581,7 +613,7 @@ var AudioController = function(id, container, toggleButton, scroller) {
 					} else {
 						hasAudio = false;
 
-						console.log('AUDIO: NO', textInfo.id, textInfo.lang, newAudioInfo);
+						// console.log('AUDIO: NO', textInfo.id, textInfo.lang, newAudioInfo);
 
 
 						if (toggleButton) {
