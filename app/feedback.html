@@ -121,6 +121,9 @@ input[type=submit]:hover {
                     $("#message").show().delay(5000).queue(function(n) {
                       $(this).hide(); n();
                     });
+                    $('#emailFeedbackForm').find("#fname").val("")
+                    $('#emailFeedbackForm').find("#femail").val("")
+                    $('#emailFeedbackForm').find("#fsubject").val("")
                 },
                 error: function(){
                     $("#message").html("Something Went Wrong.");
