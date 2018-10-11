@@ -207,10 +207,10 @@ var CrossReferencePopupPlugin = function(app) {
 
 	$('.windows-main').on('click','.bibleref, .xt', sofia.globals.handleBibleRefClick);
 
-	if (!Detection.hasTouch) {
-		$('.windows-main').on('mouseover','.bibleref, .xt', sofia.globals.handleBibleRefMouseover);
-		$('.windows-main').on('mouseout','.bibleref, .xt', sofia.globals.handleBibleRefMouseout);
-	}
+	// if (!Detection.hasTouch) {
+	$('.windows-main').on('mouseover','.bibleref, .xt', sofia.globals.handleBibleRefMouseover);
+	$('.windows-main').on('mouseout','.bibleref, .xt', sofia.globals.handleBibleRefMouseout);
+	// }
 
 
 	var ext = {
