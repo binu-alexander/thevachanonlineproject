@@ -83,7 +83,8 @@ sofia.resources['en'] = {
 				"audio":"Audio available"
 			},
 			"commentary": {
-				"label": "Study Help"
+				"label": "Study Help",
+				"recentlyused": "Recently Used"
 			},
 			"more":{
 				"label": "More"

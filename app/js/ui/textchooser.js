@@ -69,9 +69,9 @@ var TextChooser = function() {
 			filter
 				.val('');
 
-			// if (!Detection.hasTouch) {
-			// 	filter.focus();
-			// }
+			if (!Detection.hasTouch) {
+				filter.focus();
+			}
 
 			renderTexts(list_data);
 		});
@@ -117,7 +117,7 @@ var TextChooser = function() {
 
 		if (text == '') {
 			// renderTexts(list_data);
-			//updateRecentlyUsed();
+			// updateRecentlyUsed();
 
 			var arrayOfTexts = list_data;
 			var html = [];
@@ -127,58 +127,43 @@ var TextChooser = function() {
 			if (text_type == 'newbible') {
 				text_type = 'bible';
 			}
+			
+			// if (text_type == 'bible') {
 
-			if (text_type == 'bible') {
+			for (var i=0, il=arrayOfTexts.length; i<il; i++) {
+				if (text_type == arrayOfTexts[i].type) {
+					var textInfo = arrayOfTexts[i];
 
-				for (var i=0, il=arrayOfTexts.length; i<il; i++) {
-					if (text_type == arrayOfTexts[i].type) {
-						var textInfo = arrayOfTexts[i];
-
-						tempArr.push (
-							arrayOfTexts[i]
-						);
-					}
-
-				}
-
-
-				result = tempArr.reduce(function (r, a) {
-			        r[a.langName] = r[a.langName] || [];
-			        r[a.langName].push(a);
-			        return r;
-			    }, Object.create(null));
-
-
-				//console.log(list_data);
-				for (var key in result) {
-				    var value = result[key];
-
-					html.push(
-						createHeaderRow(
-							'',
-							key,
-							'',
-							'',
-							''
-						)
+					tempArr.push (
+						arrayOfTexts[i]
 					);
-				    for (var i=0, il=value.length; i<il; i++) {
-						if (text_type == value[i].type) {
-							var textInfo = value[i];
-
-							html.push (
-								createTextRow(textInfo, false, '')
-							);
-						}
-
-					}
-
 				}
-			} else {
 
-				for (var i=0, il=arrayOfTexts.length; i<il; i++) {
-					if (text_type == arrayOfTexts[i].type) {
-						var textInfo = arrayOfTexts[i];
+			}
+
+
+			result = tempArr.reduce(function (r, a) {
+		        r[a.langName] = r[a.langName] || [];
+		        r[a.langName].push(a);
+		        return r;
+		    }, Object.create(null));
+
+
+			for (var key in result) {
+			    var value = result[key];
+
+				html.push(
+					createHeaderRow(
+						'',
+						key,
+						'',
+						'',
+						''
+					)
+				);
+			    for (var i=0, il=value.length; i<il; i++) {
+					if (text_type == value[i].type) {
+						var textInfo = value[i];
 
 						html.push (
 							createTextRow(textInfo, false, '')
@@ -186,7 +171,21 @@ var TextChooser = function() {
 					}
 
 				}
+
 			}
+			// } else {
+
+			// 	for (var i=0, il=arrayOfTexts.length; i<il; i++) {
+			// 		if (text_type == arrayOfTexts[i].type) {
+			// 			var textInfo = arrayOfTexts[i];
+
+			// 			html.push (
+			// 				createTextRow(textInfo, false, '')
+			// 			);
+			// 		}
+
+			// 	}
+			// }
 
 			main.html('<table cellspacing="0">' + html.join('') + '</table>');
 			
@@ -273,9 +272,9 @@ var TextChooser = function() {
 
 	function storeRecentlyUsed(textInfo) {
 
-		if (text_type != 'bible') {
-			return;
-		}
+		// if (text_type != 'bible') {
+		// 	return;
+		// }
 
 		var textid = (typeof textInfo == 'string') ? textInfo : textInfo.id;
 
@@ -289,8 +288,8 @@ var TextChooser = function() {
 			// store recent text
 			recentlyUsed.recent.unshift(textid);
 
-			// limit to 5
-			while (recentlyUsed.recent.length > 5 ) {
+			// limit to 10
+			while (recentlyUsed.recent.length > 10 ) {
 				recentlyUsed.recent.pop();
 			}
 		}
@@ -307,13 +306,15 @@ var TextChooser = function() {
 			return;
 		}
 
-		if (text_type != 'bible' || (getMode() != 'default' && getMode() != 'none')) {
-			main.find('.text-chooser-recently-used').remove();
-			return;
-		}
+		// if (text_type != 'bible' || (getMode() != 'default' && getMode() != 'none')) {
+		// 	main.find('.text-chooser-recently-used').remove();
+		// 	return;
+		// }
 
-		// RECENTly Used
-		if (recentlyUsed.recent.length > 0) {
+		// Recently Used Commentaries/Dictionaries
+		if (text_type == 'commentary') {
+			// main.find('.text-chooser-recently-used').remove();
+			if (recentlyUsed.recent.length > 0) {
 
 			var isDefaultText = false;
 
@@ -325,7 +326,7 @@ var TextChooser = function() {
 			var recentlyUsedHtml =
 					createHeaderRow(
 						'',
-						i18n.t('windows.bible.recentlyused'),
+						i18n.t('windows.commentary.recentlyused'),
 						'',
 						'',
 						'text-chooser-recently-used' + (isDefaultText ? ' is-default-text' : '')
@@ -334,7 +335,7 @@ var TextChooser = function() {
 				var textid = recentlyUsed.recent[i],
 					textInfo = list_data.filter(function(ti) { return ti.id == textid; })[0];
 
-				if (textInfo) {
+				if (textInfo.type == 'commentary' || textInfo.type == 'dictionary') {
 					recentlyUsedHtml +=
 						createRecentTextRow(textInfo, isDefaultText, 'text-chooser-recently-used' );
 				}
@@ -347,7 +348,47 @@ var TextChooser = function() {
 			var recentRow = $(recentlyUsedHtml);
 			main.find('table tbody').prepend(recentRow);
 		}
+			return;
+		}
 
+		// Recently Used Bibles
+		else if (text_type == 'bible') {
+			// main.find('.text-chooser-recently-used').remove();
+			if (recentlyUsed.recent.length > 0) {
+
+				var isDefaultText = false;
+
+				// find if this should be a priority text shown at the beginning
+				//if (sofia.config.topTexts && sofia.config.topTexts.length > 0) {
+				//	isDefaultText = true;
+				//}
+
+				var recentlyUsedHtml =
+						createHeaderRow(
+							'',
+							i18n.t('windows.bible.recentlyused'),
+							'',
+							'',
+							'text-chooser-recently-used' + (isDefaultText ? ' is-default-text' : '')
+						);
+				for (var i=0, il=recentlyUsed.recent.length; i<il; i++) {
+					var textid = recentlyUsed.recent[i],
+						textInfo = list_data.filter(function(ti) { return ti.id == textid; })[0];
+
+					if (textInfo.type == 'bible') {
+						recentlyUsedHtml +=
+							createRecentTextRow(textInfo, isDefaultText, 'text-chooser-recently-used' );
+					}
+				}
+
+				// remove existing
+				main.find('.text-chooser-recently-used').remove();
+
+				// add update recent stuff
+				var recentRow = $(recentlyUsedHtml);
+				main.find('table tbody').prepend(recentRow);
+			}
+		}
 	}
 
 
@@ -917,9 +958,9 @@ var TextChooser = function() {
 			filterVersions();
 		}
 
-		// if (!Detection.hasTouch) {
-		// 	filter.focus();
-		// }
+		if (!Detection.hasTouch) {
+			filter.focus();
+		}
 
 	}
 
