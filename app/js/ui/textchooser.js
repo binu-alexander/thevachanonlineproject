@@ -83,7 +83,6 @@ var TextChooser = function() {
 
 	$(document).on("click", ".app-list", function(){
 			filterVersions();
-			console.log(text_type)
 			if (text_type == 'bible') filter.val('Bibles');
 			else filter.val('Study Helps')
 
@@ -120,8 +119,6 @@ var TextChooser = function() {
 		}
 
 		var text = filter.val().toLowerCase();
-
-		// var text = '' // Added this line to load the new book order in drop down menu by default
 
 		if (text == '') {
 			// renderTexts(list_data);
@@ -322,7 +319,6 @@ var TextChooser = function() {
 		// Recently Used Commentaries/Dictionaries
 		if (text_type == 'commentary') {
 
-			// filter.val('Study Helps')
 			// main.find('.text-chooser-recently-used').remove();
 			if (recentlyUsed.recent.length > 0) {
 
@@ -364,7 +360,6 @@ var TextChooser = function() {
 		// Recently Used Bibles
 		else if (text_type == 'bible') {
 
-			// filter.val('Bibles')
 			// main.find('.text-chooser-recently-used').remove();
 			if (recentlyUsed.recent.length > 0) {
 
