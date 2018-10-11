@@ -141,7 +141,7 @@ input[type="text"] {
                 },
                 success: function() { 
                     $("#before_message").hide();
-                    $("#message").html("Thanks for your feedback.");
+                    $("#message").html("Thank you for the feedback.");
                     $("#message").css("color","green");
                     $("#message").css("text-align","center");
                     $("#message").show().delay(5000).queue(function(n) {
@@ -162,7 +162,7 @@ input[type="text"] {
                 }
             });
         }else{
-            $("#message").html("Please fill the form properly.");
+            $("#message").html("Please fill all the required fields!");
             $("#message").css("color","red");
             $("#message").css("text-align","center");
             $("#message").show().delay(5000).queue(function(n) {
