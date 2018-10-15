@@ -23,6 +23,8 @@ var MainMenuButton = function(node) {
 		container = $('.windows-container'),
 		mainMenuLogo = $('<div id="app-logo"></div><div id="app-logo-icon" class="hidden-sm hidden-md"></div>')
 					.appendTo(node),
+		mobileMenuLogo = $('<div id="app-logo"></div><div id="app-mobile-logo"></div>')
+					.appendTo(node),			
 		mainMenuButton = $('<div id="main-menu-button"></div>')
 					.appendTo(node)
 					.on('click', mainMenuClick),
