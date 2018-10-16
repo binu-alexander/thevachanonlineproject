@@ -16,7 +16,7 @@ var CrossReferencePopupPlugin = function(app) {
 
 		for (var i=0, il=possibleTexts.length; i<il; i++) {
 			var text = possibleTexts[i];
-
+			// console.log("***text***",text);
 			if (typeof text != 'undefined' && text != null) {
 				var bref = new bible.Reference(text.split(';')[0].trim());
 
@@ -138,6 +138,9 @@ var CrossReferencePopupPlugin = function(app) {
 						// Uncomment the below code if you want the hindi dictionary pop-up to display only hindi irv bible in crossreferences
 						if (link.closest('.section').attr('data-textid') == "comm_hin_dict"){
 							textid = "hindi_irv"
+						}
+						else if (link.closest('.section').attr('data-textid') == "eng_EBD_dict"){
+							textid = "english_ulb"
 						}
 
 					} else {
