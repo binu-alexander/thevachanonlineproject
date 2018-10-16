@@ -251,6 +251,10 @@ var TextChooser = function() {
 
 		if(textid=="comm_hin_dict"){
 			$(".text-nav").last().val("अ");
+			// अ शब्दावली
+		}
+		if(textid=="eng_EBD_dict"){
+			$(".text-nav").last().val("A");
 		}
 
 
