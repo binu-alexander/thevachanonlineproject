@@ -55,8 +55,8 @@ sofia.resources['ur'] = {
 			"bible": {
 				"label": "بائبل",
 				"filter": "فلٹر ...",
-				"ot": "پرانا عہد نامہ",
-				"nt": "नया अहद-नाम",
+				"ot": "پرانے عہد نامہ",
+				"nt": "نئے عہد نامہ",
 				"dc": "Deuterocanonical کتب",
 				"more": "مزید",
 				"less": "کم",
