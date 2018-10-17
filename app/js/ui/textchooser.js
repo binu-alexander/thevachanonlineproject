@@ -253,7 +253,7 @@ var TextChooser = function() {
 			$(".text-nav").last().val("अ");
 			// अ शब्दावली
 		}
-		if(textid=="eng_EBD_dict"){
+		if(textid=="comm_eng_EBD_dict"){
 			$(".text-nav").last().val("A");
 		}
 
