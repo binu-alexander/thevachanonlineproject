@@ -139,7 +139,7 @@ var CrossReferencePopupPlugin = function(app) {
 						if (link.closest('.section').attr('data-textid') == "comm_hin_dict"){
 							textid = "hindi_irv"
 						}
-						else if (link.closest('.section').attr('data-textid') == "eng_EBD_dict"){
+						else if (link.closest('.section').attr('data-textid') == "comm_eng_EBD_dict"){
 							textid = "english_ulb"
 						}
 
