@@ -1,0 +1,17 @@
+{
+"id":"BNGWTC",
+"type":"bible",
+"name":"পবিত্র বাইবেল",
+"nameEnglish":"Bengali Bible (ERV)",
+"hasLemma":false,
+"redistributable":false,
+"abbr":"ben2006",
+"dir":"ltr",
+"lang":"ben",
+"country":"Bangladesh",
+"countries":["BD","IN","NP","SG"],
+"allcountries":["BD","IN","NP","SG"],
+"langNameEnglish":"Bengali",
+"langName":"বাংলা",
+"fontClass":"mukti"
+}

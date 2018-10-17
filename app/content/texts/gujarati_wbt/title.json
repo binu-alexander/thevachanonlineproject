@@ -1,0 +1,17 @@
+{
+"id":"GUJWTC",
+"type":"bible",
+"name":"પવિત્ર બાઇબલ",
+"nameEnglish":"Gujarati Bible",
+"hasLemma":false,
+"redistributable":false,
+"abbr":"guj2009",
+"dir":"ltr",
+"lang":"guj",
+"country":"India",
+"countries":["IN","KE","PK","SG","TZ","ZM"],
+"allcountries":["IN","KE","PK","SG","TZ","ZM"],
+"langNameEnglish":"Gujarati",
+"langName":"ગુજરાતી",
+"fontClass":"rekha"
+}

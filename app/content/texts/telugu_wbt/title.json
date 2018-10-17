@@ -1,0 +1,17 @@
+{
+"id":"TCWWTC",
+"type":"bible",
+"name":"హోలీ బైబిల్",
+"nameEnglish":"Telugu Easy Reading Version",
+"hasLemma":false,
+"redistributable":false,
+"abbr":"tel2010",
+"dir":"ltr",
+"lang":"tel",
+"country":"India",
+"countries":["IN","SG"],
+"allcountries":["IN","SG"],
+"langNameEnglish":"Telugu",
+"langName":"తెలుగు",
+"fontClass":"akshar_unicode"
+}
