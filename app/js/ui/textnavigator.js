@@ -245,7 +245,7 @@ var TextNavigator = function() {
 				//old -code
 				// html.push('<div class="text-navigator-division-header">' + i18n.t('windows.bible.ot') + '</div>');
 				//modified code for header change while selectring language
-				if(textInfo.id != "comm_hin_dict" && textInfo.id != "eng_EBD_dict")
+				if(textInfo.id != "comm_hin_dict" && textInfo.id != "comm_eng_EBD_dict")
 					html.push('<div class="text-navigator-division-header">' + header + '</div>');
 				// Added this code to avoid the header in EBD
 				console.log("-*******----",textInfo.id);
