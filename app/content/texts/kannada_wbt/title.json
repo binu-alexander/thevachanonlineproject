@@ -1,0 +1,17 @@
+{
+"id":"KANWTC",
+"type":"bible",
+"name":"ಪವಿತ್ರ ಬೈಬಲ್, ಈಸಿ ಓದುವಿಕೆ ಆವೃತ್ತಿ",
+"nameEnglish":"Kannada Easy Reading Version",
+"hasLemma":false,
+"redistributable":false,
+"abbr":"KAN2010",
+"dir":"ltr",
+"lang":"kan",
+"country":"India",
+"countries":["IN"],
+"allcountries":["IN"],
+"langNameEnglish":"Kannada",
+"langName":"ಕನ್ನಡ",
+"fontClass":"akshar_unicode"
+}

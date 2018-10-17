@@ -1,0 +1,17 @@
+{
+"id":"HNDWTC",
+"type":"bible",
+"name":"पवित्र बाइबल",
+"nameEnglish":"Hindi Easy Reading Version",
+"hasLemma":false,
+"redistributable":false,
+"abbr":"hin2010",
+"dir":"ltr",
+"lang":"hin",
+"country":"India",
+"countries":["IN","NP","SG","ZA"],
+"allcountries":["IN","NP","SG","ZA"],
+"langNameEnglish":"Hindi",
+"langName":"हिंदी",
+"fontClass":"akshar_unicode"
+}

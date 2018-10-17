@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'akshar_unicoderegular';
+    src: url('fonts/akshar.eot');
+    src: url('fonts/akshar.eot?#iefix') format('embedded-opentype'),
+         url('fonts/akshar.woff') format('woff'),
+         url('fonts/akshar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+div.akshar, body.akshar,.akshar .c-num,.akshar .v-num,.akshar	{font-family: 'akshar_unicoderegular','Akshar','Tahoma', 'Arial Unicode MS','sans-serif' !important}

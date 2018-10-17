@@ -1,0 +1,17 @@
+{
+"id":"TCVWTC",
+"type":"bible",
+"name":"புனித பைபிள் படிக்க எளிதாக",
+"nameEnglish":"Tamil Easy Reading Version",
+"hasLemma":false,
+"redistributable":false,
+"abbr":"TAM",
+"dir":"ltr",
+"lang":"tam",
+"country":"India",
+"countries":["IN","LK","MU","MY","RE","SG"],
+"allcountries":["IN","LK","MU","MY","RE","SG"],
+"langNameEnglish":"Tamil",
+"langName":"தமிழ்",
+"fontClass":"uni_ila.sundaram-08"
+}
