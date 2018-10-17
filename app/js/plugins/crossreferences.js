@@ -16,21 +16,35 @@ var CrossReferencePopupPlugin = function(app) {
 
 		for (var i=0, il=possibleTexts.length; i<il; i++) {
 			var text = possibleTexts[i];
-			// console.log("***text***",text);
+			
+			// Code changed by Samuel and Vipin for the comma seperated references
+			var commaverses = '';
 			if (typeof text != 'undefined' && text != null) {
 				var bref = new bible.Reference(text.split(';')[0].trim());
-
+				commaverses = text.split('_')[1].split(',');
+				
 				if (typeof bref.toSection != 'undefined')  {
 
 					if (bref.verse2 == -1) {
-						fragmentid = bref.toSection();
-						verserange = [];
+						fragmentid = text.split(',')[0];
+						var n=0
+						if (commaverses != 'undefined') {
+							for (var i=0;i<commaverses.length;i++){
+								verserange[n] = commaverses[i]
+								n = n + 1
+								}
+							}
+						// else{
+						// 	console.log("SINGLE");
+						// 	verserange = [];
+						// }
 						break;
 					}
 
 					else{
 						fragmentid = bref.toSection();
 						var m=0
+						console.log("Multiple")
 						for (var i = bref.verse1; i <= bref.verse2; i++) {
 							verserange[m] = i
 							m = m+1
