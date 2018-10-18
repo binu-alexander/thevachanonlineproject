@@ -284,7 +284,8 @@ div.is1 {
 }
 
 /* USFM */
-.mt {
+.mt,
+.mt1 {
 	display: block;
 	text-align: center;
 	font-size: 2em;

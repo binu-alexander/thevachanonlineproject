@@ -1,8 +1,8 @@
 {
 "id":"telugu_wbt",
 "type":"bible",
-"name":"Easy Reading Version",
-"nameEnglish":"Telugu Easy Reading Version",
+"name":"Easy-to-Read Version",
+"nameEnglish":"Telugu Easy-to-Read Version",
 "hasLemma":false,
 "abbr":"Telugu ERV",
 "dir":"ltr",
