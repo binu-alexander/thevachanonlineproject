@@ -298,7 +298,7 @@ display: none;
 }
 
 /* book name */
-.mt {
+.mt, .mt1 {
 display: block;
 text-align: center;
 font-size: 2em;
