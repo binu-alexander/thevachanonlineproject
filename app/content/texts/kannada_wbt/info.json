@@ -1,8 +1,8 @@
 {
 "id":"kannada_wbt",
 "type":"bible",
-"name":"Easy Reading Version",
-"nameEnglish":"Kannada Easy Reading Version",
+"name":"Easy-to-Read Version",
+"nameEnglish":"Kannada Easy-to-Read Version",
 "hasLemma":false,
 "abbr":"Kannada ERV",
 "dir":"ltr",
