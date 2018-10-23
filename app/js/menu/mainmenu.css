@@ -21,7 +21,7 @@
 	background-image: url(../../css/images/menu-gray.svg);
 }
 #main-menu-button.active {
-	background-color: #666;
+	background-color: #3F3E98;
 	-x-border-color: #ccc;
 }
 
@@ -39,7 +39,7 @@
 
 .main-menu-heading {
 	padding: 5px;
-	background: #666;
+	background: #4B48DD;
 	color: #fff;
 	font-size: 0.8em;
 	border-bottom: 1px solid #666;
