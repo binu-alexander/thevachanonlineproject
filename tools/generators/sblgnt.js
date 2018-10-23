@@ -118,15 +118,26 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 						'</div>' + bibleFormatter.breakChar + // paragraph
 						bibleFormatter.closeChapter();
 				}
-
-				// create new
-				currentChapter = {
-					id: chapterCode,
-					nextid: bibleData.getNextChapter(chapterCode),
-					previd: bibleData.getPrevChapter(chapterCode),
-					html: '',
-					title: bookName + ' ' + chapterNumber,
-				};
+				if(chapterCode == 'MT1'){
+					currentChapter = {
+						id: chapterCode,
+						nextid: bibleData.getNextChapter(chapterCode),
+						previd: '',
+						html: '',
+						title: bookName + ' ' + chapterNumber,
+					};
+				}
+				else{
+					// create new
+					currentChapter = {
+						id: chapterCode,
+						nextid: bibleData.getNextChapter(chapterCode),
+						previd: bibleData.getPrevChapter(chapterCode),
+						html: '',
+						title: bookName + ' ' + chapterNumber,
+					};
+				}
+				
 				data.chapterData.push( currentChapter );
 
 				if (validChapters.indexOf(chapterCode) == -1) {
