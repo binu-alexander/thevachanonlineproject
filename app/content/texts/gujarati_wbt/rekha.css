@@ -1,11 +1,11 @@
 /* Note: if the following font files are in another location, please edit the url() specifiers, below, to match. */
 @font-face {
-    font-family: 'rekha';
-    src: url('fonts/rekha.eot');
+/*    font-family: 'rekha';
+*/   /* src: url('fonts/rekha.eot');
     src: url('fonts/rekha.eot?#iefix') format('embedded-opentype'),
          url('fonts/rekha.woff') format('woff'),
          url('fonts/rekha.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal;*/
 }
-.rekha,div.rekha,div.rekha,.rekha .c-num,.rekha .v-num	{ font-family: 'rekha','Rekha','Tahoma','Arial Unicode MS','sans-serif'}
+/*.rekha,div.rekha,div.rekha,.rekha .c-num,.rekha .v-num	{ font-family: 'rekha','Rekha','Tahoma','Arial Unicode MS','sans-serif'}*/
