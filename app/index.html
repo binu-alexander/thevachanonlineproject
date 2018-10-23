@@ -221,7 +221,7 @@
 		width: 320px;
 	    height: 81px;
 	    margin-left: 25px;
-		background-size: 100% 100%;
+		background-size: 100% 89%;
 		background-image: url(css/images/app-logo.png);
 		cursor: pointer;
 	}
@@ -300,6 +300,8 @@
 
 		$(document).on("click", "#add-MoreWindow", function(){
 
+			console.log(aboutWindow)
+
 			aboutWindow.body.html('<iframe style="border: 0;" src="more.html"></iframe>');
 			aboutWindow.body.css({padding: 2});
 			
@@ -332,6 +334,7 @@
 			$(".text-nav").last().val($(this).text());
 
 		});
+
 
 
 	var feedbackWindow = new MovableWindow(800, 450, "Got a comment or suggestion?");
