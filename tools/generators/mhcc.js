@@ -339,7 +339,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 
-			currentChapter['html'] += '<br><div class="mt2">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
+			currentChapter['html'] += '<br><br><div class="mt2">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
 
 			var ccode = dbsBookCode + chapterNumber;
 
