@@ -225,44 +225,46 @@
 		background-image: url(css/images/app-logo.png);
 		cursor: pointer;
 	}
-	@media screen and (max-width: 880px) {
-	  #app-logo-icon {
+	.compact-ui  #app-logo-icon {
 	    visibility: hidden;
 	    clear: both;
 	    display: none;
 	  }
-	}
-	#app-logo-icon {
-		width: 80px;
-	    height: 58px;
-	    padding-top: `;
-	    margin: 0% 45% 0% 46%;
-	    background-size: 100% 100%;
-	    background-image: url(css/images/bcs_old_favicon.png);
-	    position: relative;
-	}
-	@media only screen and (max-width: 600px) {
-		#app-mobile-logo{
-		    border-radius: 50%;
-		    width: 9.5%;
-		    height: 3.5%;
-		    margin: 3% 40% 3% 12%;
+	@media only screen and (min-width: 950px) {
+		#app-logo-icon {
+			width: 80px;
+		    height: 58px;
+		    margin: 0% 45% 0% 46%;
 		    background-size: 100% 100%;
-		    background-image: url(css/images/vachan_online_mobile.png);
-		    position: absolute;
-		    cursor: pointer;
-	   }
-	}
-	@media screen and (min-width: 600px) {
-		#main-feeback-button {
-			width: 56px;
-			height: 44px;
-			margin: -3.6% 3.5% 0% 92%;
-			background-size: 100% 100%;
-			background-image: url(css/images/feedback-icon_3.png);
-			position: relative;
-			cursor:pointer;
+		    background-image: url(css/images/bcs_old_favicon.png);
+		    position: relative;
 		}
+	}
+	.compact-ui #app-mobile-logo{
+	    width: 35px;
+	    height: 29px;
+	    margin: 1% 45% 2% 10%;
+	    background-size: 100% 100%;
+	    background-image: url(css/images/vachan_online_mobile.png);
+	    position: absolute;
+	    cursor: pointer;
+   }
+
+	#main-feeback-button {
+		width: 56px;
+		height: 44px;
+		margin: -47px 3.5% 0% 92%;
+		background-size: 100% 100%;
+		background-image: url(css/images/feedback-icon_3.png);
+		position: absolute;
+		cursor:pointer;
+		right: 15px;
+	}
+
+	.compact-ui #main-feeback-button {
+		visibility: hidden;
+    	clear: both;
+    	display: none;
 	}
 	</style>
 </head>

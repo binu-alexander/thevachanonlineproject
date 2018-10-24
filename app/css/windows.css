@@ -107,7 +107,6 @@ input:focus {
 /* MAIN APP */
 .windows-header {
 	height: 60px;
-	padding-right: 10px;
 	background-size: 100% 100%;
 	background-image: url(images/VO_banner.png);
 }
