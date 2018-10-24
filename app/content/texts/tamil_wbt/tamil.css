@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'uni_ila.sundaram-08normal';
+/*    font-family: 'uni_ila.sundaram-08normal';
     src: url('fonts/uni_ila.sundaram-08.eot');
     src: url('fonts/uni_ila.sundaram-08.eot?#iefix') format('embedded-opentype'),
          url('fonts/uni_ila.sundaram-08.woff') format('woff'),
          url('fonts/uni_ila.sundaram-08.ttf') format('truetype');
     font-weight: normal;
-    font-style: normal;
+    font-style: normal;*/
 }
-.uni_ila.sundaram-08normal,html.uni_ila.sundaram-08normal,body.uni_ila.sundaram-08normal,.uni_ila.sundaram-08normal .c-num,.uni_ila.sundaram-08normal .v-num	{font-family: 'uni_ila.sundaram-08normal','Tahoma', 'Arial Unicode MS','sans-serif'; !important}
-
+/*.uni_ila.sundaram-08normal,html.uni_ila.sundaram-08normal,body.uni_ila.sundaram-08normal,.uni_ila.sundaram-08normal .c-num,.uni_ila.sundaram-08normal .v-num	{font-family: 'uni_ila.sundaram-08normal','Tahoma', 'Arial Unicode MS','sans-serif'; !important}
+*/
