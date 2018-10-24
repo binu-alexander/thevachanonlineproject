@@ -1,0 +1,13 @@
+{"langName": "English",
+ "name": "Matthew Henry Concise Bible Commentary",
+ "nameEnglish": "",
+ "abbr": "MHCBC",
+ "id": "comm_mhcc_eng",
+ "lang": "eng",
+ "langNameEnglish": "English",
+ "generator": "mhcc",
+ "filename": "mhcc.txt",
+ "type":"commentary",
+ "stylesheet":"style.css",
+ "dir": "ltr",
+ "lang_2_code": "en"}
