@@ -12,7 +12,7 @@
 	left: 0;
 	width: 60px;
 	height: 60px;
-	background-size: 26px 26px;
+	background-size: 50px 50px;
 	background-repeat: no-repeat;
 	background-position: center center;
 	z-index: 9;
@@ -82,7 +82,7 @@
 	width: 75px;
 	margin: 0;
 	padding: 35px 0 10px 0;
-	background-size: 25px 25px;
+	background-size: 30px 30px;
 	background-position: center 8px;
 		background-repeat: no-repeat;
 	text-align: center;

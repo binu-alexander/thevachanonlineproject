@@ -9,11 +9,11 @@
 
 #config-global-url span {
 	background-image: url(../../css/images/link.svg);
-	width: 20px;
-	height: 20px;
+	width: 29px;
+	height: 28px;
 	display: inline-block;
-	background-size: 20px 20px;
-	margin: 0 10px 0 0;
+	background-size: 30px 30px;
+	margin: -2px 18px 0 -5px;
 	vertical-align: top;
 	cursor: pointer;
 }

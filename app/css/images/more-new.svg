@@ -1,39 +1,8 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
-<path id="XMLID_22_" d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M85,190
-	c-13.785,0-25-11.215-25-25s11.215-25,25-25s25,11.215,25,25S98.785,190,85,190z M165,190c-13.785,0-25-11.215-25-25
-	s11.215-25,25-25s25,11.215,25,25S178.785,190,165,190z M245,190c-13.785,0-25-11.215-25-25s11.215-25,25-25
-	c13.785,0,25,11.215,25,25S258.785,190,245,190z"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with UniConvertor 2.0rc3 (http://sk1project.net/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" height="64.0" viewBox="0 0 64.0 64.0" width="64.0" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/">
+
 <g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
+	<image xlink:href="data:image/png;base64,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" transform="matrix(1.0, 0.0, 0.0, 1.0, 0.0, 64.0)" height="64.0" width="64.0" y="-64.0" x="0" />
 </g>
 </svg>

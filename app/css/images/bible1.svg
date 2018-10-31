@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Created with UniConvertor 2.0rc3 (http://sk1project.net/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" height="64.0" viewBox="0 0 64.0 64.0" width="64.0" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
-<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
-You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
-
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-<path id="book-16-icon" d="M422,99.775v248.172c-57.842,4.348-106.682,14.386-146,29.986V177.696
-	c10.152-6.315,21.41-11.648,33.323-16.166v-42.394c-19.793,6.357-37.811,14.236-53.323,23.894
-	c-50.446-31.404-127.301-44.056-206-46.457v289.334c67.575,2.062,133.791,11.682,183.096,34.24
-	c14.525,6.646,31.268,6.654,45.793,0.008C328.194,397.591,394.417,387.97,462,385.907V94.573
-	C449.25,94.774,433.441,96.898,422,99.775z M236,377.934c-39.318-15.601-88.158-25.639-146-29.986V138.869
-	c47.504,3.985,105.514,13.64,146,38.827V377.934z M335.187,125.126c0,11.271,0,105.906,0,105.906l29.809-36.729l29.809,25.692
-	V112.089c0-14.314,6.287-21.604,16.791-25.226c-22.095,3.286-46.345,8.911-59.009,12.946
-	C343.608,102.67,335.187,111.345,335.187,125.126z" />
+<g>
+	<image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAFAUlEQVR4nO2af4gVVRTHv9+Z2TZ94C9UcN2CiCVTWjY1IxKhP1LKjUCJjEpB9mmQIQqFgSGSUlhYFATuLrlriuSSYSJqEVZmBlsZG5ph9M/b7A/LJURsV+d++2Pe7L739s3bcWZWFt584PK49545594z5565j3uBlJSUlJSUlJQqhXEV1L+oxw3VSnBmYbugPy3Dlt4PeCyujdHEiavAdrXLtoon78GZgloB3BnXxmgSOgLqN2hcbb/ZYQyfJjmttH/Zc8X1g3tLBKQ+kX8AOGg7aPv9fV4q7L77BU03RAul5QDuAjk59CwGTeiSZenj/lrrld53eC3MM6EjYPxVswO01tkAoOH9E2+UKDalEpwMYR6AeerXxoY1WnWhlUcAoGGNllLaa4uTBt9JGRsjw2lwuS5zzRgA68M8EdoBjuEKEICw6Fw7T/rts7MSAExwS+W933NtJAA0Pq+MOw4LBG2A+ASkz2Zn1SyBlA5DJKBDlviu1Y/uno94NezYfO5dq0U0+NqIK5C4A8CpENBTMHkAcPJvamKpA0reYH5CJwCcuC+rzQRfh9E+r5cEsLmn3doedjzl+HUXv2lsEQBOD/tMoAPmPKXbajNmmyGfJVmHYSHtYefbS5eAHSAPAL+0cVvTavMgwWYAgNHhM7vjTb7U7v2rJUkXSe0ZuGJtOdvFgXLygQ4YnzFbAetlW6i4Hv1QHxYBFRwAALU3uNNYaAYAgTsrS4en2C7rIG5yMgYAXi0nbwUqElc5Ahzi4e4O0tHwsPbkvDLhRnEJkh98zsEPvsyAi+5w0xsZX2d3B2kLCx0BtuHKIPlgBxjOcAxweje/8+rl36rfPsktLkHyPqc+5BVfJkrCCx73kN3vO3nKMUCNWBcoH9ihyvWhdvUCrM9+WkYxlas42EifusqEHbdPYATYpjiRldYHFbjMWkY5v98vllHOdpmtZDxIZxzCjtsnOAJM5brPl/t5DBG3uyMlyiR0jmQj9hKIw1hYArEjIA5jOgJsVa4nwa3QOZKNNAKSUhSFse2Aak+Cpd/OpL/Xt0rnSDbSJRDYUe1LoOojIN0HVHsEpA5Ik2DlehKM6QhIk2C1R0DqgGpPgumfoXQJlK+3PaBIgSvoKoULoA4bY7239kf+XWhj1zxNtS2zXmKziAaCmSh2So/xxtA+gBkATRCbBL3UOVerTV5nx3wtN1I7jTUJQMS7AeVJfB+w8idGulfU/pCmOAOYbxltBLlE0Ce2PFWSuhyQgI5Z4tv/3Y4zLad5OYqdPXOLI3TM7APyE/pc0Bf7m8x2wCo4rSUBs/2Zn63XCMZ6/6O2D7CNegnWH2iMlgN8uqA+x2U3qD7AvwekPpELuhr1zwHopu8GFWEAYOhMMrEkWANmJbUSvCPO+PKTXly8zjkZwqPx9HoIyskaOpNMbB+wrCf6GWAhh+5RnRysJLQV4G1eqwZAbsZ17HvyN16Ma6OQyPsA2+gvgjOOztHCx87y26QGlJ/gm0dmCSDeAACIW5ae51tJ2fA5OkcLjQEIBTo10AE1UifATXBx8visZPesS86TNcIewXOAiE4AOD4rXn4Zhuud/wvqCBIJdMC/trVlynUjiqvA4BsWUVnsRULRJzXxnaF0UVTn5Rpra5BI7LvCN8NXDSYHsL6SjKDcIxesW3a9NvCGyGhgG2YdVzn/Hs+w4ipXq8q3SlJSUlJSUlJSUhLif2AGXtSRwF5eAAAAAElFTkSuQmCC" transform="matrix(1.0, 0.0, 0.0, 1.0, 0.0, 64.0)" height="64.0" width="64.0" y="-64.0" x="0" />
+</g>
 </svg>
