@@ -72,8 +72,6 @@ var hindibookMap = { 'उत्प.': 'GN',
   'प्रका.': 'RV' }
 
 
-
-
 function formatText(text, noteNumber, chapterVerse) {
 
 	textRegExp.lastIndex = 0;
@@ -176,7 +174,9 @@ function formatText(text, noteNumber, chapterVerse) {
 				return '<span class="nog">' + content + '</span>';
 
 				break;
-
+			case 'bk':
+				return content + "<script>const viewer = new Viewer(document.getElementById('images'), {inline: false, url(image) { return image.src.replace('-thumb', '');},title: [1, (image, imageData) => `${image.alt}`],toolbar: { prev: 1, zoomIn: 1, zoomOut: 1, oneToOne: 0, reset: 0, play: { show: 0, size: 'large'}, next: 1, rotateLeft: 0, rotateRight: 0, flipHorizontal: 0, flipVertical: 0 }});</script>";
+				break;
 			default:
 
 				if (unparsed.indexOf(key) == -1) {

@@ -202,6 +202,8 @@
 	<link rel="stylesheet" href="js/menu/config-toggles.css" />
 	<script src="js/menu/config-url.js"></script>
 	<link rel="stylesheet" href="js/menu/config-url.css" />
+	<link  href="../node_modules/viewerjs/dist/viewer.css" rel="stylesheet"/>
+
 
 	<!-- <script src="js/core/config-dbs.js" data-build="copy"></script> -->
 	<script src="js/core/config-custom.js" data-build="copy"></script>
@@ -270,10 +272,17 @@
     	clear: both;
     	display: none;
 	}
+	.viewer-title {
+		color: #FFFFFF;
+		font-size: 16px;
+		opacity: 1;
+		overflow: visible;
+	}
+
 	</style>
 </head>
 <body>
-
+	
 	<div id="startup">
 		<h1>VachanOnline.com is the premier Bible digital study website in major Indian languages.</h1>
 
@@ -285,6 +294,7 @@
 
 </body>
 <script type="text/javascript">
+
 		var temp = $(this).text()
 		aboutWindow = new MovableWindow(800, 450, "More Links");
 		body = $(document.body);
@@ -392,4 +402,6 @@
 	// })
 
 </script>
+<script type="text/javascript" src="../node_modules/viewerjs/dist/viewer.js"></script>
+	
 </html>
