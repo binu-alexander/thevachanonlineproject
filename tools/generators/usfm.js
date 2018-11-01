@@ -307,12 +307,13 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 
 					currentChapterNum = usfm.text;
 					currentChapterCode = bibleFormatter.formatChapterCode(currentBookInfo.dbsCode, currentChapterNum);
-					currentChapterHtml += '<div class="c">' +
-						(currentBookInfo.dbsCode == 'PS' ?
-						(currentHeader.substring(currentHeader.length - 1) == 's' ? currentHeader.substring(0, currentHeader.length - 1) : currentHeader) + ' ' : ''
-					) + usfm.text.toString() +
-						'</div>' + breakChar;
-
+					if (usfm.text.toString() != '0') {
+						currentChapterHtml += '<div class="c">' +
+							(currentBookInfo.dbsCode == 'PS' ?
+							(currentHeader.substring(currentHeader.length - 1) == 's' ? currentHeader.substring(0, currentHeader.length - 1) : currentHeader) + ' ' : ''
+						) + usfm.text.toString() +
+							'</div>' + breakChar;
+					}
 					break;
 
 				case 'v':

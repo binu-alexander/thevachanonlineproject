@@ -1,0 +1,84 @@
+{
+	"BK0": [
+		{
+			"filename": "AssyrianGreek-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "अश्शूरी, बाबेली और यूनानी साम्राज्य",
+			"description": ""
+		},
+		{
+			"filename": "Canaan12Tribes-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "इस्राएल के बारह गोत्र",
+			"description": ""
+		},
+		{
+			"filename": "ExodusFromEgypt-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "मिस्र से पलायन",
+			"description": ""
+		},
+		{
+			"filename": "MinistryOfJesus",
+			"exts": [
+				"jpg"
+			],
+			"title": "यीशु की सेवकाई",
+			"description": ""
+		},
+				{
+			"filename": "ModernMiddleEast-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "वर्तमान काल का इस्राएल और मध्य पूर्व",
+			"description": ""
+		},
+				{
+			"filename": "PaulsJourneys-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "पौलुस की मिशनरी यात्रा",
+			"description": ""
+		},
+				{
+			"filename": "tabernacle",
+			"exts": [
+				"jpg"
+			],
+			"title": "परमपवित्र स्थान",
+			"description": ""
+		},
+				{
+			"filename": "Temple-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "नया नियम के समय का मंदिर",
+			"description": ""
+		},
+				{
+			"filename": "Timeline-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "बाइबिल की घटनाओं का समयरेखा",
+			"description": ""
+		},
+				{
+			"filename": "UnitedDivided-1",
+			"exts": [
+				"jpg"
+			],
+			"title": "संयुक्त / विभाजित राज्य",
+			"description": ""
+		}
+	]
+}
