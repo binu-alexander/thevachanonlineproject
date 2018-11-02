@@ -4,8 +4,9 @@
 	"name": "Indian Revised Version",
 	"nameEnglish": "Gujarati",
 	"lang": "guj",
-	"langName": "Indian Languages",
-	"langNameEnglish": "Indian Languages",
+	"langName": "Gujarati",
+	"langNameEnglish": "Gujarati",
+	"nativeLang":"Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
 	"lang_2_code": "gu"

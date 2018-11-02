@@ -4,8 +4,9 @@
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "kan",
-	"langName": "Indian Languages",
-	"langNameEnglish": "Indian Languages",
+	"langName": "Kannada",
+	"langNameEnglish": "Kannada",
+	"nativeLang":"Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
 	"lang_2_code": "kn"

@@ -4,8 +4,9 @@
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "tel",
-	"langName": "Indian Languages",
-	"langNameEnglish": "Indian Languages",
+	"langName": "Telugu",
+	"langNameEnglish": "Telugu",
+	"nativeLang":"Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
 	"lang_2_code": "te"

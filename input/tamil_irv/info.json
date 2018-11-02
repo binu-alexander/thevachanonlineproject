@@ -4,8 +4,9 @@
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "tam",
-	"langName": "Indian Languages",
-	"langNameEnglish": "Indian Languages",
+	"langName": "Tamil",
+	"langNameEnglish": "Tamil",
+	"nativeLang":"Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
 	"lang_2_code": "ta"

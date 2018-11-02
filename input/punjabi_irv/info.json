@@ -4,8 +4,9 @@
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "pnb",
-	"langName": "Indian Languages",
-	"langNameEnglish": "Indian Languages",
+	"langName": "Punjabi",
+	"langNameEnglish": "Punjabi",
+	"nativeLang":"Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
 	"lang_2_code": "pa"

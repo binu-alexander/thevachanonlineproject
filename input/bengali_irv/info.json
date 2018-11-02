@@ -4,8 +4,9 @@
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "bangla",
-	"langName": "Indian Languages",
-	"langNameEnglish": "Indian Languages",
+	"langName": "Bengali",
+	"langNameEnglish": "Bengali",
+	"nativeLang":"Indian Languages",
 	"dir": "ltr",
 	"generator": "usfm",
 	"lang_2_code": "bn"

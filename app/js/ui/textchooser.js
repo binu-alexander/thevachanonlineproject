@@ -1,7 +1,7 @@
 sofia.config = $.extend(sofia.config, {
 
-	enableBibleSelectorTabs: false,
-	bibleSelectorDefaultList: ['ENGNAS', 'ENGNIV']
+	enableBibleSelectorTabs: true,
+	bibleSelectorDefaultList: ['']
 
 });
 
@@ -26,9 +26,10 @@ var TextChooser = function() {
 							'<span class="up-arrow-border"></span>' +
 							'<div class="text-chooser-header">' +
 								'<div class="text-chooser-selector">' +
-								// 	'<span class="text-chooser-default selected i18n" data-mode="default" data-i18n="[html]windows.bible.default"></span>' +
-								// 	'<span class="text-chooser-languages i18n" data-mode="languages" data-i18n="[html]windows.bible.languages"></span>' +
-								// 	'<span class="text-chooser-countries i18n" data-mode="countries" data-i18n="[html]windows.bible.countries"></span>' +
+									// '<span class="text-chooser-default selected i18n" data-mode="default" data-i18n="[html]windows.bible.default"></span>' +
+									'<span class="text-chooser-languages selected i18n" data-mode="languages" data-i18n="[html]windows.bible.languages"></span>' +
+									'<span class="text-chooser-versions i18n" data-mode="versions" data-i18n="[html]windows.bible.versions"></span>' +
+									// '<span class="text-chooser-countries i18n" data-mode="countries" data-i18n="[html]windows.bible.countries"></span>' +
 								'</div>' +
 								'<input type="text" style="font-size:14px" class="text-chooser-filter-text i18n" data-i18n="[placeholder]windows.bible.filter" />' +
 								'<span class="close-button">Close</span>' +
@@ -40,9 +41,10 @@ var TextChooser = function() {
 		header = textChooser.find('.text-chooser-header'),
 		main = textChooser.find('.text-chooser-main'),
 		listselector = textChooser.find('.text-chooser-selector'),
-		defaultSelector = textChooser.find('.text-chooser-default'),
+		// defaultSelector = textChooser.find('.text-chooser-default'),
 		languagesSelector = textChooser.find('.text-chooser-languages'),
-		countriesSelector = textChooser.find('.text-chooser-countries'),
+		versionsSelector = textChooser.find('.text-chooser-versions'),
+		// countriesSelector = textChooser.find('.text-chooser-countries'),
 		filter = textChooser.find('.text-chooser-filter-text'),
 		title = textChooser.find('.text-chooser-title'),
 		closeBtn = textChooser.find('.close-button').hide(),
@@ -59,13 +61,13 @@ var TextChooser = function() {
 	closeBtn.on('click', hide);
 
 	if (sofia.config.enableBibleSelectorTabs && sofia.config.bibleSelectorDefaultList && sofia.config.bibleSelectorDefaultList.length > 0) {
-
+		console.log("yessssssssssssssssss");
 		listselector.on('click', 'span', function() {
 			$(this)
 				.addClass('selected')
 				.siblings()
 					.removeClass('selected');
-
+			console.log("********",$(this).addClass('selected'));
 			filter
 				.val('');
 
@@ -77,17 +79,25 @@ var TextChooser = function() {
 		});
 
 
-	} else {
+	} 
+	else {
 		listselector.hide();
 	}
 
 	$(document).on("click", ".app-list", function(){
+		console.log("app-list");
 			filterVersions();
-			if (text_type == 'bible') filter.val('Bibles');
-			else filter.val('Study Helps')
+			if (text_type == 'bible'){
+				filter.val('Bibles');
+				$(".text-chooser-languages").click();
+			}
+			else{
+				filter.val('Study Helps');
+			}
 
 		})
 	$(document).on("click", ".text-chooser-filter-text", function(){
+		console.log("text-chooser-filter-text");
 			filter.val('');
 		})
 
@@ -152,7 +162,6 @@ var TextChooser = function() {
 		        r[a.langName].push(a);
 		        return r;
 		    }, Object.create(null));
-
 
 			for (var key in result) {
 			    var value = result[key];
@@ -271,7 +280,7 @@ var TextChooser = function() {
 		TextLoader.getText(textid, function(data) {
 
 			selectedTextInfo = data;
-
+			console.log(data);
 			ext.trigger('change', {type:'change', target: this, data: {textInfo: selectedTextInfo, target: target} });
 
 		});
@@ -405,7 +414,7 @@ var TextChooser = function() {
 
 	function checkIsDefaultText(id) {
 
-		var isDefaultText = false,
+		var isDefaultText = true,
 			parts = id.split(':'),
 			textid = parts.length > 1 ? parts[1] : parts[0];
 
@@ -420,7 +429,7 @@ var TextChooser = function() {
 			}
 
 		} else {
-			isDefaultText = false;
+			isDefaultText = true;
 		}
 
 
@@ -432,7 +441,6 @@ var TextChooser = function() {
 		if (sofia.config.enableBibleSelectorTabs) {
 			var selectedMode = listselector.find('.selected'),
 				mode = selectedMode.length > 0 ? selectedMode.data('mode') : 'none';
-
 			return mode;
 		} else {
 			return 'none';
@@ -450,7 +458,7 @@ var TextChooser = function() {
 			arrayOfTexts = data,
 			mode = getMode();
 
-		if (mode == 'languages' || mode == 'default' || mode == 'none') {
+		if (mode == 'languages' || mode == 'none') {
 
 			// filter by type
 			arrayOfTexts = arrayOfTexts.filter(function(t) {
@@ -499,9 +507,12 @@ var TextChooser = function() {
 
 					var pinnedIndex = languages.indexOf(pinnedLanguage);
 					if (pinnedIndex > -1) {
-
+						console.log(mode);
 						if (mode == 'default' || mode == 'none') {
 							// pull it out
+							languages.splice(pinnedIndex, 1);
+						}
+						else if (mode == 'languages'){
 							languages.splice(pinnedIndex, 1);
 						}
 
@@ -511,14 +522,23 @@ var TextChooser = function() {
 				}
 			}
 
-			// sort
-			languages.sort();
 
 			// put it back in
 			if (pinnedLanguages.length > 0) {
 				languages.splice.apply(languages, [0, 0].concat(pinnedLanguages));
 			}
 
+			// Added by VIPIN for showing the Indian Languages 1st in the dropdown
+			// for (var i in languages) {
+			// 	if (languages[i] == "Indian Languages"){
+			// 		languages.unshift("Indian Languages");
+			// 		var j = i;
+			// 	}
+			// }
+			// languages.splice(parseInt(j)+1,1);
+
+			// sort
+			languages.sort();
 
 			for (var index in languages) {
 
@@ -529,23 +549,26 @@ var TextChooser = function() {
 					langHtml = [];
 
 				// sort the texts by name (it was previous code, below code changed with sort by abbr)
-                /* textsInLang = textsInLang.sort(function (a, b) {
-                    if (a.name == b.name) {
-                        return 0;
-                    } else if (a.name > b.name) {
-                        return 1;
-                    } else if (a.name < b.name) {
-                        return -1;
-                    }
-                }); */
-                
-                // create language dropdown and text sort by abbr
-                textsInLang.sort(function(a, b){
-                    if(a.abbr < b.abbr) return -1;
-                    if(a.abbr > b.abbr) return 1;
-                    return 0;
-                })
+                //  textsInLang = textsInLang.sort(function (a, b) {
+                //     if (a.name == b.name) {
+                //         return 0;
+                //     } else if (a.name > b.name) {
+                //         return 1;
+                //     } else if (a.name < b.name) {
+                //         return -1;
+                //     }
+                // }); 
 
+
+                // langNameEnglish: "Indian Languages"
+
+                // create language dropdown and text sort by abbr
+                // textsInLang.sort(function(a, b){
+                //     if(a.abbr < b.abbr) return -1;
+                //     if(a.abbr > b.abbr) return 1;
+                //     return 0;
+                // })
+                // console.log(textsInLang);
 				// create HTML for the texts
 				for (var textIndex in textsInLang) {
 					var text = textsInLang[textIndex],
@@ -581,12 +604,13 @@ var TextChooser = function() {
 					var languageDisplayTitle = '';
 
 					// vernacular first
-					/*
+					
 					languageDisplayTitle = textsInLang[0].langName +
 									( textsInLang[0].langName != textsInLang[0].langNameEnglish && typeof textsInLang[0].langNameEnglish != 'undefined' ? ' (' + textsInLang[0].langNameEnglish + ')' : '');
-					*/
+					
 
 					// english first
+
 					var langName = textsInLang[0].langName,
 						langNameEnglish = textsInLang[0].langNameEnglish;
 
@@ -621,135 +645,285 @@ var TextChooser = function() {
 			updateRecentlyUsed();
 
 
-		} else if (mode == "countries") {
+		}
+		else if (mode == "versions"){
 
-			textChooser.removeClass('show-more');
+			// filter by type
+			arrayOfTexts = arrayOfTexts.filter(function(t) {
 
-			for (var i=0, il=sofia.countries.length; i<il; i++) {
+				if (text_type == 'audio') {
+					var hasAudio = t.hasAudio ||
+						typeof t.audioDirectory != 'undefined' ||
+						(typeof t.fcbh_audio_ot != 'undefined' || typeof t.fcbh_audio_nt != 'undefined' ||
+						 typeof t.fcbh_drama_ot != 'undefined' || typeof t.fcbh_drama_nt != 'undefined');
 
-				var countryInfo = sofia.countries[i],
-					textsInCountry = arrayOfTexts.filter(function(t) {
-						return typeof t.countries != 'undefined' && t.countries.indexOf(countryInfo["alpha-2"]) > -1;
-					});
-
-
-				if (textsInCountry.length > 0) {
-					html.push(
-						createHeaderRow(countryInfo["alpha-3"],
-							countryInfo.name,
-							'',
-							'<img src="' + sofia.config.baseContentUrl + 'content/countries/' + countryInfo["alpha-2"].toLowerCase() + '.png" alt="' + countryInfo["alpha-2"] + '" />',
-							'country collapsed')
-
-					);
-
-					// order by languages?
-					var languagesInCountry = [];
-
-					for (var index in textsInCountry) {
-						var text = textsInCountry[index];
-
-						/* ORDER BY  English Name */
-						var langKey = text.langNameEnglish;
-						if (langKey == undefined || langKey == '') {
-							langKey = text.langName;
-						}
-
-						if (languagesInCountry.indexOf(langKey) == -1) {
-							languagesInCountry.push( langKey );
-						}
+					return hasAudio === true;
+				} else {
+					if (t.hasText === false) {
+						return false;
 					}
+				}
 
-					languagesInCountry.sort();
+				var thisTextType = typeof t.type == 'undefined' ? 'bible' : t.type;
 
-					for (var index in languagesInCountry) {
+				return thisTextType == text_type;
+			});
 
-						// get all the ones with this language
-						var langName = languagesInCountry[index],
-							textsInLang = textsInCountry.filter(function(t) { return (t.langName == langName || t.langNameEnglish == langName) }),
-							hasDefaultText = false,
-							langHtml = [];
+			// find languages
+			var versions = [];
+			for (var index in arrayOfTexts) {
+				var text = arrayOfTexts[index];
+
+				/* ORDER BY  English Name */
+				var langKey = text.name;
+				if (langKey == undefined || langKey == '') {
+					langKey = text.langName;
+				}
+
+				if (versions.indexOf(langKey) == -1) {
+					versions.push( langKey );
+				}
+			}
 
 
-						// LANGUAGE
-						var languageDisplayTitle = '';
+			// PINNED
+			var pinnedVersions = [];
+			if (sofia.config.pinnedVersions && sofia.config.pinnedVersions.length && sofia.config.pinnedVersions.length > 0) {
+				// console.log('finding pins');
 
-						// english first
-						var langName = textsInLang[0].langName,
-							langNameEnglish = textsInLang[0].langNameEnglish;
+				for (var i=0, il  = sofia.config.pinnedVersions.length; i<il; i++) {
+					var pinnedVersion = sofia.config.pinnedVersions[i];
 
-						if (langNameEnglish != '' && langNameEnglish != undefined) {
-							languageDisplayTitle = 	langNameEnglish + (langName != langNameEnglish ? ' (' + langName + ')' : '');
-						} else {
-							languageDisplayTitle = langName;
+					var pinnedIndex = versions.indexOf(pinnedVersion);
+					if (pinnedIndex > -1) {
+
+						if (mode == 'versions' || mode == 'none') {
+							// pull it out
+							versions.splice(pinnedIndex, 1);
 						}
+						// else if (mode == ''){
+						// 	languages.splice(pinnedIndex, 1);
+						// }
 
-						html.push(
-							createDividerRow(
-								languageDisplayTitle,
-								'collapsed'
-							)
-						);
-
-
-						// sort the texts by name
-						textsInLang = textsInLang.sort(function (a, b) {
-							if (a.name == b.name) {
-								return 0;
-							} else if (a.name > b.name) {
-								return 1;
-							} else if (a.name < b.name) {
-								return -1;
-							}
-						});
+						// store for later
+						pinnedVersion.push(pinnedVersion);
+					}
+				}
+			}
 
 
-						// create HTML for the texts
-						for (var textIndex in textsInLang) {
-							var text = textsInLang[textIndex];
+			// put it back in
+			if (pinnedVersions.length > 0) {
+				versions.splice.apply(versions, [0, 0].concat(pinnedVersions));
+			}
 
-							langHtml.push(
+			// sort
+			versions.sort();
+			console.log(versions);
+			for (var index in versions) {
+
+				// get all the ones with this language
+				var versName = versions[index],
+					textsInVers = arrayOfTexts.filter(function(t) { return (t.name == versName) }),
+					hasDefaultText = false,
+					versHtml = [];
+
+				// create HTML for the texts
+				for (var textIndex in textsInVers) {
+					var text = textsInVers[textIndex],
+						isDefaultText = checkIsDefaultText(text.id);
+
+					if (text_type == 'bible' ) {
+						if (mode == 'none' || (isDefaultText && mode == 'versions')) {
+							versHtml.push(
 								createTextRow(
 										text,
-										false,
-										'collapsed'
+										isDefaultText,
+										mode == 'versions' ? 'collapsed' : ''
 								)
 							);
-
-							if (!hasDefaultText && isDefaultText) {
-								hasDefaultText = true;
-							}
 						}
 
-
-
-
-
-						html.push(langHtml.join(''));
-
-					}
-
-
-
-					/* simple list in country */
-					/*
-					for (var textIndex in textsInCountry) {
-						var text = textsInCountry[textIndex];
-
-						html.push(
-							createTextRow(text, isDefaultText, 'collapsed')
-						);
-
-					}
-					*/
-
+						if (!hasDefaultText && isDefaultText) {
+							hasDefaultText = true;
+						}
+					} 
 				}
+
+				if (text_type == 'bible' && (mode == 'none' || (hasDefaultText && mode == 'versions')) ) {
+
+					var versionDisplayTitle = '';
+
+					// vernacular first
+					
+					versionDisplayTitle = textsInVers[0].versName +
+									( textsInVers[0].versName != textsInVers[0].name && typeof textsInVers[0].name != 'undefined' ? ' (' + textsInVers[0].name + ')' : '');
+					
+
+					// english first
+
+					var versName = textsInVers[0].name,
+						langNameEnglish = textsInVers[0].name;
+
+					if (langNameEnglish != '' && langNameEnglish != undefined) {
+						versionDisplayTitle = 	langNameEnglish + (versName != langNameEnglish ? ' (' + versName + ')' : '');
+					} else {
+						versionDisplayTitle = versName;
+					}
+
+					html.push(
+						createHeaderRow(
+							'',
+							versionDisplayTitle,
+							'',
+							'',
+							mode == 'versions' ? 'collapsible-version collapsed' : ''
+						)
+					);
+				}
+
+				html.push(versHtml.join(''));
 
 			}
 
-			main.html('<table cellspacing="0" class="collapsible">' + html.join('') + '</table>');
 
-		}
+			main.html('<table cellspacing="0" class="' + (mode == 'versions' ? 'collapsible' : '') + '">' + html.join('') + '</table>');
+
+
+			updateSelectedText();
+
+			// do this after the 'selected' so it's not in the recently used
+			updateRecentlyUsed();
+
+		} 
+		// else if (mode == "countries") {
+
+		// 	textChooser.removeClass('show-more');
+
+		// 	for (var i=0, il=sofia.countries.length; i<il; i++) {
+
+		// 		var countryInfo = sofia.countries[i],
+		// 			textsInCountry = arrayOfTexts.filter(function(t) {
+		// 				return typeof t.countries != 'undefined' && t.countries.indexOf(countryInfo["alpha-2"]) > -1;
+		// 			});
+
+
+		// 		if (textsInCountry.length > 0) {
+		// 			html.push(
+		// 				createHeaderRow(countryInfo["alpha-3"],
+		// 					countryInfo.name,
+		// 					'',
+		// 					'<img src="' + sofia.config.baseContentUrl + 'content/countries/' + countryInfo["alpha-2"].toLowerCase() + '.png" alt="' + countryInfo["alpha-2"] + '" />',
+		// 					'country collapsed')
+
+		// 			);
+
+		// 			// order by languages?
+		// 			var languagesInCountry = [];
+
+		// 			for (var index in textsInCountry) {
+		// 				var text = textsInCountry[index];
+
+		// 				/* ORDER BY  English Name */
+		// 				var langKey = text.langNameEnglish;
+		// 				if (langKey == undefined || langKey == '') {
+		// 					langKey = text.langName;
+		// 				}
+
+		// 				if (languagesInCountry.indexOf(langKey) == -1) {
+		// 					languagesInCountry.push( langKey );
+		// 				}
+		// 			}
+
+		// 			languagesInCountry.sort();
+
+		// 			for (var index in languagesInCountry) {
+
+		// 				// get all the ones with this language
+		// 				var langName = languagesInCountry[index],
+		// 					textsInLang = textsInCountry.filter(function(t) { return (t.langName == langName || t.langNameEnglish == langName) }),
+		// 					hasDefaultText = false,
+		// 					langHtml = [];
+
+
+		// 				// LANGUAGE
+		// 				var languageDisplayTitle = '';
+
+		// 				// english first
+		// 				var langName = textsInLang[0].langName,
+		// 					langNameEnglish = textsInLang[0].langNameEnglish;
+
+		// 				if (langNameEnglish != '' && langNameEnglish != undefined) {
+		// 					languageDisplayTitle = 	langNameEnglish + (langName != langNameEnglish ? ' (' + langName + ')' : '');
+		// 				} else {
+		// 					languageDisplayTitle = langName;
+		// 				}
+
+		// 				html.push(
+		// 					createDividerRow(
+		// 						languageDisplayTitle,
+		// 						'collapsed'
+		// 					)
+		// 				);
+
+
+		// 				// sort the texts by name
+		// 				textsInLang = textsInLang.sort(function (a, b) {
+		// 					if (a.name == b.name) {
+		// 						return 0;
+		// 					} else if (a.name > b.name) {
+		// 						return 1;
+		// 					} else if (a.name < b.name) {
+		// 						return -1;
+		// 					}
+		// 				});
+
+		// 				// create HTML for the texts
+		// 				for (var textIndex in textsInLang) {
+		// 					var text = textsInLang[textIndex];
+
+		// 					langHtml.push(
+		// 						createTextRow(
+		// 								text,
+		// 								false,
+		// 								'collapsed'
+		// 						)
+		// 					);
+
+		// 					if (!hasDefaultText && isDefaultText) {
+		// 						hasDefaultText = true;
+		// 					}
+		// 				}
+
+
+
+
+
+		// 				html.push(langHtml.join(''));
+
+		// 			}
+
+
+
+		// 			/* simple list in country */
+		// 			/*
+		// 			for (var textIndex in textsInCountry) {
+		// 				var text = textsInCountry[textIndex];
+
+		// 				html.push(
+		// 					createTextRow(text, isDefaultText, 'collapsed')
+		// 				);
+
+		// 			}
+		// 			*/
+
+		// 		}
+
+		// 	}
+
+		// 	main.html('<table cellspacing="0" class="collapsible">' + html.join('') + '</table>');
+
+		// }
 
 	}
 
@@ -801,7 +975,7 @@ var TextChooser = function() {
 			providerFullName = sofia.textproviders[text.providerName] && sofia.textproviders[text.providerName].fullName ? sofia.textproviders[text.providerName].fullName : '',
 
 			colspan = 4 - (hasAudio ? 1 : 0) - (hasLemma ? 1 : 0) - (providerName != '' ? 1 : 0);
-
+		console.log("8888888888",isDefaultText);
 		var html = '<tr class="text-chooser-row' + (isDefaultText ? ' is-default-text' : '') + (className != '' ? ' ' + className : '') + '" data-id="' + text.id + '" data-lang-name="' + text.langName + '" data-lang-name-english="' + text.langNameEnglish + '">' +
 					'<td class="text-chooser-abbr">' + text.abbr + '</td>' +
 					'<td class="text-chooser-name" ' + (colspan > 1 ? ' colspan="' + colspan + '"' : '') + '>' +
@@ -864,6 +1038,7 @@ var TextChooser = function() {
 
 
 	function createHeaderRow(id, name, englishName, additionalHtml, className) {
+		console.log(id, name, englishName, additionalHtml, className);
 		var html = '<tr class="text-chooser-row-header' + (className != '' ? ' ' + className : '') + '" data-id="' + id + '"><td colspan="5">' +
 					'<span class="name">' + name + '</span>' +
 					additionalHtml +
@@ -912,12 +1087,15 @@ var TextChooser = function() {
 
 			if (text_type == 'bible' && sofia.config.enableBibleSelectorTabs && sofia.config.bibleSelectorDefaultList && sofia.config.bibleSelectorDefaultList.length > 0) {
 				listselector
-					.find('.text-chooser-default')
+					.find('.text-chooser-languages').click();
+				listselector
+					.find('.text-chooser-languages')
 					.addClass('selected')
 						.siblings()
 							.removeClass('selected');
 
 				listselector.show();
+
 			} else {
 
 				listselector

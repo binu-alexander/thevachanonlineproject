@@ -78,6 +78,7 @@ sofia.resources['pa'] = {
 				"default": "Featured",
 				"languages": "Language",
 				"countries": "Country",
+				"versions": "Version",
 				"lemma":"Greek/Hebrew Popups",
 				"audio":"Audio available"
 			},
