@@ -39,9 +39,10 @@
 
 .main-menu-heading {
 	padding: 5px;
-	background: #0a2da5;
+	/*background: #0a2da5;*/
+	background-image: linear-gradient(to right, blue , purple);
 	color: #fff;
-	font-size: 0.8em;
+	font-size: 0.9em;
 	border-bottom: 1px solid #0a2da5;
 }
 

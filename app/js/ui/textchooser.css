@@ -220,6 +220,26 @@ padding: 10px;
 	padding-left: 25px;
 }
 
+/* versions */
+.text-chooser-row-header.version td,
+.text-chooser-row-header.collapsible-version td {
+	position: relative;
+	background-image: url(../../css/images/arrow-down.svg);
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+
+.text-chooser-row-header.version img {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: 25px;
+	height: 15px;
+}
+.text-chooser-row-header.version span.name {
+	padding-left: 25px;
+}
+
 /* collapse */
 table.collapsible .text-chooser-row-header {
 	cursor: pointer;
@@ -229,6 +249,8 @@ table.collapsible .text-chooser-row-header:hover {
 }
 table.collapsible .text-chooser-row-header.collapsed td {
 	background-image: url(../../css/images/arrow-right.svg);
+	background-position: right center;
+	background-repeat: no-repeat;
 }
 
 
@@ -260,7 +282,7 @@ table.collapsible .text-chooser-row-divider.collapsed {
 }
 
 .text-chooser-selector span {
-	width: 33%;
+	width: 50%;
 	border: solid 1px #999;
 	display: inline-block;
 	cursor: pointer;
@@ -274,17 +296,21 @@ table.collapsible .text-chooser-row-divider.collapsed {
 }
 .text-chooser-selector span.text-chooser-default {
 	border-right-width: 0;
-	border-radius: 4px 0 0 4px;
+	/*border-radius: 4px 0 0 4px;*/
 	background-image: url(../../css/images/openbook-white.svg);
 	background-position-y: 4px;
 }
 .text-chooser-selector span.text-chooser-languages {
-	border-right-width: 0;
+	border-right-width: 1px;
 	background-image: url(../../css/images/languages-gray-light.svg);
 }
 .text-chooser-selector span.text-chooser-countries {
 	border-radius: 0 4px 4px 0;
 	background-image: url(../../css/images/earth-white.svg);
+}
+.text-chooser-selector span.text-chooser-versions {
+	border-radius: 0 4px 4px 0;
+	background-image: url(../../css/images/version-white.svg);
 }
 .text-chooser-selector span.selected {
 	background-color: #fff;
@@ -300,4 +326,7 @@ table.collapsible .text-chooser-row-divider.collapsed {
 }
 .text-chooser-selector span.text-chooser-countries.selected {
 	background-image: url(../../css/images/earth-gray-dark.svg);
+}
+.text-chooser-selector span.text-chooser-versions.selected {
+	background-image: url(../../css/images/version-gray.svg);
 }
