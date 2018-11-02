@@ -361,8 +361,13 @@ var TextNavigator = function() {
 				for (var chapter=0; chapter<chapters.length; chapter++) {
 					var dbsChapterCode = chapters[chapter],
 						chapterNumber = parseInt(dbsChapterCode.substring(2));
-
-					html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + numbers[chapterNumber].toString() + '</span>');
+					if (dbsChapterCode != 'BK0') {
+						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + numbers[chapterNumber].toString() + '</span>');		
+					}
+					else {
+						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + '<img class=inline-icon image-icon mediathumb src="../css/images/pictures.svg">' + '</span>');
+					}
+					
 				}
 
 				var sectionNodes = $('<div class="text-navigator-sections" style="display:none;">' + html.join('') + '</div>');

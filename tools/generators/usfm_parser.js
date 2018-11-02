@@ -175,7 +175,7 @@ function formatText(text, noteNumber, chapterVerse) {
 
 				break;
 			case 'bk':
-				return content + "<script>const viewer = new Viewer(document.getElementById('images'), {inline: false, url(image) { return image.src.replace('-thumb', '');},title: [1, (image, imageData) => `${image.alt}`],toolbar: { prev: 1, zoomIn: 1, zoomOut: 1, oneToOne: 0, reset: 0, play: { show: 0, size: 'large'}, next: 1, rotateLeft: 0, rotateRight: 0, flipHorizontal: 0, flipVertical: 0 }});</script>";
+				return content + "<script>const viewer = new Viewer(document.getElementById('images'), {inline: false, url(image) { return image.src.replace('-thumb', '');},title: [1, (image, imageData) => `${image.alt}`],toolbar: { zoomIn: 1, zoomOut: 1, oneToOne: 0, reset: 0, play: { show: 0, size: 'large'}, prev: 1, next: 1, rotateLeft: 0, rotateRight: 0, flipHorizontal: 0, flipVertical: 0 }});</script>";
 				break;
 			default:
 
