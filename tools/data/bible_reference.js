@@ -567,7 +567,7 @@ bible.Reference = function () {
 			else if (this.chapter1 > 0 && this.verse1 > 0 && this.chapter2 > 0 && this.verse2 > 0) // John 1:1-2:2
 				return this.chapter1 + cvSeparator + this.verse1 + ccSeparator + ((this.chapter1 != this.chapter2) ? this.chapter2 + cvSeparator : '') + this.verse2;
 			else
-				return 'unknown';
+				return '';
 		},
 
 		toFormat: function(format) {
