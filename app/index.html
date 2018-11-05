@@ -242,6 +242,7 @@
 		    background-size: 100% 100%;
 		    background-image: url(css/images/bcs_old_favicon.png);
 		    position: relative;
+		    cursor:pointer;
 		    top: 5px;
 		}
 	}
@@ -303,6 +304,12 @@
 		winHeight = win.height();
 		localStorage.removeItem("20140307app-windows");
 		$(document).on("click", "#app-logo", function(){
+			aboutWindow.hide();
+			localStorage.removeItem("20140307app-windows");
+			window.location.reload();
+		});
+
+		$(document).on("click", "#app-logo-icon", function(){
 			aboutWindow.hide();
 			localStorage.removeItem("20140307app-windows");
 			window.location.reload();
