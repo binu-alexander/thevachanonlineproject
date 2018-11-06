@@ -93,6 +93,7 @@ var CrossReferencePopupPlugin = function(app) {
 	sofia.globals.handleBibleRefMouseover = function(e, textid) {
 
 		if ($(this).attr('data-id').indexOf("bibleJsn") > 0) {
+
 			// referencePopup.body.html('');
 			// var dataIdVal = $(this).attr('data-id').split('_');
 			// let languageCode = $(this).parent().parent().attr('data-lang3');
@@ -134,12 +135,14 @@ var CrossReferencePopupPlugin = function(app) {
 
 			var link = $(this),
 			fragmentid = getFragmentidFromNode(link);
+			var textids = null;
 
 			if (fragmentid != null) {
 
 				var sectionid = fragmentid.split('_')[0];
 
 				if (typeof textid == 'undefined') {
+
 
 					if (link.closest('.section').hasClass('commentary')) {
 
@@ -163,54 +166,104 @@ var CrossReferencePopupPlugin = function(app) {
 					}
 				}
 
+				if ($('.BibleWindow:eq(1) .section').attr('data-textid') == "hindi_irv") {
+					if (link.closest('.section').attr('data-textid') != "comm_hin_dict") {
+						textids = ["hindi_irv","hindi_wbt"];
+					}
+				}
+
 
 				// console.log('hover', textid, sectionid, fragmentid);
 				// var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
 
 				// Above code I (udkumar@hotmail.com) commented because default 
 				// windows setting changed and on hover from hindi notes we ned irv in reference
-				var versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
-				var versionCode = textid.split("_")[1];
-				var bibleVersion = versionName +"-"+ versionCode;
+				if (textids != null) {
+					var html = '';
+					var verse = '';
+					for (let i = 0; i < textids.length; i++ ) {
+						textid = textids[i];
+						TextLoader.getText(textid, function(textInfo) {
+							TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+								let versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
+								let versionCode = textInfo.id.split("_")[1];
+								let bibleVersion = versionName +"-"+ versionCode;
 
-				TextLoader.getText(textid, function(textInfo) {
+								if (verserange.length > 0) {
+									for (var j = 0; j< verserange.length; j++ ){
+										fragmentid = sectionid + "_" + verserange[j]
+										verse = contentNode.find('.' + fragmentid)
+										verse.find('.note').remove();
+										verse.each(function() {
+											html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+										});
+										html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+									}								
+								}
+								else{
+									verse = contentNode.find('.' + fragmentid)
+									verse.find('.note').remove();
+									verse.each(function() {
+										html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+									});
+									html += "<span style='font-size:10px;'></span>"
+								}
+								verserange = [];
+								if (versionCode == 'irv') { html += "<span style='font-size:10px;'> HIN-IRV </span><br>"; }
+								else if (versionCode == 'wbt') { html += "<span style='font-size:10px;'> HIN-ERV </span><br>"; }
+								versionCode = "";
+								referencePopup.body.html(html);
+								referencePopup.show();
+								referencePopup.position(link);		
+							});		
+						});
+					}	
+				}
+				else {
+					var versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
+					var versionCode = textid.split("_")[1];
+					var bibleVersion = versionName +"-"+ versionCode;
 
-					TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+					TextLoader.getText(textid, function(textInfo) {
 
-						var html = '';
-						var verse = '';
+						TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
 
-						if (verserange.length > 0) {
-							for (var j = 0; j< verserange.length; j++ ){
-								fragmentid = sectionid + "_" + verserange[j]
+							var html = '';
+							var verse = '';
+
+							if (verserange.length > 0) {
+								for (var j = 0; j< verserange.length; j++ ){
+									fragmentid = sectionid + "_" + verserange[j]
+									verse = contentNode.find('.' + fragmentid)
+									verse.find('.note').remove();
+									verse.each(function() {
+									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+									});
+									html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+								}
+								
+							}
+							else{
 								verse = contentNode.find('.' + fragmentid)
 								verse.find('.note').remove();
 								verse.each(function() {
-								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
 								});
-								html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+								html += "<span style='font-size:10px;'></span>"
 							}
+							verserange = [];
 							
-						}
-						else{
-							verse = contentNode.find('.' + fragmentid)
-							verse.find('.note').remove();
-							verse.each(function() {
-							html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
-							});
-							html += "<span style='font-size:10px;'></span>"
-						}
-						verserange = [];
-						
-						// html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
+							// html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
 
-						referencePopup.body.html( html );
-						referencePopup.show();
-						referencePopup.position(link);
-						html = '';
+							referencePopup.body.html( html );
+							referencePopup.show();
+							referencePopup.position(link);
+							html = '';
 
+						});
 					});
-				});
+				}
+				
 			}	
 		}
 
