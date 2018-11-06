@@ -13,7 +13,7 @@ var NavigationButtons = function(node) {
 	$('html').addClass('supports-fullscreen');
 
 	var
-		feedBackForm = $('<div id="main-feeback-button"></div>')
+		feedBackForm = $('<div id="main-feeback-button"><div id="banne" style="position:absolute;float: left;margin: 6px;padding: 20px;max-width: 300px;height: 40px;border: 1px;z-index: 1000;"></div></div>')
 			.appendTo( $('.windows-header') ),
 			// .on('click',feedBackPopup),
 		// forwardButton = $('<div id="main-forward-button" class="inactive"></div>')
