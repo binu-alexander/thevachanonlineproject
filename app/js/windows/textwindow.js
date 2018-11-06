@@ -1,7 +1,8 @@
 
+count = 1
 var TextWindow = function(id, parent, init_data, text_type) {
-
-
+	count++;
+	// console.log(count++);
 	// detect backflip
 	var
 		ua = window.navigator.userAgent.toLowerCase(),
@@ -20,10 +21,10 @@ var TextWindow = function(id, parent, init_data, text_type) {
 				'<div class="window-header scroller-header">'+
 					'<div class="scroller-header-inner">'+
 						//(Detection.hasTouch ? '<span class="header-input text-nav" ></span>' : '<input type="text" class="header-input text-nav" />') +
-						'<input type="text" class="app-input text-nav" />' +
-						'<div class="app-list text-list"></div>'+
+						'<input type="text" class="app-input text-nav" id="book"/>' +
+						'<div class="app-list text-list" id="language'+count+'"></div>'+
 						'<span class="header-icon info-button"></span>'+
-						'<span class="header-icon audio-button"></span>'+
+						'<span class="header-icon audio-button" id="hindi_irv'+count+'"></span>'+
 					'</div>'+
 				'</div>'+
 				'<div class="scroller-flipper">' +

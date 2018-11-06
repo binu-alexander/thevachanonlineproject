@@ -8,9 +8,9 @@ sofia.config = {
 
 	// first load
 	windows: [
-		{type: 'bible', data: {textid: 'english_esv', fragmentid: 'JN3_16'}},
-		{type: 'bible', data: {textid: 'hindi_irv', fragmentid: 'JN3_16'}},
-		{type: 'commentary', data: {textid: 'comm_hin_irvn_hi', fragmentid: 'JN3_16'}},
+		{type: 'bible', data: {textid: 'english_esv', fragmentid: 'MK1'}},
+		{type: 'bible', data: {textid: 'hindi_irv', fragmentid: 'MK1'}},
+		{type: 'commentary', data: {textid: 'comm_hin_irvn_hi', fragmentid: 'MK1'}},
 	],
 
 	// URL to content

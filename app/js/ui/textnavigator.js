@@ -365,6 +365,7 @@ var TextNavigator = function() {
 						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + numbers[chapterNumber].toString() + '</span>');		
 					}
 					else {
+						// console.log(dbsChapterCode);
 						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + '<img class=inline-icon image-icon mediathumb src="../css/images/pictures.svg">' + '</span>');
 					}
 					

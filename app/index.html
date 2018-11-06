@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="light">
 <head>
@@ -213,6 +214,13 @@
 	<meta http-equiv="refresh" content="1; url=content/texts/">
 	<![endif]-->
 
+	<!-- Added by VIPIN for page-tour -->
+	<!-- <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script> -->
+    <script src="tour/tour.js"></script>
+    <script src="tour-js/bootstrap/bootstrap.min.js"></script>
+    <link href="tour-js/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="tour/tour.css" rel="stylesheet">
+
 	<style>
 /*	#app-logo {
 		width: 200px;
@@ -291,6 +299,20 @@
 
 		<p>Technology Partner: Bridge Connectivity Solutions Pvt. Ltd. Source code forked from Digital Bible Society’s Browser Bible-3(InScript).</p>
 	</div>
+
+<div id="source-modal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Source Code</h4>
+            </div>
+            <div class="modal-body">
+                <pre></pre>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </body>
@@ -410,5 +432,5 @@
 
 </script>
 <script type="text/javascript" src="js/plugins/viewerjs/dist/viewer.js"></script>
-	
+<script src="tour-js/script.js"></script>
 </html>
