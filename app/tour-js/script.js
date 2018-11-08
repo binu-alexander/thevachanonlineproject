@@ -19,7 +19,7 @@ var tour_script_steps = [
         "next #language4": 'Choose a Bible resource to study your chosen book or chapter.'
     },
     {
-        "next #imageMK1_4": 'Let’s make your \'VachanOnline\' experience more exciting!  Click here to see a related image.',
+        "next #imageMK1_4": 'Let’s make your \'VachanOnline\' experience more exciting!<br>Click here to see a related image.',
         shape : 'circle'
     },
     {
