@@ -151,10 +151,10 @@ var MediaLibraryPlugin = function(app) {
 
 							// check if it's already been added
 							//if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
-
-								var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '"></span>'),
+								console.log(iconClassName,verseid);
+								var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>'),
 									verseNumber = verse.find('.verse-num, v-num');
-
+								console.log(verseNumber);
 								if (verseNumber.length > 0) {
 									verseNumber.after(icon);
 								} else {

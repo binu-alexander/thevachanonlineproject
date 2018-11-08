@@ -21,7 +21,7 @@ var MainMenuButton = function(node) {
 		win = $(window),
 
 		container = $('.windows-container'),
-		mainMenuLogo = $('<div id="app-logo"><div id=logo style="width: 300px;height: 54px;margin-left: 12px;"></div></div><div id="app-logo-icon" class="hidden-sm hidden-md"><div id="main_logo" style="width: 60px;height: 50px;margin-left: auto;margin-right: auto;"></div></div>') // browser view V logo
+		mainMenuLogo = $('<div id="app-logo"><div id=logo style="width: 255px;height: 35px;margin-left: 12px;margin-top:14px;"></div></div><div id="app-logo-icon" class="hidden-sm hidden-md"></div>') // browser view V logo
 					.appendTo(node),
 		mobileMenuLogo = $('<div id="app-logo"></div><div id="app-mobile-logo"></div>') // mobile view V logo
 					.appendTo(node),			
