@@ -7,8 +7,7 @@ var tour_instance = new EnjoyHint({});
 //hide EnjoyHint after a click on the button.
 var tour_script_steps = [
     {
-        "next #main_logo": 'Welcome to VachanOnline - The premier Bible study website in Indian languages!<br>If you are new here, we would like to give you a quick tour of what’s in store.<br>PS. We are still in the works, so keep coming back to check for updates.',
-        shape : 'circle',
+        "next #logo": 'Welcome to VachanOnline - The premier Bible study website in Indian languages!<br>If you are new here, we would like to give you a quick tour of what’s in store.<br><br>'
     },
     {
         "next #language2": 'Choose a Bible in your preferred language and version.'
@@ -20,13 +19,14 @@ var tour_script_steps = [
         "next #language4": 'Choose a Bible resource to study your chosen book or chapter.'
     },
     {
+        "next #imageMK1_4": 'Let’s make your \'VachanOnline\' experience more exciting!  Click here to see a related image.',
+        shape : 'circle'
+    },
+    {
         "next #hindi_irv3": 'Click here to hear a related audio.',
         shape : 'circle',
         radius: 15
     },
-    // {
-    //     "next #image": 'Its Image'
-    // },
     {
         "next #close": 'Click the \'<b>X</b>\' button to close a window.'
     },
@@ -36,8 +36,7 @@ var tour_script_steps = [
         radius: 20
     },
     {
-        "next #logo": 'Click this ‘VachanOnline’ heading to go back to default view.',
-        shape : 'oval'
+        "next #logo": 'Click this ‘VachanOnline’ heading to go back to the default view.<br>PS. We are still in the works, so keep coming back to check for updates.'
     }
 
 ];

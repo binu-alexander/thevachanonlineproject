@@ -21,7 +21,7 @@ var TextChooser = function() {
 
 		isFull = false,
 		selectedTextInfo = null,
-		textChooser = $('<div class="text-chooser nav-drop-list">' +
+		textChooser = $('<div class="text-chooser nav-drop-list"' +
 							'<span class="up-arrow"></span>' +
 							'<span class="up-arrow-border"></span>' +
 							'<div class="text-chooser-header">' +
