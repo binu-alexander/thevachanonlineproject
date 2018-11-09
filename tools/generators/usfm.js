@@ -397,11 +397,14 @@ function generate(inputBasePath, info, createIndex, startProgress, updateProgres
 						notes += formatted.notes;
 
 						currentChapterHtml += '<span class="v ' + currentVerseCode + '" data-id="' + currentVerseCode + '">' + formatted.text;
-
 						currentVerseText += usfmParser.plainText(usfm.text);
 						verseIsOpen = true;
 					}
-
+					
+					if (quoteIsOpen) {
+						currentChapterHtml += '</div>' + breakChar;
+						quoteIsOpen = false;
+					}
 
 					break;
 

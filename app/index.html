@@ -295,7 +295,12 @@
 
 </body>
 <script type="text/javascript">
-
+		
+		$(function(){
+			$("#CrossReferencePopup").mouseleave(function() {
+				$("#CrossReferencePopup").hide();
+			});
+		});
 		var temp = $(this).text()
 		aboutWindow = new MovableWindow(800, 450, "More Links");
 		body = $(document.body);
@@ -394,11 +399,11 @@
 	});
 	console.log(feedbackWindow)
 
-	$(document).on("click", ".modal-overlay", function(){
+	$(document).on('click', ".modal-overlay", function(){
 		modalOverlay.hide();
 		feedbackWindow.hide();
-	})
-
+	});
+	
 	// $(document).ready(function(){
 	// 	$(document).on("click", "#emailFeedbackFormButton", function(){
 	// 		Iframe = $('#iframeFeedback');
