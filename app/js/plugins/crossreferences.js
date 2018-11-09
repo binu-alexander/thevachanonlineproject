@@ -44,7 +44,6 @@ var CrossReferencePopupPlugin = function(app) {
 					else{
 						fragmentid = bref.toSection();
 						var m=0
-						console.log("Multiple")
 						for (var i = bref.verse1; i <= bref.verse2; i++) {
 							verserange[m] = i
 							m = m+1
@@ -167,7 +166,7 @@ var CrossReferencePopupPlugin = function(app) {
 				}
 
 				if ($('.BibleWindow:eq(1) .section').attr('data-textid') == "hindi_irv") {
-					if (link.closest('.section').attr('data-textid') != "comm_hin_dict") {
+					if ((link.closest('.section').attr('data-textid') != "comm_hin_dict") && (link.closest('.section').attr('data-textid') != "comm_eng_EBD_dict")) {
 						textids = ["hindi_irv","hindi_wbt"];
 					}
 				}
@@ -194,23 +193,25 @@ var CrossReferencePopupPlugin = function(app) {
 										fragmentid = sectionid + "_" + verserange[j]
 										verse = contentNode.find('.' + fragmentid)
 										verse.find('.note').remove();
+										html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>";
 										verse.each(function() {
-											html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+											html += $(this).html();
 										});
-										html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+										html += "</span><span style='font-size:10px;'>&nbsp;&nbsp;</span>"
 									}								
 								}
 								else{
 									verse = contentNode.find('.' + fragmentid)
 									verse.find('.note').remove();
+									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>";
 									verse.each(function() {
-										html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+										 html += $(this).html();
 									});
-									html += "<span style='font-size:10px;'></span>"
+									html += "</span><span style='font-size:10px;'></span>"
 								}
 								verserange = [];
-								if (versionCode == 'irv') { html += "<span style='font-size:10px;'> HIN-IRV </span><br>"; }
-								else if (versionCode == 'wbt') { html += "<span style='font-size:10px;'> HIN-ERV </span><br>"; }
+								if (versionCode == 'irv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> HIN-IRV </span><br>"; }
+								else if (versionCode == 'wbt') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> HIN-ERV </span><br>"; }
 								versionCode = "";
 								referencePopup.body.html(html);
 								referencePopup.show();
@@ -236,20 +237,22 @@ var CrossReferencePopupPlugin = function(app) {
 									fragmentid = sectionid + "_" + verserange[j]
 									verse = contentNode.find('.' + fragmentid)
 									verse.find('.note').remove();
+									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>";
 									verse.each(function() {
-									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+										html += $(this).html();
 									});
-									html += "<span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+									html += "</span><span style='font-size:10px;'>&nbsp;&nbsp;</span>"
 								}
 								
 							}
 							else{
 								verse = contentNode.find('.' + fragmentid)
 								verse.find('.note').remove();
+								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>";
 								verse.each(function() {
-								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>" + $(this).html() + "</span>";
+									 html += $(this).html();
 								});
-								html += "<span style='font-size:10px;'></span>"
+								html += "</span><span style='font-size:10px;'></span>"
 							}
 							verserange = [];
 							
@@ -271,7 +274,7 @@ var CrossReferencePopupPlugin = function(app) {
 
 	sofia.globals.handleBibleRefMouseout = function(e) {
 
-		referencePopup.hide();
+		// referencePopup.hide();
 	}
 
 
