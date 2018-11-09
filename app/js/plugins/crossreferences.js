@@ -166,7 +166,7 @@ var CrossReferencePopupPlugin = function(app) {
 				}
 
 				if ($('.BibleWindow:eq(1) .section').attr('data-textid') == "hindi_irv") {
-					if (link.closest('.section').attr('data-textid') != "comm_hin_dict") {
+					if ((link.closest('.section').attr('data-textid') != "comm_hin_dict") && (link.closest('.section').attr('data-textid') != "comm_eng_EBD_dict")) {
 						textids = ["hindi_irv","hindi_wbt"];
 					}
 				}
@@ -274,7 +274,7 @@ var CrossReferencePopupPlugin = function(app) {
 
 	sofia.globals.handleBibleRefMouseout = function(e) {
 
-		//referencePopup.hide();
+		// referencePopup.hide();
 	}
 
 
