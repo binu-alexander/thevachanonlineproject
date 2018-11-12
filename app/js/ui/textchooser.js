@@ -61,13 +61,13 @@ var TextChooser = function() {
 	closeBtn.on('click', hide);
 
 	if (sofia.config.enableBibleSelectorTabs && sofia.config.bibleSelectorDefaultList && sofia.config.bibleSelectorDefaultList.length > 0) {
-		console.log("yessssssssssssssssss");
+		// console.log("yessssssssssssssssss");
 		listselector.on('click', 'span', function() {
 			$(this)
 				.addClass('selected')
 				.siblings()
 					.removeClass('selected');
-			console.log("********",$(this).addClass('selected'));
+			// console.log("********",$(this).addClass('selected'));
 			filter
 				.val('');
 
@@ -85,7 +85,7 @@ var TextChooser = function() {
 	}
 
 	$(document).on("click", ".app-list", function(){
-		console.log("app-list");
+		// console.log("app-list");
 			filterVersions();
 			if (text_type == 'bible'){
 				filter.val('Bibles');
@@ -97,7 +97,7 @@ var TextChooser = function() {
 
 		})
 	$(document).on("click", ".text-chooser-filter-text", function(){
-		console.log("text-chooser-filter-text");
+		// console.log("text-chooser-filter-text");
 			filter.val('');
 		})
 
@@ -280,7 +280,7 @@ var TextChooser = function() {
 		TextLoader.getText(textid, function(data) {
 
 			selectedTextInfo = data;
-			console.log(data);
+			// console.log(data);
 			ext.trigger('change', {type:'change', target: this, data: {textInfo: selectedTextInfo, target: target} });
 
 		});
@@ -480,11 +480,13 @@ var TextChooser = function() {
 
 				return thisTextType == text_type;
 			});
-
+			// console.log(arrayOfTexts);
 			// find languages
 			var languages = [];
+			var native = [];
 			for (var index in arrayOfTexts) {
 				var text = arrayOfTexts[index];
+				// console.log(text);
 
 				/* ORDER BY  English Name */
 				var langKey = text.langNameEnglish;
@@ -494,6 +496,7 @@ var TextChooser = function() {
 
 				if (languages.indexOf(langKey) == -1) {
 					languages.push( langKey );
+					native.push(text.nativeLang);
 				}
 			}
 
@@ -507,7 +510,7 @@ var TextChooser = function() {
 
 					var pinnedIndex = languages.indexOf(pinnedLanguage);
 					if (pinnedIndex > -1) {
-						console.log(mode);
+						// console.log(mode);
 						if (mode == 'default' || mode == 'none') {
 							// pull it out
 							languages.splice(pinnedIndex, 1);
@@ -538,7 +541,42 @@ var TextChooser = function() {
 			// languages.splice(parseInt(j)+1,1);
 
 			// sort
+			console.log(languages,native);
 			languages.sort();
+			native.sort();
+			// Added by VIPIN for showing the Indian Languages 1st in the dropdown
+			for (var i in native) {
+				if (native[i] == "Indian Languages"){
+					native.unshift("Indian Languages");
+					var j = i;
+					native.splice(parseInt(j)+1,1);
+				}
+			}
+			var languages1 = [];
+			var natives = [];
+			$.each(native, function(i, el){
+			    if($.inArray(el, natives) === -1) natives.push(el);
+			});
+
+			console.log(languages,natives);
+			for (var n in natives){
+				for (var v in arrayOfTexts){
+					content = arrayOfTexts[v];
+					// console.log(content.nativeLang,native[n]);
+					if (content.nativeLang == natives[n]){
+						// console.log(content.langNameEnglish);
+						languages1.push(content.langNameEnglish);
+					}
+				}
+			}
+			languages = [];
+			$.each(languages1, function(i, el){
+			    if($.inArray(el, languages) === -1) languages.push(el);
+			});
+			console.log("vsfdvdhgv-----",languages);
+
+			var indian_language = 0;
+			var english_language = 0;
 
 			for (var index in languages) {
 
@@ -571,6 +609,7 @@ var TextChooser = function() {
                 // console.log(textsInLang);
 				// create HTML for the texts
 				for (var textIndex in textsInLang) {
+					// console.log(langName);
 					var text = textsInLang[textIndex],
 						isDefaultText = checkIsDefaultText(text.id);
 
@@ -619,16 +658,57 @@ var TextChooser = function() {
 					} else {
 						languageDisplayTitle = langName;
 					}
-
-					html.push(
-						createHeaderRow(
+					console.log("*******",textsInLang[0].nativeLang);
+					if (textsInLang[0].nativeLang == "Indian Languages"){
+						if (indian_language == 0){
+							html.push(
+								createHeaderRow(
+									'',
+									textsInLang[0].nativeLang,
+									'',
+									'',
+									mode == 'languages' ? '' : ''
+								)
+							);
+							indian_language++;
+						}
+						
+						html.push(
+							createHeaderRow(
 							'',
 							languageDisplayTitle,
 							'',
 							'',
 							mode == 'languages' ? 'collapsible-language collapsed' : ''
-						)
-					);
+							)
+						);	}
+					// }
+					// else if (textsInLang[0].nativeLang == "English"){
+					// 	if (english_language == 0){
+					// 		html.push(
+					// 			createHeaderRow(
+					// 				'',
+					// 				textsInLang[0].nativeLang,
+					// 				'',
+					// 				'',
+					// 				mode == 'languages' ? 'collapsible-language collapsed' : ''
+					// 			)
+					// 		);
+					// 		english_language++;
+					// 	}
+						
+					else	
+						{html.push(
+							createHeaderRow(
+							'',
+							languageDisplayTitle,
+							'',
+							'',
+							mode == 'languages' ? 'collapsible-language collapsed' : ''
+							)
+						);	
+					}
+					
 				}
 
 				html.push(langHtml.join(''));
@@ -647,7 +727,8 @@ var TextChooser = function() {
 
 		}
 		else if (mode == "versions"){
-
+			var other_version = 0;
+			var english_version = 0;
 			// filter by type
 			arrayOfTexts = arrayOfTexts.filter(function(t) {
 
@@ -684,7 +765,7 @@ var TextChooser = function() {
 					versions.push( langKey );
 				}
 			}
-
+			// console.log(versions);
 
 			// PINNED
 			var pinnedVersions = [];
@@ -716,10 +797,21 @@ var TextChooser = function() {
 			if (pinnedVersions.length > 0) {
 				versions.splice.apply(versions, [0, 0].concat(pinnedVersions));
 			}
-
-			// sort
-			versions.sort();
-			console.log(versions);
+			
+			// Added by VIPIN for showing the Indian Languages 1st in the dropdown
+			// var version=new Array(),v_count = 0;
+			// for (var i = 2;i < versions.length;i++){
+			// 	version[v_count] = versions[i];
+			// 	v_count++;
+			// }
+			// // sort
+			// version.sort();
+			// version.unshift(versions[1]);
+			// version.unshift(versions[0]);
+			
+			// // versions.sort();
+			// versions = version;
+			// console.log(versions.langName);
 			for (var index in versions) {
 
 				// get all the ones with this language
@@ -730,11 +822,14 @@ var TextChooser = function() {
 
 				// create HTML for the texts
 				for (var textIndex in textsInVers) {
+				
 					var text = textsInVers[textIndex],
 						isDefaultText = checkIsDefaultText(text.id);
 
 					if (text_type == 'bible' ) {
 						if (mode == 'none' || (isDefaultText && mode == 'versions')) {
+							if (versName == "Indian Revised Version" || versName == "Easy-to-Read Version")
+							{
 							versHtml.push(
 								createTextRow(
 										text,
@@ -742,6 +837,16 @@ var TextChooser = function() {
 										mode == 'versions' ? 'collapsed' : ''
 								)
 							);
+						}
+						else{
+							versHtml.push(
+								createTextRow(
+										text,
+										isDefaultText,
+										mode == 'versions' ? '' : ''
+								)
+							);
+						}
 						}
 
 						if (!hasDefaultText && isDefaultText) {
@@ -770,16 +875,55 @@ var TextChooser = function() {
 					} else {
 						versionDisplayTitle = versName;
 					}
+					// console.log(versName,textsInVers[0].langName);
 
-					html.push(
-						createHeaderRow(
-							'',
-							versionDisplayTitle,
-							'',
-							'',
-							mode == 'versions' ? 'collapsible-version collapsed' : ''
-						)
-					);
+					if (versName == "Indian Revised Version" || versName == "Easy-to-Read Version")
+					{
+						html.push(
+							createHeaderRow(
+								'',
+								versionDisplayTitle,
+								'',
+								'',
+								mode == 'versions' ? 'collapsible-version collapsed' : ''
+							)
+						);
+					}
+					else if (textsInVers[0].langName == "English" && english_version == 0){
+						html.push(
+							createHeaderRow(
+								'',
+								'English Versions',
+								'',
+								'',
+								mode == 'versions' ? 'collapsible-version collapsed' : ''
+							)
+						);
+						english_version++;
+					}
+					// else if (textsInVers[0].langName == "English"){
+					// 	html.push(
+					// 		createHeaderRow(
+					// 			'',
+					// 			'',
+					// 			'',
+					// 			'',
+					// 			mode == 'versions' ? 'collapsible-version collapsed' : ''
+					// 		)
+					// 	);
+					// }
+					else if (other_version == 0 && textsInVers[0].langName != "English"){
+						html.push(
+							createHeaderRow(
+								'',
+								'Other Versions',
+								'',
+								'',
+								mode == 'versions' ? 'collapsible-version collapsed' : ''
+							)
+						);
+						other_version++;
+					}
 				}
 
 				html.push(versHtml.join(''));
@@ -975,7 +1119,7 @@ var TextChooser = function() {
 			providerFullName = sofia.textproviders[text.providerName] && sofia.textproviders[text.providerName].fullName ? sofia.textproviders[text.providerName].fullName : '',
 
 			colspan = 4 - (hasAudio ? 1 : 0) - (hasLemma ? 1 : 0) - (providerName != '' ? 1 : 0);
-		console.log("8888888888",isDefaultText);
+		// console.log("8888888888",isDefaultText);
 		var html = '<tr class="text-chooser-row' + (isDefaultText ? ' is-default-text' : '') + (className != '' ? ' ' + className : '') + '" data-id="' + text.id + '" data-lang-name="' + text.langName + '" data-lang-name-english="' + text.langNameEnglish + '">' +
 					'<td class="text-chooser-abbr">' + text.abbr + '</td>' +
 					'<td class="text-chooser-name" ' + (colspan > 1 ? ' colspan="' + colspan + '"' : '') + '>' +
@@ -1038,7 +1182,7 @@ var TextChooser = function() {
 
 
 	function createHeaderRow(id, name, englishName, additionalHtml, className) {
-		console.log(id, name, englishName, additionalHtml, className);
+		// console.log(id, name, englishName, additionalHtml, className);
 		var html = '<tr class="text-chooser-row-header' + (className != '' ? ' ' + className : '') + '" data-id="' + id + '"><td colspan="5">' +
 					'<span class="name">' + name + '</span>' +
 					additionalHtml +

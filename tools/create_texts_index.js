@@ -71,6 +71,7 @@ for (var dirItemIndex in dirItem) {
 			lang: data.lang,
 			langName: data.langName,
 			langNameEnglish: data.langNameEnglish,
+			nativeLang: data.nativeLang,
 			dir: data.dir,
 			type: data.type
 		});
