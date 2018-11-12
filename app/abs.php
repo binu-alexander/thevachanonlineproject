@@ -515,6 +515,7 @@ function get_list($force) {
 				"lang" => $lang,
 				"langName" => $lang_name,
 				"langNameEnglish" => $version->lang_name_eng,
+				"nativeLang" => $nativeLang,
 				"dir" => "ltr", // TODO: ?
 				"type" => "bible",
 				"absid" => $version->id,			

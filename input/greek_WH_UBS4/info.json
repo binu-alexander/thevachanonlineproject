@@ -5,6 +5,7 @@
  "lang": "grc",
  "langName":"Greek",
  "langNameEnglish": "Greek",
+ "nativeLang": "Greek",
  "name": "Wescott & Hort",
  "generator": "unbound",
  "filename": "greek_WH_UBS4_utf8_mapped_to_NRSVA.txt",
