@@ -131,6 +131,7 @@ var TextChooser = function() {
 		var text = filter.val().toLowerCase();
 
 		if (text == '') {
+			console.log("****CHECK****",text_type);
 			// renderTexts(list_data);
 			// updateRecentlyUsed();
 
@@ -162,7 +163,22 @@ var TextChooser = function() {
 		        r[a.langName].push(a);
 		        return r;
 		    }, Object.create(null));
+			
+			// Added by VIPIN for showing the Indian Languages 1st in the dropdown
+			if (text_type == "commentary"){
+				console.log(result);
+				temp = {}
+				
+				if (result["Indian Languages"]){
+					temp["Indian Languages"] = result["Indian Languages"]
+					temp["English"] = result["English"]
+					console.log(temp);
+				}
 
+				result = temp;
+				// result.splice(parseInt(j)+1,1);
+			}
+			console.log("modified",result);
 			for (var key in result) {
 			    var value = result[key];
 
@@ -210,6 +226,7 @@ var TextChooser = function() {
 
 
 		} else {
+			console.log("++++++++++++",list_data);
 
 			// filter by type
 			var arrayOfTexts = list_data;
@@ -541,7 +558,7 @@ var TextChooser = function() {
 			// languages.splice(parseInt(j)+1,1);
 
 			// sort
-			console.log(languages,native);
+			// console.log(languages,native);
 			languages.sort();
 			native.sort();
 			// Added by VIPIN for showing the Indian Languages 1st in the dropdown
@@ -558,7 +575,7 @@ var TextChooser = function() {
 			    if($.inArray(el, natives) === -1) natives.push(el);
 			});
 
-			console.log(languages,natives);
+			// console.log(languages,natives);
 			for (var n in natives){
 				for (var v in arrayOfTexts){
 					content = arrayOfTexts[v];
@@ -573,7 +590,7 @@ var TextChooser = function() {
 			$.each(languages1, function(i, el){
 			    if($.inArray(el, languages) === -1) languages.push(el);
 			});
-			console.log("vsfdvdhgv-----",languages);
+			// console.log("vsfdvdhgv-----",languages);
 
 			var indian_language = 0;
 			var english_language = 0;
@@ -615,6 +632,7 @@ var TextChooser = function() {
 
 					if (text_type == 'bible' ) {
 						if (mode == 'none' || mode == 'languages' || (isDefaultText && mode == 'default')) {
+							// console.log(text,isDefaultText);
 							langHtml.push(
 								createTextRow(
 										text,
@@ -658,7 +676,7 @@ var TextChooser = function() {
 					} else {
 						languageDisplayTitle = langName;
 					}
-					console.log("*******",textsInLang[0].nativeLang);
+					// console.log("*******",textsInLang[0].nativeLang);
 					if (textsInLang[0].nativeLang == "Indian Languages"){
 						if (indian_language == 0){
 							html.push(
@@ -681,22 +699,8 @@ var TextChooser = function() {
 							'',
 							mode == 'languages' ? 'collapsible-language collapsed' : ''
 							)
-						);	}
-					// }
-					// else if (textsInLang[0].nativeLang == "English"){
-					// 	if (english_language == 0){
-					// 		html.push(
-					// 			createHeaderRow(
-					// 				'',
-					// 				textsInLang[0].nativeLang,
-					// 				'',
-					// 				'',
-					// 				mode == 'languages' ? 'collapsible-language collapsed' : ''
-					// 			)
-					// 		);
-					// 		english_language++;
-					// 	}
-						
+						);	
+					}						
 					else	
 						{html.push(
 							createHeaderRow(
@@ -843,7 +847,7 @@ var TextChooser = function() {
 								createTextRow(
 										text,
 										isDefaultText,
-										mode == 'versions' ? '' : ''
+										mode == 'versions' ? 'collapsed' : ''
 								)
 							);
 						}
@@ -901,17 +905,6 @@ var TextChooser = function() {
 						);
 						english_version++;
 					}
-					// else if (textsInVers[0].langName == "English"){
-					// 	html.push(
-					// 		createHeaderRow(
-					// 			'',
-					// 			'',
-					// 			'',
-					// 			'',
-					// 			mode == 'versions' ? 'collapsible-version collapsed' : ''
-					// 		)
-					// 	);
-					// }
 					else if (other_version == 0 && textsInVers[0].langName != "English"){
 						html.push(
 							createHeaderRow(
@@ -1109,6 +1102,7 @@ var TextChooser = function() {
 
 
 	function createTextRow(text, isDefaultText, className) {
+		console.log("******create*******");
 		var hasAudio = 	text.hasAudio ||
 						typeof text.audioDirectory != 'undefined' ||
 						(typeof text.fcbh_audio_ot != 'undefined' || typeof text.fcbh_audio_nt != 'undefined' ||
@@ -1119,7 +1113,7 @@ var TextChooser = function() {
 			providerFullName = sofia.textproviders[text.providerName] && sofia.textproviders[text.providerName].fullName ? sofia.textproviders[text.providerName].fullName : '',
 
 			colspan = 4 - (hasAudio ? 1 : 0) - (hasLemma ? 1 : 0) - (providerName != '' ? 1 : 0);
-		// console.log("8888888888",isDefaultText);
+
 		var html = '<tr class="text-chooser-row' + (isDefaultText ? ' is-default-text' : '') + (className != '' ? ' ' + className : '') + '" data-id="' + text.id + '" data-lang-name="' + text.langName + '" data-lang-name-english="' + text.langNameEnglish + '">' +
 					'<td class="text-chooser-abbr">' + text.abbr + '</td>' +
 					'<td class="text-chooser-name" ' + (colspan > 1 ? ' colspan="' + colspan + '"' : '') + '>' +
@@ -1182,7 +1176,7 @@ var TextChooser = function() {
 
 
 	function createHeaderRow(id, name, englishName, additionalHtml, className) {
-		// console.log(id, name, englishName, additionalHtml, className);
+		console.log("VIPIN///////////",name,"2",className,"3",id,"4",additionalHtml);
 		var html = '<tr class="text-chooser-row-header' + (className != '' ? ' ' + className : '') + '" data-id="' + id + '"><td colspan="5">' +
 					'<span class="name">' + name + '</span>' +
 					additionalHtml +
@@ -1193,6 +1187,7 @@ var TextChooser = function() {
 	}
 
 	function createDividerRow(name, className) {
+		console.log("VIPIN22222",name);
 		var html = '<tr class="text-chooser-row-divider ' + (className != '' ? ' ' + className : '') + '">' +
 					//'<td>&nbsp;</td>' +
 					//'<td colspan="4">' +
@@ -1322,7 +1317,7 @@ var TextChooser = function() {
 		}
 
 		//clearOffClickTimer();
-
+		console.log("----------",container.height());
 		if (isFull) {
 
 			// cover the container area
@@ -1341,7 +1336,10 @@ var TextChooser = function() {
 				.height(height - header.outerHeight());
 
 		} else {
-
+			console.log(target.offset());
+			console.log("99999",target.outerHeight());
+			console.log("8989",targetOuterHeight);
+			console.log()
 			// reasonable size!
 			var targetOffset = target.offset(),
 				targetOuterHeight = target.outerHeight(),
