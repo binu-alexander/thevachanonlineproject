@@ -52,7 +52,6 @@ var MediaLibraryPlugin = function(app) {
 
 			console.log('media click', mediaLibrary);
 
-
 			mediaForVerse = mediaLibrary.data[verseid];
 
 			switch (mediaLibrary.type) {
@@ -76,21 +75,44 @@ var MediaLibraryPlugin = function(app) {
 
 					mediaPopup.body.append('<strong>' + reference.toString() + '</strong>');
 					mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
-
-
 					//mediaPopup.center().show();
 					mediaPopup.setClickTargets( [icon] );
 					mediaPopup.position( icon ).show();
-
 					break;
 
 				case 'video':
-					var mediaInfo = mediaForVerse[0],
-						videoUrl = sofia.config.baseContentUrl + 'content/' + 'media/' + mediaLibrary.folder + '/' + mediaInfo.filename + '.' + mediaInfo.exts[0];
+					// clear it out!
+					mediaPopup.body.html('');
 
-					sofia.globals.showVideo(videoUrl, mediaInfo.name);
+					var html = '';
+					var videodetails = {};
 
+					for (var i=0, il=mediaForVerse.length; i<il; i++ ) {
+						var mediaInfo = mediaForVerse[i],
+							videoUrl = mediaInfo.url;
+							thumbUrl = 'https://img.youtube.com/vi/' + mediaInfo.url.split('/')[4] + '/0.jpg';
+
+						html += '<li>' + 
+									'<img id="' + mediaInfo.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
+								'</li>';
+						videodetails[mediaInfo.name] = [videoUrl, mediaInfo.description];
+					}
+					mediaPopup.body.append('<strong>' + reference.toString() + '</strong><br>');
+					mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
+					//mediaPopup.center().show();
+					mediaPopup.setClickTargets([icon]);
+					mediaPopup.position(icon).show();
+
+				    $('.triggerVideo').click(function() {
+						sofia.globals.showVideo(videodetails[$(this).attr('id')][0], $(this).attr('id'), videodetails[$(this).attr('id')][1]);
+					});
+										
 					break;
+
+					// var mediaInfo = mediaForVerse[0],
+					// videoUrl = sofia.config.baseContentUrl + 'content/' + 'media/' + mediaLibrary.folder + '/' + mediaInfo.filename + '.' + mediaInfo.exts[0];
+					// sofia.globals.showVideo(videoUrl, mediaInfo.name);
+					// break;
 
 				case 'jfm':
 
@@ -108,7 +130,6 @@ var MediaLibraryPlugin = function(app) {
 
 			}
 		});
-
 	}
 
 	// process chapters, add image icon to verses
@@ -123,58 +144,98 @@ var MediaLibraryPlugin = function(app) {
 		while (contentToProcess.length > 0) {
 			var content = contentToProcess.pop();
 
-			if (content.data('has-media') != undefined) {
-				continue;
+			if ((content.data('textid') != 'english_esv') && (content.data('textid') != 'english_niv')) {
+
+				if (content.data('has-media') != undefined) {
+					continue;
+				}
+
+				// content.find('.mt').each(function() {
+				// 	var book = $(this),
+				// 		bookid = book.text();
+
+				// 	for (var i=0, il=mediaLibraries.length; i<il; i++) {
+				// 		var mediaLibrary = mediaLibraries[i],
+				// 			iconClassName = mediaLibrary.iconClassName,
+				// 			mediaForVerse = mediaLibrary.data ? mediaLibrary.data[book.closest('.chapter').attr('data-id')] : undefined;
+				// 		console.log(mediaLibrary.data);
+				// 		// add media
+
+				// 		console.log(book.closest('.chapter').attr('data-id'));
+
+
+				// 		if (mediaLibrary.folder == "video_hindi") {
+				// 			if (content.data('textid') == 'hindi_irv') {
+				// 				var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + book.closest('.chapter').attr('data-id') + '_0"></span>');
+				// 				$(this).after(icon);
+				// 				$(this).addClass('has-media');
+				// 			}
+				// 		}
+				// 	} 
+				// });
+
+				// add images to verses
+				content.find('.verse, .v').each(function() {
+					var verse = $(this),
+						verseid = verse.attr('data-id');
+
+					// make sure we're just doing the first verse
+					verse = verse.closest('.section').find('.' + verseid).first();
+
+					if (verseid == 'LK1_1') {
+						// //console.log('check');
+					}
+
+					if (!verse.hasClass('has-media')) {
+						// check all libraries
+						for (var i=0, il=mediaLibraries.length; i<il; i++) {
+							var mediaLibrary = mediaLibraries[i],
+								iconClassName = mediaLibrary.iconClassName,
+								mediaForVerse = mediaLibrary.data ? mediaLibrary.data[verseid] : undefined;
+
+							// add media
+							if (typeof mediaForVerse != 'undefined') {
+								// check if it's already been added
+								//if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
+									if (mediaLibrary.folder == "video_hindi") {
+										if (content.data('textid') == 'hindi_irv') {
+											var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>'),
+												verseNumber = verse.find('.verse-num, v-num');
+											if (verseNumber.length > 0) {
+												verseNumber.after(icon);
+											} else {
+												icon.prependTo(verse);
+											}
+										}
+									}
+									else {
+										var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>'),
+											verseNumber = verse.find('.verse-num, v-num');
+										if (verseNumber.length > 0) {
+											verseNumber.after(icon);
+										} else {
+											icon.prependTo(verse);
+										}										
+									}
+							}
+
+							else {
+								// console.log(mediaLibrary.data);
+							}
+
+						} // libraries loop
+
+
+						verse.closest('.section').find('.' + verseid).addClass('has-media');
+
+					}
+
+				}); // verse loop
+
+
+
+				content.data('has-media', true);
 			}
-
-			// add images to verses
-			content.find('.verse, .v').each(function() {
-				var verse = $(this),
-					verseid = verse.attr('data-id');
-
-				// make sure we're just doing the first verse
-				verse = verse.closest('.section').find('.' + verseid).first();
-
-				if (verseid == 'LK1_1') {
-					// //console.log('check');
-				}
-
-				if (!verse.hasClass('has-media')) {
-					// check all libraries
-					for (var i=0, il=mediaLibraries.length; i<il; i++) {
-						var mediaLibrary = mediaLibraries[i],
-							iconClassName = mediaLibrary.iconClassName,
-							mediaForVerse = mediaLibrary.data ? mediaLibrary.data[verseid] : undefined;
-
-						// add media
-						if (typeof mediaForVerse != 'undefined') {
-
-							// check if it's already been added
-							//if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
-								console.log(iconClassName,verseid);
-								var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>'),
-									verseNumber = verse.find('.verse-num, v-num');
-								console.log(verseNumber);
-								if (verseNumber.length > 0) {
-									verseNumber.after(icon);
-								} else {
-									icon.prependTo(verse);
-								}
-							//}
-						}
-					} // libraries loop
-
-
-					verse.closest('.section').find('.' + verseid).addClass('has-media');
-
-				}
-
-			}); // verse loop
-
-
-
-			content.data('has-media', true);
-
 		} // while
 
 	}

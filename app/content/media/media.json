@@ -8,16 +8,16 @@
 			"name": "Maps"
 		},
 		{
-			"folder": "jesusfilmmedia",
-			"type": "jfm",
-			"iconClassName" : "video-icon",
-			"name": "Jesus Film Media"
-		},
-		{
 			"folder": "images",
 			"type": "image",
 			"iconClassName" : "image-icon",
 			"name": "Images"
+		},
+		{
+			"folder": "video_hindi",
+			"type": "video",
+			"iconClassName" : "video-icon",
+			"name": "Videos"
 		}
 	],
 	"unused": [
