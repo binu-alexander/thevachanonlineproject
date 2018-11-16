@@ -130,13 +130,16 @@ sofia.globals.mediaVideoJfmClick = function(e) {
 	return false;
 };
 
-sofia.globals.showVideo = function(videoUrl, title) {
+sofia.globals.showVideo = function(videoUrl, title, footer) {
 
 	sofia.globals.videoWindow.body.html('');
 
 	// add video
-	var video = $('<video autoplay controls src="' + videoUrl + '" style="width:100%; height: auto;"></video>')
+	// var video = $('<video autoplay controls src="' + videoUrl + '" style="width:100%; height: auto;"></video>')
+	// 				.appendTo(sofia.globals.videoWindow.body);
+	var video = $('<iframe width="100%" height="82.9%" src="' + videoUrl + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 					.appendTo(sofia.globals.videoWindow.body);
+	sofia.globals.videoWindow.body.append('<span style="background:#f8f8f8;display:inline-block;padding-left:6px;padding-right:2px;">' + footer + '</span>');
 
 	// title?
 	if (title) {

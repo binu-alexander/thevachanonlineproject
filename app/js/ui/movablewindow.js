@@ -2,6 +2,12 @@ var MovableWindow = function(width,height,titleText,id) {
 
 	width = width || 300;
 	height = height || 200;
+
+	if ((screen.width < 800) || (screen.height < 500)){ 
+		width = 300; 
+		height = 200;
+	}
+	
 	titleText = titleText || '';
 
 	var container = $(	'<div class="movable-window" ' + (id ? ' id="' + id + '"' : '') + '>' +
