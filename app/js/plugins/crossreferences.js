@@ -7,7 +7,7 @@ var CrossReferencePopupPlugin = function(app) {
 	}
 
 	var referencePopup = new InfoWindow('CrossReferencePopup');
-	var verserange = []
+	window.verserange = [];
 	referencePopup.container.css({zIndex: 1000});
 
 	function getFragmentidFromNode(node) {
@@ -90,7 +90,7 @@ var CrossReferencePopupPlugin = function(app) {
 
 
 	sofia.globals.handleBibleRefMouseover = function(e, textid) {
-
+		// console.log($(this).attr('data-id').indexOf("bibleJsn"));
 		if ($(this).attr('data-id').indexOf("bibleJsn") > 0) {
 
 			// referencePopup.body.html('');
@@ -171,13 +171,11 @@ var CrossReferencePopupPlugin = function(app) {
 					}
 				}
 
-
-				// console.log('hover', textid, sectionid, fragmentid);
 				// var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
 
 				// Above code I (udkumar@hotmail.com) commented because default 
 				// windows setting changed and on hover from hindi notes we ned irv in reference
-				if (textids != null) {
+				if (textids != null && $('.BibleWindow:eq(1) .section').attr('data-textid') == "hindi_irv" && textid == "hindi_irv") {
 					var html = '';
 					var verse = '';
 					for (let i = 0; i < textids.length; i++ ) {
@@ -220,52 +218,143 @@ var CrossReferencePopupPlugin = function(app) {
 						});
 					}	
 				}
-				else {
-					var versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
-					var versionCode = textid.split("_")[1];
-					var bibleVersion = versionName +"-"+ versionCode;
+				// I (vipinpaul95@gmail.com) have added this code for viewing the cross-reference in
+				// same language and only for the selective languages.
+				else if(textids != null && textid == "english_niv") {
+					textids = ["english_esv","english_kjv"];
+					var html = '';
+					var verse = '';
+					for (let i = 0; i < textids.length; i++ ) {
+						textid = textids[i];
+						TextLoader.getText(textid, function(textInfo) {
+							TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+								let versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
+								let versionCode = textInfo.id.split("_")[1];
+								let bibleVersion = versionName +"-"+ versionCode;
 
-					TextLoader.getText(textid, function(textInfo) {
-
-						TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
-
-							var html = '';
-							var verse = '';
-
-							if (verserange.length > 0) {
-								for (var j = 0; j< verserange.length; j++ ){
-									fragmentid = sectionid + "_" + verserange[j]
+								if (verserange.length > 0) {
+									for (var j = 0; j< verserange.length; j++ ){
+										fragmentid = sectionid + "_" + verserange[j]
+										verse = contentNode.find('.' + fragmentid)
+										verse.find('.note').remove();
+										html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>";
+										verse.each(function() {
+											html += $(this).html();
+										});
+										html += "</span><span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+									}								
+								}
+								else{
 									verse = contentNode.find('.' + fragmentid)
 									verse.find('.note').remove();
-									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>";
+									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>";
 									verse.each(function() {
-										html += $(this).html();
+										 html += $(this).html();
 									});
-									html += "</span><span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+									html += "</span><span style='font-size:10px;'></span>"
 								}
-								
-							}
-							else{
-								verse = contentNode.find('.' + fragmentid)
-								verse.find('.note').remove();
-								html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>";
-								verse.each(function() {
-									 html += $(this).html();
-								});
-								html += "</span><span style='font-size:10px;'></span>"
-							}
-							verserange = [];
-							
-							// html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
-
-							referencePopup.body.html( html );
-							referencePopup.show();
-							referencePopup.position(link);
-							html = '';
-
+								verserange = [];
+								if (versionCode == 'esv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> ENG-ESV </span><br>"; }
+								else if (versionCode == 'kjv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> ENG-KJV </span><br>"; }
+								versionCode = "";
+								referencePopup.body.html(html);
+								referencePopup.show();
+								referencePopup.position(link);		
+							});		
 						});
-					});
+					}	
 				}
+				else if(textid == "english_ulb") {
+					textids = ["english_esv","english_niv","english_kjv"];
+					var html = '';
+					var verse = '';
+					for (let i = 0; i < textids.length; i++ ) {
+						textid = textids[i];
+						TextLoader.getText(textid, function(textInfo) {
+							TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+								let versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
+								let versionCode = textInfo.id.split("_")[1];
+								let bibleVersion = versionName +"-"+ versionCode;
+								console.log("verserange",verserange,"dchgd",verserange.length);
+								if (verserange.length > 0) {
+									for (var j = 0; j< verserange.length; j++ ){
+										fragmentid = sectionid + "_" + verserange[j]
+										verse = contentNode.find('.' + fragmentid)
+										verse.find('.note').remove();
+										html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>";
+										verse.each(function() {
+											html += $(this).html();
+										});
+										html += "</span><span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+									}								
+								}
+								else{
+									verse = contentNode.find('.' + fragmentid)
+									verse.find('.note').remove();
+									html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>";
+									verse.each(function() {
+										 html += $(this).html();
+									});
+									html += "</span><span style='font-size:10px;'></span>"
+								}
+								// verserange = [];
+								if (versionCode == 'esv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> ENG-ESV </span><br>"; }
+								else if (versionCode == 'niv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> ENG-NIV </span><br>"; }
+								else if (versionCode == 'kjv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> ENG-KJV </span><br>"; }
+								versionCode = "";
+								referencePopup.body.html(html);
+								referencePopup.show();
+								referencePopup.position(link);		
+							});		
+						});
+					}	
+				}
+				// else if (textid == "english_niv"){
+				// 	var versionName = $('.BibleWindow:eq(1) .section').attr('data-lang3');
+				// 	var versionCode = textid.split("_")[1];
+				// 	var bibleVersion = versionName +"-"+ versionCode;
+
+				// 	TextLoader.getText(textid, function(textInfo) {
+
+				// 		TextLoader.loadSection(textInfo, sectionid, function(contentNode) {
+
+				// 			var html = '';
+				// 			var verse = '';
+
+				// 			if (verserange.length > 0) {
+				// 				for (var j = 0; j< verserange.length; j++ ){
+				// 					fragmentid = sectionid + "_" + verserange[j]
+				// 					verse = contentNode.find('.' + fragmentid)
+				// 					verse.find('.note').remove();
+				// 					html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + verserange[j] +  "</span> &nbsp;<span style='font-size:100%;'>";
+				// 					verse.each(function() {
+				// 						html += $(this).html();
+				// 					});
+				// 					html += "</span><span style='font-size:10px;'>&nbsp;&nbsp;</span>"
+				// 				}
+								
+				// 			}
+				// 			else{
+				// 				verse = contentNode.find('.' + fragmentid)
+				// 				verse.find('.note').remove();
+				// 				html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'>" + fragmentid.split('_')[1] +  "</span> &nbsp;<span style='font-size:100%;'>";
+				// 				verse.each(function() {
+				// 					 html += $(this).html();
+				// 				});
+				// 				html += "</span><span style='font-size:10px;'></span>"
+				// 			}
+				// 			verserange = [];
+							
+				// 			// html += "<span style='font-size:10px;'> "+bibleVersion.toUpperCase() +" ©" + "2018</span>"
+
+				// 			referencePopup.body.html( html );
+				// 			referencePopup.show();
+				// 			referencePopup.position(link);
+				// 			html = '';
+
+				// 		});
+				// 	});
+				// }
 				
 			}	
 		}
