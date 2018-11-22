@@ -136,12 +136,14 @@ var CrossReferencePopupPlugin = function(app) {
 			fragmentid = getFragmentidFromNode(link);
 			var textids = null;
 
+			console.log(link.closest('.section').hasClass('commentary'));
+
 			if (fragmentid != null) {
 
 				var sectionid = fragmentid.split('_')[0];
 
 				if (typeof textid == 'undefined') {
-
+					console.log("section-textid",link.closest('.section').attr('data-textid'));
 
 					if (link.closest('.section').hasClass('commentary')) {
 
@@ -171,11 +173,15 @@ var CrossReferencePopupPlugin = function(app) {
 					}
 				}
 
-				// var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
+				console.log($('.BibleWindow:eq(1) .section').attr('data-textid'));
+				console.log('hover',textid,sectionid,fragmentid);
 
+				// var versionName = $('.BibleWindow:first .section:first').attr('data-lang3');
+				console.log(textids,$('.BibleWindow:eq(1) .section').attr('data-textid'),textid);
 				// Above code I (udkumar@hotmail.com) commented because default 
 				// windows setting changed and on hover from hindi notes we ned irv in reference
-				if (textids != null && $('.BibleWindow:eq(1) .section').attr('data-textid') == "hindi_irv" && textid == "hindi_irv") {
+				if ((textids != null || link.closest('.section').attr('data-textid')=='comm_hin_dict') && textid == "hindi_irv") {
+					textids = ["hindi_irv","hindi_wbt"];
 					var html = '';
 					var verse = '';
 					for (let i = 0; i < textids.length; i++ ) {
@@ -207,7 +213,7 @@ var CrossReferencePopupPlugin = function(app) {
 									});
 									html += "</span><span style='font-size:10px;'></span>"
 								}
-								verserange = [];
+								// verserange = [];
 								if (versionCode == 'irv') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> HIN-IRV </span><br>"; }
 								else if (versionCode == 'wbt') { html += "<span style='color:#3232ff;font-size:80%;font-weight:bold'> HIN-ERV </span><br>"; }
 								versionCode = "";
