@@ -1,5 +1,5 @@
 
-count = 1
+window.count = 1
 var TextWindow = function(id, parent, init_data, text_type) {
 	count++;
 	// console.log(count++);
@@ -13,7 +13,17 @@ var TextWindow = function(id, parent, init_data, text_type) {
 						//|| ua.indexOf('trident') > -1
 						//|| ua.indexOf('explorer')  > -1
 						);
-
+	
+	// var flag = false;
+	// sofia.ajax({
+	//     url:'content/media/video_' + init_data.textid.toString().split('_')[0] + '/info.json',
+	//     type:'HEAD',
+	//     async: false,
+	//     success: function()
+	// 	    {
+	// 	        flag = true;
+	// 	    }
+	// });
 
 	var
 		container =
@@ -24,7 +34,8 @@ var TextWindow = function(id, parent, init_data, text_type) {
 						'<input type="text" class="app-input text-nav" id="book"/>' +
 						'<div class="app-list text-list" id="language'+count+'"></div>'+
 						'<span class="header-icon info-button"></span>'+
-						'<span class="header-icon audio-button" id="hindi_irv'+count+'"></span>'+
+						'<span class="header-icon audio-button" id="hindi_irv'+count+'"></span>'+ 
+						// (flag ? '<span class="header-icon video-button mediathumbtop" id="media_' + init_data.textid +'"></span>' : '') + 
 					'</div>'+
 				'</div>'+
 				'<div class="scroller-flipper">' +
@@ -41,6 +52,7 @@ var TextWindow = function(id, parent, init_data, text_type) {
 		main = container.find('.scroller-main'),
 		info = container.find('.scroller-info'),
 		infoBtn = container.find('.info-button'),
+
 		wrapper = container.find('.scroller-text-wrapper'),
 		navui = header.find('.text-nav'),
 		textlistui = header.find('.text-list'),
@@ -65,8 +77,6 @@ var TextWindow = function(id, parent, init_data, text_type) {
 		navui.prop('disabled',true);
 	}
 	*/
-
-
 
 	infoBtn.on('click', function() {
 
@@ -444,7 +454,6 @@ var TextWindow = function(id, parent, init_data, text_type) {
 		textChooser.close();
 		textNavigator.close();
 		audioController.close();
-
 		ext.clearListeners();
 	}
 

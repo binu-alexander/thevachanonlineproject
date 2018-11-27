@@ -280,6 +280,10 @@ input:focus {
 	background-image: url(images/audio-ear.svg);
 }
 
+.video-button {
+	background-image: url(images/video.svg);
+}
+
 
 .window .window-header .header-button {
 	padding: 8px 4px 6px 4px;
