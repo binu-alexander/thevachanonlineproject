@@ -1,18 +1,18 @@
 .movable-window {
 	position: absolute;
 	z-index: 1000;
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	box-shadow: 0px 2px 9px 12px rgba(0,0,0,0.5);
+	color: ivory;
+	font-weight: bold;
+	background: black;
 }
 
 .movable-header {
-	background: #f8f8f8;
-/*	height: 30px;*/
 	padding: 5px;
 }
 
 .movable-body {
 	overflow: auto;
-	background: #fff;
 }
 
 .movable-window .close-button {

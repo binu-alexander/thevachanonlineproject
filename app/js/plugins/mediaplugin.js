@@ -130,6 +130,45 @@ var MediaLibraryPlugin = function(app) {
 
 			}
 		});
+
+		$('.windows-main').on('click', '.mediathumbtop', function(e) {
+
+			if (mediaPopup.container.is(':visible')) {
+				mediaPopup.hide();
+				return;
+			}
+
+			// clear it out!
+			mediaPopup.body.html('');
+
+			var html = '';
+			var videodetails = {};
+			var icon = $(this);
+			
+			for (var i=0; i<allVideos.length; i++) {
+
+				var
+					verseid = allVideos[i].verseid,
+					mediaLibrary = allVideos[i].mediaLibrary,
+					mediaForVerse = allVideos[i].mediaForVerse,
+					reference = new bible.Reference(verseid).toString().split(' ')[0];
+
+					var thumbUrl = 'https://img.youtube.com/vi/' + mediaForVerse.url.split('/')[4] + '/0.jpg';
+					html += '<li>' + 
+								'<img id="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
+							'</li>';
+					videodetails[mediaForVerse.name] = [mediaForVerse.url, mediaForVerse.description];
+			}
+			mediaPopup.body.append('<strong><span style="line-height:2;">' + reference.toString() + '</span></strong><br>');
+			mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
+			//mediaPopup.center().show();
+			mediaPopup.setClickTargets([icon]);
+			mediaPopup.position(icon).show();
+			$('.triggerVideo').click(function() {
+				sofia.globals.showVideo(videodetails[$(this).attr('id')][0], $(this).attr('id'), videodetails[$(this).attr('id')][1]);
+			});
+
+		});
 	}
 
 	// process chapters, add image icon to verses
@@ -150,35 +189,10 @@ var MediaLibraryPlugin = function(app) {
 					continue;
 				}
 
-				// content.find('.mt').each(function() {
-				// 	var book = $(this),
-				// 		bookid = book.text();
-
-				// 	for (var i=0, il=mediaLibraries.length; i<il; i++) {
-				// 		var mediaLibrary = mediaLibraries[i],
-				// 			iconClassName = mediaLibrary.iconClassName,
-				// 			mediaForVerse = mediaLibrary.data ? mediaLibrary.data[book.closest('.chapter').attr('data-id')] : undefined;
-				// 		console.log(mediaLibrary.data);
-				// 		// add media
-
-				// 		console.log(book.closest('.chapter').attr('data-id'));
-
-
-				// 		if (mediaLibrary.folder == "video_hindi") {
-				// 			if (content.data('textid') == 'hindi_irv') {
-				// 				var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + book.closest('.chapter').attr('data-id') + '_0"></span>');
-				// 				$(this).after(icon);
-				// 				$(this).addClass('has-media');
-				// 			}
-				// 		}
-				// 	} 
-				// });
-
 				// add images to verses
 				content.find('.verse, .v').each(function() {
 					var verse = $(this),
 						verseid = verse.attr('data-id');
-
 					// make sure we're just doing the first verse
 					verse = verse.closest('.section').find('.' + verseid).first();
 
@@ -186,29 +200,36 @@ var MediaLibraryPlugin = function(app) {
 						// //console.log('check');
 					}
 
+					
+
 					if (!verse.hasClass('has-media')) {
 						// check all libraries
 						for (var i=0, il=mediaLibraries.length; i<il; i++) {
 							var mediaLibrary = mediaLibraries[i],
 								iconClassName = mediaLibrary.iconClassName,
 								mediaForVerse = mediaLibrary.data ? mediaLibrary.data[verseid] : undefined;
-
+							
 							// add media
 							if (typeof mediaForVerse != 'undefined') {
 								// check if it's already been added
-								//if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
+								if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
 									if (mediaLibrary.folder == "video_hindi") {
-										if (content.data('textid') == 'hindi_irv') {
-											var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>'),
-												verseNumber = verse.find('.verse-num, v-num');
-											if (verseNumber.length > 0) {
-												verseNumber.after(icon);
-											} else {
-												icon.prependTo(verse);
-											}
-										}
+										// if (content.data('textid') == 'hindi_irv') {
+										// 	var icon = $('<span class="header-icon video-button mediathumbtop" id="' + content.data('textid') +'" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>');
+										// 		// verseNumber = verse.find('.verse-num, v-num');
+										// 	addvideos["textid"] = content.data('textid');
+										// 	addvideos["iconClassName"] = iconClassName;
+										// 	addvideos["mediaLibrary"] = mediaLibrary.folder;
+										// 	addvideos["verseid"] = verseid.substring(0,2) + '1_1';
+										// 	console.log(verseid)
+										// 	mediaForVerse = mediaLibrary.data ? mediaLibrary.data[verseid.substring(0,2) + '1_1'] : undefined;
+										// 	addvideos["mediaForVerse"] = mediaForVerse;
+										// 	allVideos.push(addvideos);
+										// }
+
 									}
 									else {
+										
 										var icon = $('<span class="inline-icon ' + iconClassName + ' mediathumb" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>'),
 											verseNumber = verse.find('.verse-num, v-num');
 										if (verseNumber.length > 0) {
@@ -217,10 +238,12 @@ var MediaLibraryPlugin = function(app) {
 											icon.prependTo(verse);
 										}										
 									}
+								}
 							}
 
 							else {
 								// console.log(mediaLibrary.data);
+								
 							}
 
 						} // libraries loop
@@ -237,7 +260,7 @@ var MediaLibraryPlugin = function(app) {
 				content.data('has-media', true);
 			}
 		} // while
-
+		
 	}
 
 	mediaPopup.body.on('click', '.inline-image-library-thumbs a', sofia.globals.mediaImageClick);

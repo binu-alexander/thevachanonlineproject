@@ -2,11 +2,6 @@ var MovableWindow = function(width,height,titleText,id) {
 
 	width = width || 300;
 	height = height || 200;
-
-	if ((screen.width < 800) || (screen.height < 500)){ 
-		width = 300; 
-		height = 200;
-	}
 	
 	titleText = titleText || '';
 
@@ -29,19 +24,43 @@ var MovableWindow = function(width,height,titleText,id) {
 		startWindowPosition = null,
 		startMousePosition = null;
 
-	header.on('mousedown', function(e) {
-		doc
-			.on('mousemove', move)
-			.on('mouseup', mouseup);
+	if (!Detection.hasTouch) {
 
-		startWindowPosition = container.offset();
-		startMousePosition = {x:e.clientX, y:e.clientY};
-	});
+		header.on('mousedown', function(e) {
+			doc
+				.on('mousemove', move)
+				.on('mouseup', mouseup);
+
+			startWindowPosition = container.offset();
+			startMousePosition = {x:e.clientX, y:e.clientY};
+		});
+		function mouseup() {
+			doc
+				.off('mousemove', move)
+				.off('mouseup', mouseup);
+		}
+
+	}
+	else {
+		header.on('touchstart', function(e) {
+			doc
+				.on('touchmove', move)
+				.on('touchend', mouseup);
+
+			startWindowPosition = container.offset();
+			startMousePosition = {x:e.clientX, y:e.clientY};
+		});
+		function mouseup() {
+			doc
+				.off('touchmove', move)
+				.off('touchend', mouseup);
+		}
+	}
 
 	function mouseup() {
 		doc
-			.off('mousemove', move)
-			.off('mouseup', mouseup);
+			.off('mousemove, touchmove', move)
+			.off('mouseup, touchend', mouseup);
 	}
 
 	function move(e) {
