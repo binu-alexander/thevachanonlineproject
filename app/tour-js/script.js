@@ -10,10 +10,10 @@ var tour_script_steps = [
         "next #logo": 'Welcome to VachanOnline - The premier Bible study website in Indian languages!<br>If you are new here, we would like to give you a quick tour of what’s in store.<br><br>'
     },
     {
-        "next #language2": 'Choose a Bible in your preferred language and version.'
+        "next #language2": 'Choose a Bible in your preferred language or version.'
     },
     {
-        "next #book": 'Choose a bible book and a chapter to read.'
+        "next #book": 'Choose a Bible book and a chapter to read.'
     },
     {
         "next #language4": 'Choose a Bible resource to study your chosen book or chapter.'
@@ -24,6 +24,11 @@ var tour_script_steps = [
     },
     {
         "next #hindi_irv3": 'Click here to hear a related audio.',
+        shape : 'circle',
+        radius: 15
+    },
+    {
+        "next #hindi_irv_video": 'Click here to view a related video.',
         shape : 'circle',
         radius: 15
     },

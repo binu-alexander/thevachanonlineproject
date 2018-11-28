@@ -242,7 +242,7 @@ var Scroller = function(node) {
 
 				try {
 					window.allVideos = [];
-					var videoicon = $('<span class="header-icon video-button mediathumbtop" id="' + textid +'" data-mediafolder="' + checkDirectory + '"></span>');
+					var videoicon = $('<span class="header-icon video-button mediathumbtop" id="' + textid + '_video' +'" data-mediafolder="' + checkDirectory + '"></span>');
 					for (var i = 0; i < videoInfo[fragmentid].length ; i++) {
 						var addvideos = {};
 						addvideos["textid"] = textid;
