@@ -146,8 +146,8 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			verseBookCode = line.substr(0,3),
 			dbsBookCode = bookMap[verseBookCode],
 			chapterNumber = line.substr(4,colonIndex-4),
-
 			chapterCode =dbsBookCode+chapterNumber;
+			
 
 		text = text.replace('<b>Overview</b><br>', '<div class="is">Overview</div>'); // <div class="p">');
 
@@ -178,6 +178,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 		// text += '</div>';
 
 		chapterIntros[chapterCode] = text;
+		// console.log("chapterIntros     ",chapterIntros[chapterCode]);
 	}
 
 	//console.log(bookIntros);
@@ -212,6 +213,9 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			chapterNumber = verseReferenceParts.length > 0 ? verseReferenceParts[0] : '',
 			verseNumber = verseReferenceParts.length > 1 ? verseReferenceParts[1] : '',
 			bookInfo = bibleData.getBookInfoByDbsCode(dbsBookCode);
+
+			chapterCode =dbsBookCode+chapterNumber;
+
 
 		/*
 		if (bookInfo == null) {
@@ -267,7 +271,7 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 			}
 
 			r = new bibleReference(textRef);
-
+			
 			if (typeof r.toSection != 'undefined') {
 				s =  '<span class="bibleref" data-id="' + r.toSection() + '">' + (r.bookid == lastReference.bookid ? r.chapterAndVerse() : r.toString()) + '</span>';
 			} else {
@@ -320,8 +324,8 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 			data.chapterData.push(currentChapter);
 
-
-			if (chapterNumber == '1' ) {
+			// console.log("chapterNumber ",chapterNumber,bookName);
+			if (chapterNumber == 'भूमिका' ) {
 				currentChapter['html'] += '<div class="mt">' + bookName + '</div>' + breakChar;
 
 				if (typeof bookIntros[dbsBookCode] != 'undefined') {
@@ -331,21 +335,24 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 
 
-
-			currentChapter['html'] += '<div class="mt2" style="margin-top:40px">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
-
+			if (chapterNumber != 'भूमिका'){
+				currentChapter['html'] += '<div class="mt2" style="margin-top:40px">' + bookName + ' ' + chapterNumber + '</div>' + breakChar;
+			}
+			else{
+				currentChapter['html'] += '<div class="mt2" style="margin-top:40px">' + 'भूमिका' + '</div>' + breakChar;
+			}
+			
 			var ccode = dbsBookCode + chapterNumber;
-			if (typeof chapterIntros[ccode] != 'undefined') {
-				currentChapter['html'] += chapterIntros[ccode]  + breakChar;
-			} else{
-                currentChapter['html'] += "<p align='center'> <br>टिप्पणी उपलब्ध नहीं है। </p>" + breakChar;
-            }
+			// if (typeof chapterIntros[ccode] != 'undefined') {
+			// 	currentChapter['html'] += chapterIntros[ccode]  + breakChar;
+			// } else{
+   //              currentChapter['html'] += "<p align='center'> <br>टिप्पणी उपलब्ध नहीं है। </p>" + breakChar;
+   //          }
 
 		}
 		prev_chapterNumber = chapterNumber
 
-
-		if (verseNumber != '0'){
+		if (verseNumber != '0' && chapterNumber != 'भूमिका'){
 			
 			currentChapter['html'] +=
 				// bibleFormatter.openVerse(verseCode, verseNumber) +
@@ -355,6 +362,15 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 						'<span style="font-size:16px;">' + text + '</span>' +
 					'</span>';
 				//'</div>' + breakChar;
+		}
+		else if (chapterNumber == 'भूमिका'){
+			currentChapter['html'] +=
+				// bibleFormatter.openVerse(verseCode, verseNumber) +
+				// '<span class="comm-v-num" style="margin-top:15px;font-size:17.5px;"><span style="font-size:20px;">पद </span>' + verseNumber + '</span>' +
+				//'<div class="p">' + breakChar +
+					'<span class="v ' + dbsVerseCode + '" data-id="' + dbsVerseCode + '">' +
+						'<span style="font-size:16px;">' + text + '</span>' +
+					'</span>';
 		}
 
 		if (createIndex) {
@@ -368,7 +384,6 @@ function generate(inputPath, info, createIndex, startProgress, updateProgress) {
 
 		// do prev/next
 		var thisChapter = data.chapterData[i];
-
 
 		thisChapter.previd = (i > 0) ? data.chapterData[i-1]['id'] : null;
 		thisChapter.nextid = (i < il-1) ? data.chapterData[i+1]['id'] : null;

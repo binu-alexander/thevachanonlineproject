@@ -115,10 +115,16 @@ var TextNavigator = function() {
 			case 'videobible':
 			case 'commentary':
 
-				var textInputValue = target.val(),
+				if (target.val()=='भूमिका'){
+					// var textInputValue = target.val(),
+					// biblereference = new bible.Reference('मरकुस भूमिका:1'),
+					fragmentid = 'MKभूमिका_1';
+				}
+				else{
+					var textInputValue = target.val(),
 					biblereference = new bible.Reference(textInputValue),
 					fragmentid = (biblereference) ? biblereference.toSection() : null;
-
+				}
 
 				renderDivisions();
 				changer.find('.text-navigator-divisions').show().attr('dir', textInfo.dir).attr('lang', textInfo.lang);
@@ -129,6 +135,7 @@ var TextNavigator = function() {
 						sectionid = parts[0],
 						divisionid = sectionid.substring(0,2),
 						chapter = sectionid.substring(2);
+					console.log("chapter     ",chapter,sectionid,changer);
 
 					var divisionNode = changer.find('.divisionid-' + divisionid).addClass('selected');
 					// scroll to it
@@ -142,8 +149,6 @@ var TextNavigator = function() {
 
 						divisionNode.find('.section-' + sectionid).addClass('selected');
 					}
-
-
 
 				}
 
@@ -356,18 +361,24 @@ var TextNavigator = function() {
 
 				title.html( divisionname );
 
-				console.log('chapters',chapters);
-
+				// Changes made by VIPIN PAUL for adding the 'INTRO' in the chapter section in Commetary
 				for (var chapter=0; chapter<chapters.length; chapter++) {
 					var dbsChapterCode = chapters[chapter],
 						chapterNumber = parseInt(dbsChapterCode.substring(2));
-					if (dbsChapterCode != 'BK0') {
+						// console.log("dbsChapterCode    ",dbsChapterCode,numbers[chapterNumber]);
+					if (dbsChapterCode != 'BK0' && !(dbsChapterCode.includes('भूमिका'))) {
+						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + numbers[chapterNumber].toString() + '</span>');		
+					}
+					else if(dbsChapterCode != 'BK0' && dbsChapterCode.includes('भूमिका')){
+						numbers[chapterNumber] = 'भूमिका';
+						// $(".text-nav").last().val("भूमिका");
 						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + numbers[chapterNumber].toString() + '</span>');		
 					}
 					else {
 						// console.log(dbsChapterCode);
 						html.push('<span class="text-navigator-section section-' + dbsChapterCode + '" data-id="' + dbsChapterCode + '">' + '<img class=inline-icon image-icon mediathumb src="../css/images/pictures.svg">' + '</span>');
 					}
+					// console.log("dbsChapterCode    2",dbsChapterCode,numbers[chapterNumber]);
 					
 				}
 
@@ -390,7 +401,7 @@ var TextNavigator = function() {
 				break;
 			case 'dictionary':
 				// Adding this case for enabling Dictionary to the VO - by VIPIN
-				console.log(changer.find('.text-navigator-division.selected'))
+				// console.log(changer.find('.text-navigator-division.selected'))
 				var selected_division = changer.find('.text-navigator-division.selected'),
 					isLast = selected_division.next().length == 0,
 					divisionid = selected_division.attr('data-id'),
@@ -399,13 +410,11 @@ var TextNavigator = function() {
 					chapters = selected_division.attr('data-chapters').split(','),
 					//numbers = typeof textInfo.numbers != 'undefined' ? textInfo.numbers : bible.numbers.default;
 					numbers = textInfo.numbers;
-					console.log(divisionname)
 
-					console.log("=========================", numbers)
 
 				title.html( divisionname );
 
-				console.log('chapters', chapters);
+				// console.log('chapters', chapters);
 
 				// for (var chapter=0; chapter<textInfo.sections.length; chapter++) {
 				for (var chapter=0; chapter<chapters.length; chapter++) {

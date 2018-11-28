@@ -165,11 +165,20 @@ var Scroller = function(node) {
 					case 'commentary':
 						// find top
 						var bibleref = new bible.Reference( fragmentid );
+						// console.log("bibleref",bibleref);
 						bibleref.language = currentTextInfo.lang;
+						// console.log("fragmentid",fragmentid,currentTextInfo.lang);
+						if (fragmentid.includes('भूमिका')){
+							label = 'भूमिका';
+							labelLong = label +  ' (' + currentTextInfo.abbr + ')';
+						}
+						else{
 
-						label = bibleref.toString();
-						labelLong = label +  ' (' + currentTextInfo.abbr + ')';
-
+							label = bibleref.toString();
+							labelLong = label +  ' (' + currentTextInfo.abbr + ')';
+							// console.log("labelLong",labelLong);
+						}
+						
 						break;
 					case 'book':
 						labelLong = label = currentTextInfo.name + ' ' + sectionid;
@@ -207,7 +216,7 @@ var Scroller = function(node) {
 			ext.trigger('locationchange', {type:'locationchange', target: this, data: newLocationInfo});
 		}
 
-		//console.log('new location', newLocationInfo);
+		// console.log('new location', newLocationInfo);
 
 		locationInfo = newLocationInfo;
 	};
