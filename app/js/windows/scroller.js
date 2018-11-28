@@ -35,7 +35,7 @@ var Scroller = function(node) {
 		if (ignoreScrollEvent) {
 			return;
 		}
-		//console.log('sendingscroll');
+		// console.log('sendingscroll');
 
 		update_location_info();
 
@@ -219,8 +219,69 @@ var Scroller = function(node) {
 		// console.log('new location', newLocationInfo);
 
 		locationInfo = newLocationInfo;
+		
+		loadVideo(locationInfo.textid, locationInfo.fragmentid);
+
 	};
 
+	function loadVideo(textid, newFragmentid) {
+
+		var checkDirectory = 'video_' + textid.split('_')[0];
+
+		fragmentid = newFragmentid;
+		var newSectionid = fragmentid.split('_')[0];			
+
+		sectionid = newSectionid.substring(0,2) + '1';
+		fragmentid = sectionid + '_1';
+
+		sofia.ajax({
+			dataType: 'json',
+			url: 'content/media/' + checkDirectory + '/info.json',
+			async: false,
+			success: function(videoInfo) {
+
+				try {
+					window.allVideos = [];
+					var videoicon = $('<span class="header-icon video-button mediathumbtop" id="' + textid +'" data-mediafolder="' + checkDirectory + '"></span>');
+					for (var i = 0; i < videoInfo[fragmentid].length ; i++) {
+						var addvideos = {};
+						addvideos["textid"] = textid;
+						addvideos["iconClassName"] = 'video';
+						addvideos["mediaLibrary"] = checkDirectory;
+						addvideos["verseid"] = fragmentid;
+						addvideos["mediaForVerse"] = videoInfo[fragmentid][i];
+						allVideos.push(addvideos);
+					}
+					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
+						var languagecount = '#language' + tempcount;
+						$(languagecount).siblings('.video-button').remove();
+						if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
+							$(languagecount).siblings('.audio-button').after(videoicon);
+						}
+					}
+				}
+
+				catch(err) {
+						for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
+							var languagecount = '#language' + tempcount;
+							if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
+								$(languagecount).siblings('.video-button').remove();
+							}
+						}
+					}
+
+			},
+			error: function(e) {
+					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
+						var languagecount = '#language' + tempcount;
+						if (($(languagecount).text() != 'Hindi IRV') && ($(languagecount).text() != 'Hindi ERV'))  {
+							$(languagecount).siblings('.video-button').remove();
+						}
+					}
+			}
+		});
+		return;
+	}
 
 	/*
 	var load_more_timeout = null;

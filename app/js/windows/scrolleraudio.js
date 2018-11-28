@@ -68,7 +68,6 @@ var AudioController = function(id, container, toggleButton, scroller) {
 		sectionHeight = 0,
 		sectionNode = null,
 		hasAudio = false,
-		hasVideo = false,
 		audioDataManager = new AudioDataManager();
 
 	// START UP
@@ -237,77 +236,15 @@ var AudioController = function(id, container, toggleButton, scroller) {
 	if (scroller != null) {
 
 		function updateLocation(e) {
-
 			var newLocationInfo = e.data;
-
 			// found a fragment
 			if (newLocationInfo != null) {
-
 				locationInfo = newLocationInfo;
-				loadAudio(locationInfo.fragmentid);
-				loadVideo(locationInfo.textid, locationInfo.fragmentid);
+				loadAudio(locationInfo.fragmentid);				
 			}
 		}
 
 		scroller.on('locationchange', updateLocation);
-	}
-
-	function loadVideo(newtextid, newFragmentid) {
-
-		var checkDirectory = 'video_' + newtextid.split('_')[0];
-
-		fragmentid = newFragmentid;
-		var newSectionid = fragmentid.split('_')[0];			
-
-		sectionid = newSectionid.substring(0,2) + '1';
-		fragmentid = sectionid + '_1';
-
-		sofia.ajax({
-			dataType: 'json',
-			url: 'content/media/' + checkDirectory + '/info.json',
-			async: false,
-			success: function(videoInfo) {
-
-				try {
-					window.allVideos = [];
-					var videoicon = $('<span class="header-icon video-button mediathumbtop" id="' + newtextid +'" data-mediafolder="' + checkDirectory + '"></span>');
-					for (var i = 0; i < videoInfo[fragmentid].length ; i++) {
-						var addvideos = {};
-						addvideos["textid"] = newtextid;
-						addvideos["iconClassName"] = 'video';
-						addvideos["mediaLibrary"] = checkDirectory;
-						addvideos["verseid"] = fragmentid;
-						addvideos["mediaForVerse"] = videoInfo[fragmentid][i];
-						allVideos.push(addvideos);
-					}
-					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
-						var languagecount = '#language' + tempcount;
-						$(languagecount).siblings('.video-button').remove();
-						if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
-							$(languagecount).siblings('.audio-button').after(videoicon);
-						}
-					}
-				}
-
-				catch(err) {
-						for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
-							var languagecount = '#language' + tempcount;
-							if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
-								$(languagecount).siblings('.video-button').remove();
-							}
-						}
-					}
-
-			},
-			error: function(e) {
-					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
-						var languagecount = '#language' + tempcount;
-						if (($(languagecount).text() != 'Hindi IRV') && ($(languagecount).text() != 'Hindi ERV'))  {
-							$(languagecount).siblings('.video-button').remove();
-						}
-					}
-			}
-		});
 	}
 
 	function loadAudio(newFragmentid) {
@@ -605,7 +542,6 @@ var AudioController = function(id, container, toggleButton, scroller) {
 						// console.log('AUDIO: YES', textInfo.id, textInfo.lang, audioInfo.type);
 
 						hasAudio = true;
-						hasVideo = true;
 
 						sectionid = '';
 						fragmentAudioData = null;
@@ -661,9 +597,9 @@ var AudioController = function(id, container, toggleButton, scroller) {
 							// console.log("*****574****",locationInfo.fragmentid)
 							if (locationInfo != null) {
 								loadAudio(locationInfo.fragmentid);
+								
 							}
 						}
-						//}
 
 						// start load
 						//block.show();

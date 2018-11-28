@@ -149,7 +149,7 @@ sofia.globals.showVideo = function(videoUrl, title, footer) {
 	// 				.appendTo(sofia.globals.videoWindow.body);
 	var video = $('<iframe width="100%" height="82.9%" src="' + videoUrl + '?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 					.appendTo(sofia.globals.videoWindow.body);
-	sofia.globals.videoWindow.body.append('<span style="display:inline-block;padding-left:6px;padding-right:6px;text-align:justify;">' + footer + '</span>');
+	sofia.globals.videoWindow.body.append('<span style="display:inline-block;padding-left:6px;padding-right:6px;padding-top:2px;text-align:justify;">' + footer + '</span>');
 
 	// title?
 	if (title) {
