@@ -32,20 +32,39 @@ bible.parseReference = function (textReference, language) {
 	// is short code format (GN2 || GN2_1)
 	//bible.shortCodeRegex.lastIndex = 0;
 	if (shortCodeRegex.test(input)) {
-
+		// console.log("INPUT***",input);
 		var parts = input.split('_'),
 			bookChapter = parts[0];
 
 
 		bookid = bookChapter.substring(0,2).toUpperCase();
+		// console.log("bookChapter.substring(2)",bookChapter);
 		chapter1 = parseInt(bookChapter.substring(2), 10);
 
 		if (parts.length > 1) {
 			verse1 = parseInt(parts[1], 10);
 		}
-
+		// console.log("****",bookid, chapter1, verse1, chapter2, verse2, language);
 		return bible.Reference(bookid, chapter1, verse1, chapter2, verse2, language);
 	}
+	// else{
+	// 	if (input.includes('भूमिका')){
+	// 		input= 'MKभूमिका_1';
+	// 		var parts = input.split('_'),
+	// 			bookChapter = parts[0];
+
+
+	// 		bookid = bookChapter.substring(0,2).toUpperCase();
+	// 		console.log("bookChapter.substring(2)",bookChapter);
+	// 		chapter1 = 'भूमिका';
+
+	// 		if (parts.length > 1) {
+	// 			verse1 = parseInt(parts[1], 10);
+	// 		}
+	// 		console.log("****भूमिका****",bookid, chapter1, verse1, chapter2, verse2, language);
+	// 		return bible.Reference(bookid, chapter1, verse1, chapter2, verse2, language);
+	// 	}
+	// }
 
 	// check books for DBS, OSIS, USFM
 
@@ -174,7 +193,7 @@ bible.parseReference = function (textReference, language) {
 		chapter2 = -1;
 		verse2 = -1;
 	}
-
+	
 	// finalize
 	return bible.Reference(matchingbookid, chapter1, verse1, chapter2, verse2, language);
 

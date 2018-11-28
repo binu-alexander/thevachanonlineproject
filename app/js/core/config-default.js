@@ -10,7 +10,7 @@ sofia.config = {
 	windows: [
 		{type: 'bible', data: {textid: 'english_ulb', fragmentid: 'MK1'}},
 		{type: 'bible', data: {textid: 'hindi_irv', fragmentid: 'MK1'}},
-		{type: 'commentary', data: {textid: 'comm_hin_irvn_hi', fragmentid: 'MK1'}},
+		{type: 'commentary', data: {textid: 'comm_hin_irvn_hi', fragmentid: 'MKभूमिका'}},
 	],
 
 	// URL to content
