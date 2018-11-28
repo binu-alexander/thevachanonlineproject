@@ -91,7 +91,7 @@ $(function() {
 		videoheight = 0.4 * screen.height;
 	}
 
-	sofia.globals.videoWindow = new MovableWindow(videowidth,videoheight,'Video','video-player');
+	sofia.globals.videoWindow = new MovableWindow(videowidth,videoheight,'Video','video-player','Description');
 	sofia.globals.videoWindow.center();
 	sofia.globals.videoWindow.hide();
 
@@ -147,9 +147,10 @@ sofia.globals.showVideo = function(videoUrl, title, footer) {
 	// add video
 	// var video = $('<video autoplay controls src="' + videoUrl + '" style="width:100%; height: auto;"></video>')
 	// 				.appendTo(sofia.globals.videoWindow.body);
-	var video = $('<iframe width="100%" height="82.9%" src="' + videoUrl + '?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+	var video = $('<iframe width="100%" height="99.999999%" src="' + videoUrl + '?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 					.appendTo(sofia.globals.videoWindow.body);
-	sofia.globals.videoWindow.body.append('<span style="display:inline-block;padding-left:6px;padding-right:6px;padding-top:2px;text-align:justify;">' + footer + '</span>');
+
+	sofia.globals.videoWindow.footer.html(footer);
 
 	// title?
 	if (title) {
