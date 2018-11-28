@@ -1,6 +1,6 @@
 sofia.config = $.extend(sofia.config, {
 	enableAudioWindow: true,
-	audioWindowDefaultBibleFragmentid: 'JN3_1',
+	audioWindowDefaultBibleFragmentid: 'MK1_1',
 	audioWindowDefaultBibleVersion: 'hindi_irv'
 });
 
@@ -285,16 +285,16 @@ var AudioWindow = function(id, parent, init_data) {
 		return data;
 	}
 
-//	function getData() {
-//
-//		var data = {
-//			params: {
-//				'win': 'audio'
-//			}
-//		};
-//
-//		return data
-//	}
+	// function getData() {
+
+	// 	var data = {
+	// 		params: {
+	// 			'win': 'audio'
+	// 		}
+	// 	};
+
+	// 	return data
+	// }
 
 	function close() {
 
