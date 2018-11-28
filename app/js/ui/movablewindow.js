@@ -1,9 +1,10 @@
-var MovableWindow = function(width,height,titleText,id) {
+var MovableWindow = function(width,height,titleText, id, footerText) {
 
 	width = width || 300;
 	height = height || 200;
 	
 	titleText = titleText || '';
+	footerText = footerText || '';
 
 	var container = $(	'<div class="movable-window" ' + (id ? ' id="' + id + '"' : '') + '>' +
 							'<div class="movable-header">' +
@@ -11,12 +12,16 @@ var MovableWindow = function(width,height,titleText,id) {
 								'<span class="close-button"></span>' +
 							'</div>' +
 							'<div class="movable-body"></div>' +
+							'<div class="movable-footer">' +
+								footerText +
+							'</div>' +
 						'</div>')
 							.appendTo( $(document.body) )
 							.hide(),
 		header = container.find('.movable-header'),
 		title = container.find('.movable-header-title'),
 		body = container.find('.movable-body'),
+		footer = container.find('.movable-footer'),
 		close = container.find('.close-button'),
 		win = $(window),
 		doc = $(document),
@@ -123,6 +128,7 @@ var MovableWindow = function(width,height,titleText,id) {
 		container: container,
 		body: body,
 		title: title,
+		footer: footer,
 		center: center,
 		closeButton: close
 	};
