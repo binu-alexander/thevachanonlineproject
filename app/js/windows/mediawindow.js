@@ -127,7 +127,7 @@ var MediaWindow = function(id, parent, data) {
 				mediaForVerse = mediaLibrary.data ? mediaLibrary.data[verseid] : undefined;
 
 			// add media
-			if (typeof mediaForVerse != 'undefined') {
+			if ((typeof mediaForVerse != 'undefined') && (mediaLibrary.type != 'video')) {
 				for (var j=0, jl = mediaForVerse.length; j<jl; j++) {
 					var mediaInfo = mediaForVerse[j],
 						baseUrl = sofia.config.baseContentUrl + 'content/' + 'media/' + mediaLibrary.folder + '/',

@@ -93,7 +93,7 @@ var MediaLibraryPlugin = function(app) {
 							thumbUrl = 'https://img.youtube.com/vi/' + mediaInfo.url.split('/')[4] + '/0.jpg';
 
 						html += '<li>' + 
-									'<img id="' + mediaInfo.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
+									'<img id="' + mediaInfo.name + '" title="' + mediaInfo.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
 								'</li>';
 						videodetails[mediaInfo.name] = [videoUrl, mediaInfo.description];
 					}
@@ -155,7 +155,7 @@ var MediaLibraryPlugin = function(app) {
 
 					var thumbUrl = 'https://img.youtube.com/vi/' + mediaForVerse.url.split('/')[4] + '/0.jpg';
 					html += '<li>' + 
-								'<img id="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
+								'<img id="' + mediaForVerse.name + '" title="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
 							'</li>';
 					videodetails[mediaForVerse.name] = [mediaForVerse.url, mediaForVerse.description];
 			}

@@ -1,7 +1,13 @@
 .movable-window {
 	position: absolute;
 	z-index: 1000;
-	box-shadow: 0px 2px 9px 12px rgba(0,0,0,0.5);
+	box-shadow: 0px 2px 18px 12px rgba(0,0,0,0.5);
+}
+
+#video-player.movable-window {
+	position: absolute;
+	z-index: 1000;
+	box-shadow: 0px 2px 18px 12px rgba(0,0,0,0.5);
 	color: ivory;
 	font-weight: bold;
 	background: black;
@@ -9,10 +15,16 @@
 
 .movable-header {
 	padding: 5px;
+	background: #f8f8f8;
 }
 
 .movable-body {
 	overflow: auto;
+	background: #fff;
+}
+
+#video-player > div {
+	background: black;
 }
 
 .movable-window .close-button {
