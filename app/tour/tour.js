@@ -54,9 +54,9 @@ var EnjoyHint = function (_options) {
     that.clear = function(){
         //Remove userClass and set default text
         $(".tour_next_btn").removeClass(that.nextUserClass);
-        $(".tour_next_btn").text("Next");
+        $(".tour_next_btn").text("Next / आगे");
         $(".tour_skip_btn").removeClass(that.skipUserClass);
-        $(".tour_skip_btn").text("Skip");
+        $(".tour_skip_btn").text("Skip / बंद करे");
     }
 
     var $body = $('body');
