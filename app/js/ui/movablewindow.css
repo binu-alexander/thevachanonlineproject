@@ -15,11 +15,15 @@
 
 .movable-header {
 	padding: 5px;
-	background: #f8f8f8;
+	background: linear-gradient(to right, blue , purple);
+	color: #fff;
+	/*background-image: linear-gradient(to right, blue , purple);*/
+	/*background: #f8f8f8;*/
 }
 
 .movable-body {
 	overflow: auto;
+	/*background: linear-gradient(to right, blue , purple);*/
 	background: #fff;
 }
 
