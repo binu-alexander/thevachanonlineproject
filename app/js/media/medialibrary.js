@@ -143,7 +143,7 @@ sofia.globals.mediaVideoJfmClick = function(e) {
 sofia.globals.showVideo = function(videoUrl, title, footer) {
 
 	sofia.globals.videoWindow.body.html('');
-	var metadata = 'This video is produced by The Bible Project and is embeded here from The Bible Project YouTube channels for non-profit purposes. <br> Visit www.thebibleproject.com for more content.'
+	var metadata = 'This video is produced by The Bible Project and is embeded here from The Bible Project YouTube channels for non-profit purposes. Visit www.thebibleproject.com for more content.'
 	// add video
 	// var video = $('<video autoplay controls src="' + videoUrl + '" style="width:100%; height: auto;"></video>')
 	// 				.appendTo(sofia.globals.videoWindow.body);
