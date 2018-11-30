@@ -7,7 +7,7 @@ var tour_instance = new EnjoyHint({});
 //hide EnjoyHint after a click on the button.
 var tour_script_steps = [
     {
-        "next #logo": 'Welcome to VachanOnline - the premier Bible study website in Indian languages! <br>If you are new here, we would like to give you a quick tour of what’s in store.<br><span style="font-size:20px">वचनऑनलाइन में आपका स्वागत है - यह भारतीय भाषाओं में बाइबल अध्ययन करने का प्रमुख वेबसाइट है! <br>यदि आप इस वेबसाइट पर नए हैं तो हम आपको इसमें सम्मलित विषयों से अवगत कराना चाहते हैं।<br></span>'
+        "next #logo": '<p>Welcome to VachanOnline - the premier Bible study website in Indian languages! <br>If you are new here, we would like to give you a quick tour of what’s in store.</p><p><span style="font-size:20px">वचनऑनलाइन में आपका स्वागत है - यह भारतीय भाषाओं में बाइबल अध्ययन करने का प्रमुख वेबसाइट है! <br>यदि आप इस वेबसाइट पर नए हैं तो हम आपको इसमें सम्मलित विषयों से अवगत कराना चाहते हैं।<br></span></p>'
     },
     {
         "next #language2": 'Choose a Bible in your preferred language or version.<br><span style="font-size:20px">अपनी पसंदीदा भाषा या संस्करण में बाइबल चुनें।</span>'
@@ -19,7 +19,7 @@ var tour_script_steps = [
         "next #language4": 'Choose a Bible resource to study your chosen book or chapter.<br><span style="font-size:20px">अपनी चुनी पुस्तक या अध्याय का अध्ययन करने के लिए बाइबल संसाधनों को चुनें।</span>'
     },
     {
-        "next #imageMK1_4": 'Let’s make your VachanOnline experience more exciting!<br>Click on an image icon <span class="header-icon image-icon"/> to see a related image.<br><span style="font-size:20px">आओ आपके वचनऑनलाइन के अनुभव को और अधिक रोमांचक बनाते हैं!<br>संबंधित चित्र को देखने के लिए चित्र आइकॉन <span class="header-icon image-icon"/> पर क्लिक करें।</span>',
+        "next #imageMK1_4": '<p>Let’s make your VachanOnline experience more exciting!<br>Click on an image icon <span class="header-icon image-icon"/> to see a related image.</p><p><span style="font-size:20px">आओ आपके वचनऑनलाइन के अनुभव को और अधिक रोमांचक बनाते हैं!<br>संबंधित चित्र को देखने के लिए चित्र आइकॉन <span class="header-icon image-icon"/> पर क्लिक करें।</span></p>',
         shape : 'circle'
     },
     {
@@ -41,7 +41,7 @@ var tour_script_steps = [
         radius: 20
     },
     {
-        "next #logo": 'Click on this VachanOnline title to go back to the default view.<br>We are still in the works, so keep coming back to check for updated content.<br><span style="font-size:20px">डिफ़ॉल्ट (मूल) दृश्य पर वापस जाने के लिए वचनऑनलाइन शीर्षक पर क्लिक करें।<br>इस वेबसाइट का कार्य प्रगति पर है इसलिए नवीनतम विषयों के लिए हमारे साथ बने रहें।</span>'
+        "next #logo": '<p>Click on this VachanOnline title to go back to the default view.<br>We are still in the works, so keep coming back to check for updated content.</p><p><span style="font-size:20px">डिफ़ॉल्ट (मूल) दृश्य पर वापस जाने के लिए वचनऑनलाइन शीर्षक पर क्लिक करें।<br>इस वेबसाइट का कार्य प्रगति पर है इसलिए नवीनतम विषयों के लिए हमारे साथ बने रहें।</span></p>'
     }
 
 ];
