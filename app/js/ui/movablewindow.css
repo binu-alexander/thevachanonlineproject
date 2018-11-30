@@ -32,7 +32,7 @@
 	padding-right:6px;
 	padding-top:2px;
 	text-align:justify;
-	display: none;
+	visibility: hidden;
 }
 
 #video-player > div {
@@ -44,6 +44,7 @@
 	display: inline-block;
 	height: 43px;
 	overflow: auto;
+	visibility: visible;
 }
 
 .movable-window .close-button {
@@ -72,7 +73,7 @@
   padding-right: 5px;
   background-color: rgb(0,0,0,0.7);
   color: ivory;
-  width:35%;
+  max-width:50%;
 }
 
 .popup-content {
