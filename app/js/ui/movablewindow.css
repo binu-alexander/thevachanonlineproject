@@ -13,7 +13,8 @@
 	background: black;
 	width: intrinsic;           /* Safari/WebKit uses a non-standard name */
   	width: -moz-min-content;    /* Firefox/Gecko */
- 	width: -webkit-min-content
+ 	width: -webkit-min-content;
+ 	width: min-content;
 }
 
 .movable-header {
@@ -32,7 +33,6 @@
 	padding-top:2px;
 	text-align:justify;
 	display: none;
-
 }
 
 #video-player > div {
@@ -52,4 +52,35 @@
 }
 
 .movable-window .close-button:hover {
+}
+
+.popup-overlay{
+  /*Hides pop-up when there is no "active" class*/
+  visibility:hidden;
+  position:fixed;
+  border:1px double #666666;
+  left:25%; 
+  border-radius: 10px;
+  border: 1px solid rgb(0,0,0,0.7);
+}
+.popup-overlay.active{
+  /*displays pop-up when "active" class is present*/
+  visibility:visible;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  background-color: rgb(0,0,0,0.7);
+  color: ivory;
+  width:35%;
+}
+
+.popup-content {
+  /*Hides pop-up content when there is no "active" class */
+ visibility:hidden;
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility:visible;
 }

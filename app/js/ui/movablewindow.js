@@ -5,10 +5,16 @@ var MovableWindow = function(width,height,titleText, id, footerText) {
 	
 	titleText = titleText || '';
 	footerText = footerText || '';
+	visiblestyle = 'visibility:hidden';
+	if ((id == 'video-player') && (width > 500)) {
+		visiblestyle = 'visibility:visible';
+	}
 
 	var container = $(	'<div class="movable-window" ' + (id ? ' id="' + id + '"' : '') + '>' +
 							'<div class="movable-header">' +
 								'<span class="movable-header-title">' + titleText + '</span>' +
+								'<div class="normal-icon normal-info-button" style="' + visiblestyle + '"></div>'+
+								'<div class="popup-overlay"><div class="popup-content">Pop-Up</div></div>' +
 								'<span class="close-button"></span>' +
 							'</div>' +
 							'<div class="movable-body"></div>' +
@@ -20,6 +26,7 @@ var MovableWindow = function(width,height,titleText, id, footerText) {
 							.hide(),
 		header = container.find('.movable-header'),
 		title = container.find('.movable-header-title'),
+		infoBtn = container.find('.normal-info-button'),
 		body = container.find('.movable-body'),
 		footer = container.find('.movable-footer'),
 		close = container.find('.close-button'),
@@ -61,6 +68,16 @@ var MovableWindow = function(width,height,titleText, id, footerText) {
 				.off('touchend', mouseup);
 		}
 	}
+
+	infoBtn.on('mouseover', function() {
+		$(".popup-overlay, .popup-content").addClass("active");
+    	$(".popup-content").fadeIn(2000);
+	});
+
+	infoBtn.on('mouseout', function() {
+		$(".popup-overlay, .popup-content").removeClass("active");
+	});
+
 
 	function mouseup() {
 		doc

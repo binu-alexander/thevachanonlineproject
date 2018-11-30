@@ -262,6 +262,20 @@ input:focus {
 	vertical-align: top;
 }
 
+.normal-icon {
+	margin-top: 3px;
+	margin-bottom: -1px;
+	width: 18px;
+	height: 18px;
+	background-size: 31px 29px;	
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
 .window .header-icon,
 .text-chooser-header .header-icon {
 	-x-float: left;
@@ -270,6 +284,15 @@ input:focus {
 .header-icon:hover {
 	border: 1px solid #ccc;
 	border-radius: 20px;
+}
+
+.normal-icon:hover {
+	border: 1px solid #ccc;
+	border-radius: 20px;
+}
+
+.normal-info-button {
+	background-image: url(images/info-icon.svg);
 }
 
 .info-button {
@@ -358,6 +381,9 @@ input:focus {
 		 margin-top: 1px;
 	 }
 
+	 .compact-ui .normal-icon {
+		 margin-top: 1px;
+	 }
 	 .compact-ui.app-mobile-fullscreen .windows-header {
 		 height: 50px;
 	 }
