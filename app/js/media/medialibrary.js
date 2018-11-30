@@ -143,13 +143,13 @@ sofia.globals.mediaVideoJfmClick = function(e) {
 sofia.globals.showVideo = function(videoUrl, title, footer) {
 
 	sofia.globals.videoWindow.body.html('');
-
+	var metadata = 'This video is produced by The Bible Project and is embeded here from The Bible Project YouTube channels for non-profit purposes. <br> Visit www.thebibleproject.com for more content.'
 	// add video
 	// var video = $('<video autoplay controls src="' + videoUrl + '" style="width:100%; height: auto;"></video>')
 	// 				.appendTo(sofia.globals.videoWindow.body);
 	var video = $('<iframe width="100%" height="99.999999%" src="' + videoUrl + '?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 					.appendTo(sofia.globals.videoWindow.body);
-
+	$( "div.popup-content" ).replaceWith('<span style="font-weight:normal">' + metadata + '</span>');
 	sofia.globals.videoWindow.footer.html(footer);
 
 	// title?
