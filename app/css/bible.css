@@ -147,6 +147,7 @@
 	margin-bottom: 0;
 	margin-right: .2em;
 	font-family: avenir, helvetica;
+	color: #760a77;
 }
 
 [dir=rtl] .c,
@@ -235,7 +236,7 @@ div.c + div.q .v-1 {
 h3.is1,
 div.s,
 div.is1 {
-	color: #333;
+	color: #240488;
 	font-weight: bold;
 	margin-top: 1em;
 }
@@ -292,6 +293,7 @@ div.is1 {
 	margin-top: 0;
 	margin-bottom: 1em;
 	line-height: 1.2;
+	color: #002bff;
 }
 
 .mt2,
