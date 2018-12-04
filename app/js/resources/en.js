@@ -112,6 +112,9 @@ sofia.resources['en'] = {
 			"media": {
 				"label": "Images"
 			},
+			"video": {
+				"label": "Videos"
+			},
 			"notes": {
 				"label": "Notes"
 			},
