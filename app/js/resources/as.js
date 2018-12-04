@@ -111,6 +111,9 @@ sofia.resources['as'] = {
 			"media": {
 				"label": "Images"
 			},
+			"video": {
+				"label": "Videos"
+			},
 			"notes": {
 				"label": "Notes"
 			},
