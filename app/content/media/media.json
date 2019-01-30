@@ -18,6 +18,12 @@
 			"type": "video",
 			"iconClassName" : "video-icon",
 			"name": "Videos"
+		},
+		{
+			"folder": "video_telugu",
+			"type": "video",
+			"iconClassName" : "video-icon",
+			"name": "Videos"
 		}
 	],
 	"unused": [
