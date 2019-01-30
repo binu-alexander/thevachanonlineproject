@@ -151,13 +151,14 @@ var MediaLibraryPlugin = function(app) {
 					verseid = allVideos[i].verseid,
 					mediaLibrary = allVideos[i].mediaLibrary,
 					mediaForVerse = allVideos[i].mediaForVerse,
-					reference = new bible.Reference(verseid).toString().split(' ')[0];
+					reference = new bible.Reference(verseid, 'eng').toString().split(' ')[0];
+					console.log(new bible.Reference(verseid, 'eng').toString())
 
-					var thumbUrl = 'https://img.youtube.com/vi/' + mediaForVerse.url.split('/')[4] + '/0.jpg';
-					html += '<li>' + 
-								'<img id="' + mediaForVerse.name + '" title="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
-							'</li>';
-					videodetails[mediaForVerse.name] = [mediaForVerse.url, mediaForVerse.description];
+				var thumbUrl = 'https://img.youtube.com/vi/' + mediaForVerse.url.split('/')[4] + '/0.jpg';
+				html += '<li>' + 
+							'<img id="' + mediaForVerse.name + '" title="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
+						'</li>';
+				videodetails[mediaForVerse.name] = [mediaForVerse.url, mediaForVerse.description];
 			}
 			mediaPopup.body.append('<strong><span style="line-height:2;">' + reference.toString() + '</span></strong><br>');
 			mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
@@ -213,7 +214,7 @@ var MediaLibraryPlugin = function(app) {
 							if (typeof mediaForVerse != 'undefined') {
 								// check if it's already been added
 								if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
-									if (mediaLibrary.folder == "video_hindi") {
+									if ((mediaLibrary.folder == "video_hindi") || (mediaLibrary.folder == "video_telugu"))  {
 										// if (content.data('textid') == 'hindi_irv') {
 										// 	var icon = $('<span class="header-icon video-button mediathumbtop" id="' + content.data('textid') +'" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>');
 										// 		// verseNumber = verse.find('.verse-num, v-num');

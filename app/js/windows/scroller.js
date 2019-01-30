@@ -227,7 +227,6 @@ var Scroller = function(node) {
 	function loadVideo(textid, newFragmentid) {
 
 		var checkDirectory = 'video_' + textid.split('_')[0];
-
 		fragmentid = newFragmentid;
 		var newSectionid = fragmentid.split('_')[0];			
 
@@ -255,7 +254,7 @@ var Scroller = function(node) {
 					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
 						var languagecount = '#language' + tempcount;
 						$(languagecount).siblings('.video-button').remove();
-						if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
+						if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV') || ($(languagecount).text() == 'Telugu IRV') || ($(languagecount).text() == 'Telugu ERV')) {
 							$(languagecount).siblings('.audio-button').after(videoicon);
 						}
 					}
@@ -264,7 +263,7 @@ var Scroller = function(node) {
 				catch(err) {
 						for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
 							var languagecount = '#language' + tempcount;
-							if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
+							if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV') || ($(languagecount).text() == 'Telugu IRV') || ($(languagecount).text() == 'Telugu ERV')) {
 								$(languagecount).siblings('.video-button').remove();
 							}
 						}
@@ -274,7 +273,7 @@ var Scroller = function(node) {
 			error: function(e) {
 					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
 						var languagecount = '#language' + tempcount;
-						if (($(languagecount).text() != 'Hindi IRV') && ($(languagecount).text() != 'Hindi ERV'))  {
+						if (($(languagecount).text() != 'Hindi IRV') && ($(languagecount).text() != 'Hindi ERV') && ($(languagecount).text() != 'Telugu IRV') && ($(languagecount).text() != 'Telugu ERV'))  {
 							$(languagecount).siblings('.video-button').remove();
 						}
 					}
