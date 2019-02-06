@@ -220,9 +220,75 @@ var Scroller = function(node) {
 
 		locationInfo = newLocationInfo;
 		
+		loadInfographics(locationInfo.textid, locationInfo.fragmentid)
+
 		loadVideo(locationInfo.textid, locationInfo.fragmentid);
 
 	};
+
+	function loadInfographics(textid, newFragmentid) {
+
+		var checkDirectory = 'infographics_' + textid.split('_')[0];
+		fragmentid = newFragmentid;
+		var newSectionid = fragmentid.split('_')[0];			
+
+		sectionid = newSectionid.substring(0,2) + '1';
+		fragmentid = sectionid + '_1';
+
+		sofia.ajax({
+			dataType: 'json',
+			url: 'content/media/' + checkDirectory + '/info.json',
+			async: false,
+			success: function(infographicsInfo) {
+
+				try {
+					window.allInfographics = [];
+					var imageicon = $('<span class="header-icon image-button infographicsthumbtop" id="' + textid + '_infographics' +'" data-mediafolder="' + checkDirectory + '"></span>');
+					for (var i = 0; i < infographicsInfo[fragmentid].length ; i++) {
+						var addinfographics = {};
+						addinfographics["textid"] = textid;
+						addinfographics["iconClassName"] = 'video';
+						addinfographics["mediaLibrary"] = checkDirectory;
+						addinfographics["verseid"] = fragmentid;
+						addinfographics["mediaForVerse"] = infographicsInfo[fragmentid][i];
+						allInfographics.push(addinfographics);
+					}
+					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
+						var languagecount = '#language' + tempcount;
+						$(languagecount).siblings('.image-button').remove();
+						if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
+							if ($(languagecount).siblings('.audio-button').length == 1) {
+								$(languagecount).siblings('.audio-button').after(imageicon);
+							}
+							else {
+								$(languagecount).siblings('.info-button').after(imageicon);
+							}
+						}
+					}
+				}
+
+				catch(err) {
+						for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
+							var languagecount = '#language' + tempcount;
+							if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV')) {
+								$(languagecount).siblings('.image-button').remove();
+							}
+						}
+					}
+
+			},
+			error: function(e) {
+					for (var tempcount = 2; tempcount <= count ; tempcount ++ ) {
+						var languagecount = '#language' + tempcount;
+						if (($(languagecount).text() != 'Hindi IRV') && ($(languagecount).text() != 'Hindi ERV'))  {
+							$(languagecount).siblings('.image-button').remove();
+						}
+					}
+			}
+		});
+		return;
+	}
+
 
 	function loadVideo(textid, newFragmentid) {
 
@@ -255,7 +321,15 @@ var Scroller = function(node) {
 						var languagecount = '#language' + tempcount;
 						$(languagecount).siblings('.video-button').remove();
 						if (($(languagecount).text() == 'Hindi IRV') || ($(languagecount).text() == 'Hindi ERV') || ($(languagecount).text() == 'Telugu IRV') || ($(languagecount).text() == 'Telugu ERV')) {
-							$(languagecount).siblings('.audio-button').after(videoicon);
+							if ($(languagecount).siblings('.image-button').length == 1) {
+								$(languagecount).siblings('.image-button').after(videoicon);
+							}
+							else if ($(languagecount).siblings('.audio-button').length == 1) {
+								$(languagecount).siblings('.audio-button').after(videoicon);
+							}
+							else {
+								$(languagecount).siblings('.info-button').after(videoicon);
+							}
 						}
 					}
 				}
