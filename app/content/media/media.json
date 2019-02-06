@@ -14,6 +14,12 @@
 			"name": "Images"
 		},
 		{
+			"folder": "infographics_hindi",
+			"type": "image",
+			"iconClassName" : "image-icon",
+			"name": "Images"
+		},
+		{
 			"folder": "video_hindi",
 			"type": "video",
 			"iconClassName" : "video-icon",

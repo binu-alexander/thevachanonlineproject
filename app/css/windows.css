@@ -303,6 +303,10 @@ input:focus {
 	background-image: url(images/audio-ear.svg);
 }
 
+.image-button {
+	background-image: url(images/pictures.svg);
+}
+
 .video-button {
 	background-image: url(images/video.svg);
 }

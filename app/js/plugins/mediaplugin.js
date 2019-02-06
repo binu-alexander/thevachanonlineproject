@@ -131,6 +131,65 @@ var MediaLibraryPlugin = function(app) {
 			}
 		});
 
+		$('.windows-main').on('click', '.infographicsthumbtop', function(e) {
+
+			if (mediaPopup.container.is(':visible')) {
+				mediaPopup.hide();
+				return;
+			}
+
+			// clear it out!
+			mediaPopup.body.html('');
+			var html = '';
+			var icon = $(this);					
+			
+			for (var i=0; i<allInfographics.length; i++) {
+
+				var
+					verseid = allInfographics[i].verseid,
+					mediaLibrary = allInfographics[i].mediaLibrary,
+					mediaForVerse = allInfographics[i].mediaForVerse,
+					fullUrl = sofia.config.baseContentUrl + 'content/' + 'media/' + mediaLibrary  + '/' + mediaForVerse.filename + '.' + mediaForVerse.exts[0],
+					thumbUrl = fullUrl.replace('.jpg', '-thumb.jpg'),
+					textid = allInfographics[i].textid;
+					reference = '';
+
+				if ((textid == 'telugu_irv') || (textid == 'telugu_erv')) {
+					reference = new bible.Reference(verseid, 'tel').toString().split(' ')[0];
+				}
+				else {
+					reference = new bible.Reference(verseid, 'hin').toString().split(' ')[0];
+				}
+
+				html += '<li>' +
+							'<a href="' + fullUrl + '" target="_blank">' +
+								'<img src="' + thumbUrl + '" />' +
+							'</a>' +
+						'</li>';
+
+				mediaPopup.body.append('<strong>' + reference.toString() + '</strong>');
+				mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
+				//mediaPopup.center().show();
+				mediaPopup.setClickTargets( [icon] );
+				mediaPopup.position( icon ).show();
+					
+				// var thumbUrl = 'https://img.youtube.com/vi/' + mediaForVerse.url.split('/')[4] + '/0.jpg';
+				// html += '<li>' + 
+				// 			'<img id="' + mediaForVerse.name + '" title="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
+				// 		'</li>';
+				// infographicsdetails[mediaForVerse.name] = [mediaForVerse.url, mediaForVerse.description];
+			}
+			// mediaPopup.body.append('<strong><span style="line-height:2;">' + reference.toString() + '</span></strong><br>');
+			// mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
+			// //mediaPopup.center().show();
+			// mediaPopup.setClickTargets([icon]);
+			// mediaPopup.position(icon).show();
+			// $('.triggerVideo').click(function() {
+			// 	sofia.globals.showVideo(videodetails[$(this).attr('id')][0], $(this).attr('id'), videodetails[$(this).attr('id')][1]);
+			// });
+
+		});
+
 		$('.windows-main').on('click', '.mediathumbtop', function(e) {
 
 			if (mediaPopup.container.is(':visible')) {
@@ -151,9 +210,15 @@ var MediaLibraryPlugin = function(app) {
 					verseid = allVideos[i].verseid,
 					mediaLibrary = allVideos[i].mediaLibrary,
 					mediaForVerse = allVideos[i].mediaForVerse,
-					reference = new bible.Reference(verseid, 'eng').toString().split(' ')[0];
-					console.log(new bible.Reference(verseid, 'eng').toString())
-
+					textid = allVideos[i].textid;
+					reference = '';
+				if ((textid == 'telugu_irv') || (textid == 'telugu_erv')) {
+					reference = new bible.Reference(verseid, 'tel').toString().split(' ')[0];
+				}
+				else {
+					reference = new bible.Reference(verseid, 'hin').toString().split(' ')[0];
+				}
+					
 				var thumbUrl = 'https://img.youtube.com/vi/' + mediaForVerse.url.split('/')[4] + '/0.jpg';
 				html += '<li>' + 
 							'<img id="' + mediaForVerse.name + '" title="' + mediaForVerse.name + '" class="triggerVideo" src="' + thumbUrl + '"/>' +
@@ -214,7 +279,7 @@ var MediaLibraryPlugin = function(app) {
 							if (typeof mediaForVerse != 'undefined') {
 								// check if it's already been added
 								if (verse.closest('.chapter').find('.' + verseid).find('.' + iconClassName).length == 0) {
-									if ((mediaLibrary.folder == "video_hindi") || (mediaLibrary.folder == "video_telugu"))  {
+									if ((mediaLibrary.folder == "video_hindi") || (mediaLibrary.folder == "video_telugu") || (mediaLibrary.folder == "infographics_hindi"))  {
 										// if (content.data('textid') == 'hindi_irv') {
 										// 	var icon = $('<span class="header-icon video-button mediathumbtop" id="' + content.data('textid') +'" data-mediafolder="' + mediaLibrary.folder + '" id="image' + verseid + '"></span>');
 										// 		// verseNumber = verse.find('.verse-num, v-num');
