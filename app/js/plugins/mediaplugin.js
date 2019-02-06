@@ -161,11 +161,11 @@ var MediaLibraryPlugin = function(app) {
 					reference = new bible.Reference(verseid, 'hin').toString().split(' ')[0];
 				}
 
+				
 				html += '<li>' +
-							'<a href="' + fullUrl + '" target="_blank">' +
-								'<img src="' + thumbUrl + '" />' +
-							'</a>' +
+							'<div id ="images" style="text-indent:0em" onContextMenu="return false;"><img src="' + thumbUrl + '" alt="मरकुस की संरचना" title ="मरकुस की संरचना" style="cursor:pointer"></div>'
 						'</li>';
+				html += "<script>const viewer = new Viewer(document.getElementById('images'), {inline: false, url(image) { return image.src.replace('-thumb', '');},title: [1, (image, imageData) => `${image.alt}`],toolbar: { zoomIn: 1, zoomOut: 1, oneToOne: 0, reset: 0, play: { show: 0, size: 'large'}, prev: 1, next: 1, rotateLeft: 0, rotateRight: 0, flipHorizontal: 0, flipVertical: 0 }});</script>";
 
 				mediaPopup.body.append('<strong>' + reference.toString() + '</strong>');
 				mediaPopup.body.append($('<ul class="inline-image-library-thumbs">' + html + '</ul>'));
