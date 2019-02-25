@@ -19,8 +19,7 @@ var tour_script_steps = [
         "next #language4": 'Choose a Bible resource to study your chosen book or chapter.<br><span style="font-size:20px">अपनी चुनी पुस्तक या अध्याय का अध्ययन करने के लिए बाइबल संसाधनों को चुनें।</span>'
     },
     {
-        "next #imageMK1_4": '<p>Let’s make your VachanOnline experience more exciting!<br>Click on an image icon <span class="header-icon image-icon"/> to see a related image.</p><p><span style="font-size:20px">आओ आपके वचनऑनलाइन के अनुभव को और अधिक रोमांचक बनाते हैं!<br>संबंधित चित्र को देखने के लिए चित्र आइकॉन <span class="header-icon image-icon"/> पर क्लिक करें।</span></p>',
-        shape : 'circle'
+        "next #hindi_irv_infographics": '<p>Let’s make your VachanOnline experience more exciting!<br>Click on an image icon <span class="header-icon image-icon"/> to see a related image.</p><p><span style="font-size:20px">आओ आपके वचनऑनलाइन के अनुभव को और अधिक रोमांचक बनाते हैं!<br>संबंधित चित्र को देखने के लिए चित्र आइकॉन <span class="header-icon image-icon"/> पर क्लिक करें।</span></p>',
     },
     {
         "next #hindi_irv3": 'Click on an audio icon <span class="header-icon audio-button"/> to hear a related audio.<br><span style="font-size:20px">संबंधित ऑडियो सुनने के लिए ऑडियो आइकॉन <span class="header-icon audio-button"/> पर क्लिक करें।</span>',
