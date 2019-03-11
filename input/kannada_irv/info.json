@@ -1,6 +1,7 @@
 {
 	"id": "kannada_irv",
 	"abbr": "Kannada IRV",
+	"fullabbr" : "IRV-KAN",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "kan",

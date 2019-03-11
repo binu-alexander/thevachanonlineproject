@@ -1,6 +1,7 @@
 {
 	"id": "bengali_irv",
 	"abbr": "Bengali IRV",
+	"fullabbr" : "IRV-BEN",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "bangla",

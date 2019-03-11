@@ -1,6 +1,7 @@
 {
 	"id": "marathi_irv",
 	"abbr": "Marathi IRV",
+	"fullabbr" : "IRV-MAR",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "mar",

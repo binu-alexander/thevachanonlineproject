@@ -1,6 +1,7 @@
 {
 	"id": "punjabi_irv",
 	"abbr": "Punjabi IRV",
+	"fullabbr" : "IRV-PAN",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "pnb",
