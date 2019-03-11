@@ -1,6 +1,7 @@
 {
 	"id": "assam_irv",
 	"abbr": "Assamese IRV",
+	"fullabbr" : "IRV-ASM",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "asm",

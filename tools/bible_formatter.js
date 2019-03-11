@@ -69,9 +69,17 @@ var bibleFormatter = {
 
 	openAboutPage: function(info) {
 
-		return this.openDocument(info.name + ' (' + info.abbr + ')', info.dir, 'about') +
+		if (info.name == 'Indian Revised Version') {
+			return this.openDocument(info.name + ' (' + info.abbr + ')', info.dir, 'about') +
+				'<h1>' + info.name + ' - ' + info.langName + ': ' + info.fullabbr + '</h1>'  + breakChar +
+				'<dl>' + breakChar;
+		}
+
+		else {
+			return this.openDocument(info.name + ' (' + info.abbr + ')', info.dir, 'about') +
 				'<h1>' + info.name + ' (' + info.abbr + ')' + '</h1>'  + breakChar +
 				'<dl>' + breakChar;
+		}	
 
 	},
 
