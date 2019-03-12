@@ -1,6 +1,7 @@
 {
 	"id": "telugu_irv",
 	"abbr": "Telugu IRV",
+	"fullabbr" : "IRV-TEL",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "tel",

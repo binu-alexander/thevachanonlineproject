@@ -1,6 +1,7 @@
 {
 	"id": "urdu_irv",
 	"abbr": "Urdu IRV",
+	"fullabbr" : "IRV-URD",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "hin",

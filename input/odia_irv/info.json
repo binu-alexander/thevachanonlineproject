@@ -1,6 +1,7 @@
 {
 	"id": "odia_irv",
 	"abbr": "Odia IRV",
+	"fullabbr" : "IRV-ORI",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "odia",

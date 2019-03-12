@@ -1,6 +1,7 @@
 {
 	"id": "gujarati_irv",
 	"abbr": "Gujarati IRV",
+	"fullabbr" : "IRV-GUJ",
 	"name": "Indian Revised Version",
 	"nameEnglish": "Gujarati",
 	"lang": "guj",

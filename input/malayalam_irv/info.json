@@ -1,6 +1,7 @@
 {
 	"id": "malayalam_irv",
 	"abbr": "Malayalam IRV",
+	"fullabbr" : "IRV-MAL",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "mal",

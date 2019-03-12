@@ -1,6 +1,7 @@
 {
 	"id": "tamil_irv",
 	"abbr": "Tamil IRV",
+	"fullabbr" : "IRV-TAM",
 	"name": "Indian Revised Version",
 	"nameEnglish": "",
 	"lang": "tam",
